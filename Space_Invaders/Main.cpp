@@ -1,4 +1,5 @@
 #include <chrono>
+#include "Game.h"
 using namespace std;
 
 int main()
@@ -10,7 +11,9 @@ int main()
 	chrono::steady_clock::time_point previousFrameTime = chrono::steady_clock::now();
 	float frameLagTime = 0.0f;
 
-	while( true )
+	Game game( 800, 600, "Space Invaders", "" );
+
+	while( game.Running() )
 	{
 		chrono::steady_clock::time_point currentFrameTime = chrono::steady_clock::now();
 		chrono::duration< float > elapsedFrameTime = currentFrameTime - previousFrameTime;
@@ -20,9 +23,11 @@ int main()
 		while( frameLagTime >= msPerFrame )
 		{
 			frameLagTime -= msPerFrame;
+			game.UpdateLogic();
 		}
 
 		interpolation = frameLagTime / msPerFrame;
+		game.Draw( interpolation );
 	}
 
 	return 0;

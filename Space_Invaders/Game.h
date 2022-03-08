@@ -10,7 +10,7 @@ public:
 	~Game();
 
 	void UpdateLogic();
-	void Draw();
+	void Draw( float interpolation );
 
 	bool Running();
 	void Quit();

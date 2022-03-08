@@ -52,7 +52,7 @@ void Game::UpdateLogic()
     HandleEvents();
 }
 
-void Game::Draw()
+void Game::Draw( float interpolation )
 {
     window->clear();
     window->display();
