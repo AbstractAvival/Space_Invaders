@@ -18,7 +18,7 @@ public:
 	GameState GetState( StateTypes targetState );
 
 private:
-	vector< GameState > gameStates;
+	vector< GameState* > gameStates;
 	StateTypes currentState;
 	StateTypes lastState;
 };
