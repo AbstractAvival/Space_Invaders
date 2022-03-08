@@ -3,6 +3,7 @@
 Game::Game( int screenWidth, int screenHeight, string windowName, string fontFileName )
 {
     Initialize( screenWidth, screenHeight, windowName );
+    stateHandler = new StateHandler( *window, screenWidth, screenHeight );
 }
 
 Game::~Game()
@@ -10,13 +11,13 @@ Game::~Game()
     CleanUp();
 }
 
-void Game::Initialize(int screenWidth, int screenHeight, string windowName)
+void Game::Initialize( int screenWidth, int screenHeight, string windowName )
 {
     SetupWindow( screenWidth, screenHeight, windowName );
     isRunning = true;
 }
 
-void Game::SetupWindow(int screenWidth, int screenHeight, string windowName)
+void Game::SetupWindow( int screenWidth, int screenHeight, string windowName )
 {
     window = new sf::RenderWindow( sf::VideoMode( screenWidth, screenHeight ), windowName );
     window->setFramerateLimit( frameRateLimit );
@@ -25,6 +26,9 @@ void Game::SetupWindow(int screenWidth, int screenHeight, string windowName)
 void Game::CleanUp()
 {
     isRunning = false;
+
+    delete stateHandler;
+    stateHandler = nullptr;
 
     window->close();
     delete window;
@@ -45,16 +49,19 @@ void Game::HandleEvents()
             window->setView( sf::View( visibleArea ) );
         }
     }
+    stateHandler->GetCurrentState().HandleInput();
 }
 
 void Game::UpdateLogic()
 {
     HandleEvents();
+    stateHandler->GetCurrentState().UpdateLogic();
 }
 
 void Game::Draw( float interpolation )
 {
     window->clear();
+    stateHandler->GetCurrentState().Render( *window, interpolation );
     window->display();
 }
 
