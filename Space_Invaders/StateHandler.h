@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "StateTypes.h"
+#include "GameState.h"
 using namespace std;
 
 class StateHandler
@@ -14,8 +15,8 @@ public:
 	void InitializeBeginningState();
 	void ChangeState( StateTypes targetState );
 
-	GameState GetCurrentState();
-	GameState GetState( StateTypes targetState );
+	GameState& GetCurrentState();
+	GameState& GetState( StateTypes targetState );
 
 private:
 	vector< GameState* > gameStates;
