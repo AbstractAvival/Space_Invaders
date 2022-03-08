@@ -22,8 +22,9 @@ private:
 	void Initialize( int screenWidth, int screenHeight, string windowName );
 	void CleanUp();
 	void HandleEvents();
-	void SetupWindow( int screenWith, int screenHeight, string windowName );
+	void SetupWindow( int screenWidth, int screenHeight, string windowName );
 
 private:
+	static constexpr int frameRateLimit = 60;
 	bool isRunning = false;
 };
