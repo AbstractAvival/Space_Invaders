@@ -2,13 +2,18 @@
 
 StateHandler::StateHandler( sf::RenderWindow& window, int screenWidth, int screenHeight )
 {
+	gameStates.emplace_back( new MainMenuState( window, *this, screenWidth, screenHeight ) );
 	currentState = StateTypes::MAINMENU;
 	lastState = StateTypes::MAINMENU;
-	gameStates.emplace_back( new MainMenuState( window, *this, screenWidth, screenHeight ) );
 }
 
 StateHandler::~StateHandler()
 {
+	for( auto state : gameStates )
+	{
+		delete state;
+		state = nullptr;
+	}
 	currentState = StateTypes::MAINMENU;
 	lastState = StateTypes::MAINMENU;
 }
