@@ -61,7 +61,7 @@ void Game::UpdateLogic()
 void Game::Draw( float interpolation )
 {
     window->clear();
-    stateHandler->GetCurrentState().Render( *window, interpolation );
+    stateHandler->GetCurrentState().Render( interpolation );
     window->display();
 }
 
