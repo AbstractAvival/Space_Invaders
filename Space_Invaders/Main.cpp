@@ -1,24 +1,29 @@
-#include <SFML/Graphics.hpp>
+#include <chrono>
+using namespace std;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+	const float framesPerSecond = 25.0f;
+	const float msPerFrame = 1.0f / framesPerSecond;
+	float interpolation;
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+	chrono::steady_clock::time_point previousFrameTime = chrono::steady_clock::now();
+	float frameLagTime = 0.0f;
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+	while( true )
+	{
+		chrono::steady_clock::time_point currentFrameTime = chrono::steady_clock::now();
+		chrono::duration< float > elapsedFrameTime = currentFrameTime - previousFrameTime;
+		previousFrameTime = currentFrameTime;
+		frameLagTime += elapsedFrameTime.count();
 
-    return 0;
+		while( frameLagTime >= msPerFrame )
+		{
+			frameLagTime -= msPerFrame;
+		}
+
+		interpolation = frameLagTime / msPerFrame;
+	}
+
+	return 0;
 }
