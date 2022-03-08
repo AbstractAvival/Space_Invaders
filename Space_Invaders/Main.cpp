@@ -11,7 +11,7 @@ int main()
 	chrono::steady_clock::time_point previousFrameTime = chrono::steady_clock::now();
 	float frameLagTime = 0.0f;
 
-	Game game( 800, 600, "Space Invaders", "" );
+	Game game( "Space Invaders", "", 800, 600 );
 
 	while( game.Running() )
 	{

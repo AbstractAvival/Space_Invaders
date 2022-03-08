@@ -3,6 +3,7 @@
 #include <vector>
 #include "StateTypes.h"
 #include "GameState.h"
+#include "MainMenuState.h"
 using namespace std;
 
 class StateHandler

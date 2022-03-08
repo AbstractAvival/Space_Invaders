@@ -7,7 +7,7 @@ using namespace std;
 class Game
 {
 public:
-	Game( int screenWidth, int screenHeight, string windowName, string fontFileName );
+	Game( string windowName, string fontFileName, int screenWidth, int screenHeight );
 	~Game();
 
 	void UpdateLogic();
@@ -20,10 +20,10 @@ public:
 	sf::RenderWindow* window = nullptr;
 
 private:
-	void Initialize( int screenWidth, int screenHeight, string windowName );
+	void Initialize( string windowName, int screenWidth, int screenHeight );
 	void CleanUp();
 	void HandleEvents();
-	void SetupWindow( int screenWidth, int screenHeight, string windowName );
+	void SetupWindow( string windowName, int screenWidth, int screenHeight );
 
 private:
 	static constexpr int frameRateLimit = 60;

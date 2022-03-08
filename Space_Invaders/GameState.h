@@ -5,7 +5,7 @@
 class GameState
 {
 protected:
-	GameState( sf::RenderWindow& windowIn, class StateHandler& handlerIn, int screenWidthIn, int screenHeightIn );
+	GameState( sf::RenderWindow& windowIn, class StateHandler& handlerIn, int screenWidth, int screenHeight );
 
 public:
 	virtual void InitializeState() = 0;
@@ -20,6 +20,6 @@ protected:
 	sf::RenderWindow* window;
 	class StateHandler* handler;
 	bool isInitialized = false;
-	int screenWidth = 0;
-	int screenHeight = 0;
+	int maxScreenWidth = 0;
+	int maxScreenHeight = 0;
 };

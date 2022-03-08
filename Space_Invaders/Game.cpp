@@ -1,8 +1,8 @@
 #include "Game.h"
 
-Game::Game( int screenWidth, int screenHeight, string windowName, string fontFileName )
+Game::Game( string windowName, string fontFileName, int screenWidth, int screenHeight )
 {
-    Initialize( screenWidth, screenHeight, windowName );
+    Initialize( windowName, screenWidth, screenHeight );
     stateHandler = new StateHandler( *window, screenWidth, screenHeight );
 }
 
@@ -11,13 +11,13 @@ Game::~Game()
     CleanUp();
 }
 
-void Game::Initialize( int screenWidth, int screenHeight, string windowName )
+void Game::Initialize( string windowName, int screenWidth, int screenHeight )
 {
-    SetupWindow( screenWidth, screenHeight, windowName );
+    SetupWindow( windowName, screenWidth, screenHeight );
     isRunning = true;
 }
 
-void Game::SetupWindow( int screenWidth, int screenHeight, string windowName )
+void Game::SetupWindow( string windowName, int screenWidth, int screenHeight )
 {
     window = new sf::RenderWindow( sf::VideoMode( screenWidth, screenHeight ), windowName );
     window->setFramerateLimit( frameRateLimit );
@@ -45,7 +45,7 @@ void Game::HandleEvents()
 
         if( event.type == sf::Event::Resized )
         {
-            sf::FloatRect visibleArea( 0, 0, event.size.width, event.size.height );
+            sf::FloatRect visibleArea( 0.0f, 0.0f, ( float )event.size.width, ( float )event.size.height );
             window->setView( sf::View( visibleArea ) );
         }
     }
