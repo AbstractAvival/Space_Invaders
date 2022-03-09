@@ -3,8 +3,8 @@
 StateHandler::StateHandler( sf::RenderWindow& window, int screenWidth, int screenHeight )
 {
 	gameStates.emplace_back( new MainMenuState( window, *this, screenWidth, screenHeight ) );
-	currentState = StateTypes::MAINMENU;
-	lastState = StateTypes::MAINMENU;
+	currentState = StateTypes::MAINMENUSTATE;
+	lastState = StateTypes::MAINMENUSTATE;
 }
 
 StateHandler::~StateHandler()
@@ -14,8 +14,8 @@ StateHandler::~StateHandler()
 		delete state;
 		state = nullptr;
 	}
-	currentState = StateTypes::MAINMENU;
-	lastState = StateTypes::MAINMENU;
+	currentState = StateTypes::MAINMENUSTATE;
+	lastState = StateTypes::MAINMENUSTATE;
 }
 
 void StateHandler::InitializeBeginningState()
