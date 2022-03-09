@@ -1,0 +1,30 @@
+#include "PauseState.h"
+
+PauseState::PauseState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn )
+	:
+	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn )
+{}
+
+void PauseState::InitializeState()
+{
+}
+
+void PauseState::ResetState()
+{
+}
+
+void PauseState::Enter()
+{
+}
+
+void PauseState::HandleInput()
+{
+}
+
+void PauseState::UpdateLogic()
+{
+}
+
+void PauseState::Render( float interpolation )
+{
+}
