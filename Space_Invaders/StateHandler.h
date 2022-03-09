@@ -4,6 +4,9 @@
 #include "StateTypes.h"
 #include "GameState.h"
 #include "MainMenuState.h"
+#include "PauseState.h"
+#include "SettingsState.h"
+#include "PlayState.h"
 using namespace std;
 
 class StateHandler

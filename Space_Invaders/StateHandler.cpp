@@ -3,6 +3,9 @@
 StateHandler::StateHandler( sf::RenderWindow& window, int screenWidth, int screenHeight )
 {
 	gameStates.emplace_back( new MainMenuState( window, *this, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new PauseState( window, *this, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new SettingsState( window, *this, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new PlayState( window, *this, screenWidth, screenHeight ) );
 	currentState = StateTypes::MAINMENUSTATE;
 	lastState = StateTypes::MAINMENUSTATE;
 }
