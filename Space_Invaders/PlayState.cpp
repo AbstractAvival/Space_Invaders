@@ -27,4 +27,5 @@ void PlayState::UpdateLogic()
 
 void PlayState::Render( float interpolation )
 {
+	float speed = 12.0f * interpolation;
 }
