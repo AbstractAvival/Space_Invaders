@@ -156,13 +156,16 @@
     <ClCompile Include="StateHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="MainMenuSpriteTypes.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="SettingsState.h" />
+    <ClInclude Include="SpriteCodex.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="StateTypes.h" />
   </ItemGroup>
