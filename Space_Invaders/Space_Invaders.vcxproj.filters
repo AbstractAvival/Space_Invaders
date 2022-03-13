@@ -80,5 +80,8 @@
     <ClInclude Include="MainMenuSpriteTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameSpriteTypes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

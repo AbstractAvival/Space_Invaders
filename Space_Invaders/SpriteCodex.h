@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
+#include "MainMenuSpriteTypes.h"
 using namespace std;
 
 class SpriteCodex
@@ -15,7 +16,8 @@ public:
 	void LoadGameSprites( string fileName );
 
 	sf::Font& GetFont();
-	sf::Sprite& GetMainMenuSprite(  );
+	sf::Sprite& GetMainMenuSprite( MainMenuSpriteTypes targetSprite );
+	sf::Sprite& GetGameSprite(  );
 
 private:
 };
