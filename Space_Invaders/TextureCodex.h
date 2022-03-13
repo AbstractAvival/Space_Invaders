@@ -17,11 +17,11 @@ public:
 	void LoadGameSprites( string fileName );
 
 	sf::Font& GetFont();
-	sf::Sprite& GetMainMenuTexture( MainMenuSpriteTypes targetSprite );
-	sf::Sprite& GetGameTexture( GameSpriteTypes targetSprite );
+	sf::Texture& GetMainMenuTexture( MainMenuSpriteTypes targetTexture );
+	sf::Texture& GetGameTexture( GameSpriteTypes targetTexture );
 
 private:
 	vector< sf::Texture* > mainMenuTextures;
 	vector< sf::Texture* > gameTextures;
-	sf::Font* font;
+	sf::Font* font = nullptr;
 };
