@@ -80,10 +80,10 @@
     <ClInclude Include="MainMenuSpriteTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameSpriteTypes.h">
+    <ClInclude Include="TextureCodex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextureCodex.h">
+    <ClInclude Include="GameTextureTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

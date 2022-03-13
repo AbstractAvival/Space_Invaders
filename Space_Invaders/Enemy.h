@@ -2,11 +2,12 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include "GameObject.h"
+#include "TextureCodex.h"
 
 class Enemy : GameObject
 {
 public:
-	Enemy( sf::Vector2< int > positionIn );
+	Enemy( TextureCodex& codex, sf::Vector2< int > positionIn );
 
 public:
 	void Update() override;

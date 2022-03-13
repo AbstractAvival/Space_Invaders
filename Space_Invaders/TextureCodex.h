@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 #include "MainMenuSpriteTypes.h"
-#include "GameSpriteTypes.h"
+#include "GameTextureTypes.h"
 using namespace std;
 
 class TextureCodex
@@ -18,7 +18,7 @@ public:
 
 	sf::Font& GetFont();
 	sf::Texture& GetMainMenuTexture( MainMenuSpriteTypes targetTexture );
-	sf::Texture& GetGameTexture( GameSpriteTypes targetTexture );
+	sf::Texture& GetGameTexture( GameTextureTypes targetTexture );
 
 private:
 	vector< sf::Texture* > mainMenuTextures;

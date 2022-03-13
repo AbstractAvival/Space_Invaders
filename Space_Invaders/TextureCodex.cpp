@@ -39,7 +39,7 @@ sf::Texture& TextureCodex::GetMainMenuTexture( MainMenuSpriteTypes targetTexture
 	return *mainMenuTextures[ ( int )targetTexture ];
 }
 
-sf::Texture& TextureCodex::GetGameTexture( GameSpriteTypes targetTexture)
+sf::Texture& TextureCodex::GetGameTexture( GameTextureTypes targetTexture)
 {
 	return *gameTextures[ ( int )targetTexture ];
 }
