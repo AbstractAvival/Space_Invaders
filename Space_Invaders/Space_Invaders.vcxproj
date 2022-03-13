@@ -166,7 +166,7 @@
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="SettingsState.h" />
-    <ClInclude Include="SpriteCodex.h" />
+    <ClInclude Include="TextureCodex.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="StateTypes.h" />
   </ItemGroup>
