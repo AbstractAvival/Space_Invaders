@@ -9,7 +9,7 @@ using namespace std;
 class TextureCodex
 {
 public:
-	TextureCodex( string fontFileName, string menuSpriteFileName, string gameSpriteFileName );
+	TextureCodex( string menuSpriteFileName, string gameSpriteFileName, string fontFileName );
 	~TextureCodex();
 
 	void LoadFont( string fileName );
