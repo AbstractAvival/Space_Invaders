@@ -2,8 +2,8 @@
 
 TextureCodex::TextureCodex( string menuTextureFileName, string gameTextureFileName, string fontFileName )
 {
-	LoadMainMenuSprites( menuTextureFileName );
-	LoadGameSprites( gameTextureFileName );
+	LoadMainMenuTextures( menuTextureFileName );
+	LoadGametextures( gameTextureFileName );
 	LoadFont( fontFileName );
 }
 
@@ -31,12 +31,11 @@ void TextureCodex::LoadFont( string fileName )
 	font->loadFromFile( fileName );
 }
 
-void TextureCodex::LoadMainMenuSprites( string fileName )
+void TextureCodex::LoadMainMenuTextures( string fileName )
 {
-
 }
 
-void TextureCodex::LoadGameSprites( string fileName )
+void TextureCodex::LoadGametextures( string fileName )
 {
 }
 

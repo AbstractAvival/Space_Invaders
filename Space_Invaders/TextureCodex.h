@@ -13,8 +13,8 @@ public:
 	~TextureCodex();
 
 	void LoadFont( string fileName );
-	void LoadMainMenuSprites( string fileName );
-	void LoadGameSprites( string fileName );
+	void LoadMainMenuTextures( string fileName );
+	void LoadGametextures( string fileName );
 
 	sf::Font& GetFont();
 	sf::Texture& GetMainMenuTexture( MainMenuSpriteTypes targetTexture );
