@@ -33,15 +33,22 @@ void TextureCodex::LoadFont( string fileName )
 
 void TextureCodex::LoadMainMenuTextures( string fileName )
 {
-	string menuTextureName;
+	string textureName;
+	vector< string > menuTextureNames;
 	ifstream mainMenuTexturesFile( fileName );
 	if( mainMenuTexturesFile.is_open() )
 	{
-		while( getline( mainMenuTexturesFile, menuTextureName ) )
+		while( getline( mainMenuTexturesFile, textureName ) )
 		{
-			cout << menuTextureName << endl;
+			menuTextureNames.emplace_back( textureName );
 		}
 		mainMenuTexturesFile.close();
+	}
+
+	for( int textureIndex = 0; textureIndex != menuTextureNames.size(); textureIndex++ )
+	{
+		mainMenuTextures.emplace_back( new sf::Texture() );
+		mainMenuTextures[ textureIndex ]->loadFromFile( menuTextureNames[ textureIndex ] );
 	}
 }
 

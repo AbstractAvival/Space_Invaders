@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <string>
+#include "TextureCodex.h"
 #include "StateHandler.h"
 using namespace std;
 
@@ -27,6 +28,7 @@ private:
 
 private:
 	static constexpr int frameRateLimit = 60;
+	TextureCodex* textureCodex;
 	StateHandler* stateHandler;
 	bool isRunning = false;
 };
