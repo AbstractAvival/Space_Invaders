@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include "MainMenuSpriteTypes.h"

@@ -33,10 +33,32 @@ void TextureCodex::LoadFont( string fileName )
 
 void TextureCodex::LoadMainMenuTextures( string fileName )
 {
+	string menuTextureName;
+	ifstream mainMenuTexturesFile( fileName );
+	if( mainMenuTexturesFile.is_open() )
+	{
+		while( getline( mainMenuTexturesFile, menuTextureName ) )
+		{
+			cout << menuTextureName << endl;
+		}
+		mainMenuTexturesFile.close();
+	}
 }
 
 void TextureCodex::LoadGametextures( string fileName )
 {
+	/*
+	string gameTextureName;
+	ifstream gameTexturesFile( fileName );
+	if( gameTexturesFile.is_open() )
+	{
+		while( getline( gameTexturesFile, gameTextureName ) )
+		{
+			cout << gameTextureName << endl;
+		}
+		gameTexturesFile.close();
+	}
+	*/
 }
 
 sf::Font& TextureCodex::GetFont()
