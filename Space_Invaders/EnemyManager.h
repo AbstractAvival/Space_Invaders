@@ -9,6 +9,7 @@ class EnemyManager
 {
 public:
 	EnemyManager( TextureCodex& textureCodex );
+	~EnemyManager();
 
 	void ResetEnemies();
 	void Update();
@@ -24,5 +25,5 @@ private:
 	static constexpr int enemyRowLength = 11;
 	static constexpr int enemyColumnHeight = 5;
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
-	GameObject* boss;
+	GameObject* boss = nullptr;
 };

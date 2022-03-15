@@ -4,6 +4,10 @@ EnemyManager::EnemyManager( TextureCodex& textureCodex )
 {
 }
 
+EnemyManager::~EnemyManager()
+{
+}
+
 void EnemyManager::ResetEnemies()
 {
 }
@@ -30,6 +34,13 @@ void EnemyManager::CreateTierTwoEnemies( TextureCodex& textureCodex )
 
 void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
 {
+	for( int columnIndex = 0; columnIndex == 0; columnIndex++ )
+	{
+		for( int rowIndex = 0; rowIndex != 11; rowIndex++ )
+		{
+			//enemies[ columnIndex * enemyRowLength + rowIndex ] =
+		}
+	}
 }
 
 void EnemyManager::CreateBoss( TextureCodex& textureCodex )
