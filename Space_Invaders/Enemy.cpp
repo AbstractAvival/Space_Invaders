@@ -1,5 +1,11 @@
 #include "Enemy.h"
 
+Enemy::Enemy()
+	:
+	GameObject( sf::Vector2< int >( 0, 0 ) )
+{
+}
+
 Enemy::Enemy( TextureCodex& codex, sf::Vector2< int > positionIn )
 	:
 	GameObject( positionIn )

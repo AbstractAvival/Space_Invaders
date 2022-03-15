@@ -15,6 +15,7 @@ private:
 	};
 
 public:
+	Enemy();
 	Enemy( TextureCodex& codex, sf::Vector2< int > positionIn );
 	~Enemy();
 

@@ -18,4 +18,5 @@ public:
 	void Render( float interpolation ) override;
 
 private:
+	Enemy enemy;
 };
