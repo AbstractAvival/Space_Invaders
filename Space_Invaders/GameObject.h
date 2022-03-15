@@ -19,7 +19,7 @@ public:
 	bool IsDead();
 
 protected:
-	vector< sf::Sprite* > sprites;
+	vector< sf::Sprite > sprites;
 	sf::Vector2< int > position;
 	bool isDead;
 };
