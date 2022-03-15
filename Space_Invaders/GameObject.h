@@ -2,10 +2,19 @@
 #include <SFML/System.hpp>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "TextureCodex.h"
 using namespace std;
 
 class GameObject
 {
+protected:
+	enum class Sprites
+	{
+		Contract,
+		Expand,
+		Explode
+	};
+
 protected:
 	GameObject( sf::Vector2< int > positionIn );
 
@@ -18,7 +27,11 @@ public:
 	void Kill();
 	bool IsDead();
 
+private:
+	void LoadTestSprite( TextureCodex& textureCodex );
+
 protected:
+	Sprites currentSprite;
 	vector< sf::Sprite > sprites;
 	sf::Vector2< int > position;
 	bool isDead;

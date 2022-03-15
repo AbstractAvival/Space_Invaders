@@ -5,5 +5,6 @@ enum class EnemyTypes
 	Boss,
 	TierOne,
 	TierTwo,
-	TierThree
+	TierThree,
+	TestEnemy
 };

@@ -25,3 +25,9 @@ bool GameObject::IsDead()
 {
 	return isDead;
 }
+
+void GameObject::LoadTestSprite( TextureCodex& textureCodex )
+{
+	sprites.emplace_back( sf::Sprite() );
+	sprites[ ( int )currentSprite ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
+}
