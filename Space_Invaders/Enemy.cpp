@@ -30,22 +30,45 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 	}
 }
 
-void Enemy::LoadSprites( TextureCodex& codex, EnemyTypes enemyType )
+void Enemy::LoadSprites( TextureCodex& textureCodex, EnemyTypes enemyType )
+{
+	switch( enemyType )
+	{
+	case EnemyTypes::Boss:
+		LoadBossSprite( textureCodex );
+		break;
+
+	case EnemyTypes::TierOne:
+		LoadTierOneSprites( textureCodex );
+		break;
+
+	case EnemyTypes::TierTwo:
+		LoadTierTwoSprites( textureCodex );
+
+	case EnemyTypes::TierThree:
+		LoadTierThreeSprites( textureCodex );
+		break;
+
+	case EnemyTypes::TestEnemy:
+		LoadTestSprite( textureCodex );
+		break;
+	}
+}
+
+void Enemy::LoadBossSprite( TextureCodex& textureCodex )
+{
+	sprites.emplace_back( sf::Sprite() );
+	sprites[ ( int )currentSprite ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
+}
+
+void Enemy::LoadTierOneSprites( TextureCodex& textureCodex )
 {
 }
 
-void Enemy::LoadBossSprite( TextureCodex& codex )
+void Enemy::LoadTierTwoSprites( TextureCodex& textureCodex )
 {
 }
 
-void Enemy::LoadTierOneSprites( TextureCodex& codex )
-{
-}
-
-void Enemy::LoadTierTwoSprites( TextureCodex& codex )
-{
-}
-
-void Enemy::LoadTierThreeSprites( TextureCodex& codex )
+void Enemy::LoadTierThreeSprites( TextureCodex& textureCodex )
 {
 }

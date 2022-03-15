@@ -27,7 +27,7 @@ public:
 	void Kill();
 	bool IsDead();
 
-private:
+protected:
 	void LoadTestSprite( TextureCodex& textureCodex );
 
 protected:
