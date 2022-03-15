@@ -16,10 +16,14 @@ private:
 
 public:
 	Enemy( TextureCodex& codex, sf::Vector2< int > positionIn );
+	~Enemy();
 
 public:
 	void Update() override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
+
+private:
+	void LoadSprites( TextureCodex& codex );
 
 private:
 	Sprites currentSprite;
