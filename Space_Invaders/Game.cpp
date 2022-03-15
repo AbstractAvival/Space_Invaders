@@ -4,7 +4,7 @@ Game::Game( string windowName, string fontFileName, int screenWidth, int screenH
 {
     Initialize( windowName, screenWidth, screenHeight );
     textureCodex = new TextureCodex( "MainMenuTextures.txt", "", "DinoKids.ttf" );
-    stateHandler = new StateHandler( *window, screenWidth, screenHeight );
+    stateHandler = new StateHandler( *window, *textureCodex, screenWidth, screenHeight );
 }
 
 Game::~Game()
