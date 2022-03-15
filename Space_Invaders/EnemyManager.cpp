@@ -1,6 +1,6 @@
 #include "EnemyManager.h"
 
-EnemyManager::EnemyManager()
+EnemyManager::EnemyManager( TextureCodex& textureCodex )
 {
 }
 
@@ -18,4 +18,20 @@ void EnemyManager::Render( sf::RenderWindow& window, float interpolation )
 	{
 		enemy->Render( window, interpolation );
 	}
+}
+
+void EnemyManager::CreateTierOneEnemies( TextureCodex& textureCodex )
+{
+}
+
+void EnemyManager::CreateTierTwoEnemies( TextureCodex& textureCodex )
+{
+}
+
+void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
+{
+}
+
+void EnemyManager::CreateBoss( TextureCodex& textureCodex )
+{
 }
