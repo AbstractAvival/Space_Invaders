@@ -8,7 +8,7 @@ class Enemy : GameObject
 {
 public:
 	Enemy();
-	Enemy( TextureCodex& textureCodex, EnemyTypes enemyType, sf::Vector2< int > positionIn );
+	Enemy( TextureCodex& textureCodex, EnemyTypes enemyTypeIn, sf::Vector2< int > positionIn );
 	~Enemy();
 
 public:
@@ -16,11 +16,12 @@ public:
 	void Render( sf::RenderWindow& window, float interpolation ) override;
 
 private:
-	void LoadSprites( TextureCodex& textureCodex, EnemyTypes enemyType );
+	void LoadSprites( TextureCodex& textureCodex );
 	void LoadBossSprite( TextureCodex& textureCodex );
 	void LoadTierOneSprites( TextureCodex& textureCodex );
 	void LoadTierTwoSprites( TextureCodex& textureCodex );
 	void LoadTierThreeSprites( TextureCodex& textureCodex );
 
 private:
+	EnemyTypes enemyType;
 };

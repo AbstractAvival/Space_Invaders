@@ -6,12 +6,13 @@ Enemy::Enemy()
 {
 }
 
-Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyType, sf::Vector2< int > positionIn )
+Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyTypeIn, sf::Vector2< int > positionIn )
 	:
-	GameObject( positionIn )
+	GameObject( positionIn ),
+	enemyType( enemyTypeIn )
 {
 	currentSprite = Sprites::Contract;
-	LoadSprites( codex, enemyType );
+	LoadSprites( codex );
 }
 
 Enemy::~Enemy()
@@ -30,7 +31,7 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 	}
 }
 
-void Enemy::LoadSprites( TextureCodex& textureCodex, EnemyTypes enemyType )
+void Enemy::LoadSprites( TextureCodex& textureCodex )
 {
 	switch( enemyType )
 	{
