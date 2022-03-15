@@ -1,6 +1,6 @@
 #include "MainMenuState.h"
 
-MainMenuState::MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn )
+MainMenuState::MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn )
 {}

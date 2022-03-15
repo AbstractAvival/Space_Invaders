@@ -2,10 +2,10 @@
 
 StateHandler::StateHandler( sf::RenderWindow& window, TextureCodex& textureCodex, int screenWidth, int screenHeight )
 {
-	gameStates.emplace_back( new MainMenuState( window, *this, screenWidth, screenHeight ) );
-	gameStates.emplace_back( new PauseState( window, *this, screenWidth, screenHeight ) );
-	gameStates.emplace_back( new SettingsState( window, *this, screenWidth, screenHeight ) );
-	gameStates.emplace_back( new PlayState( window, *this, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new MainMenuState( window, *this, textureCodex, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new PauseState( window, *this, textureCodex, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new SettingsState( window, *this, textureCodex, screenWidth, screenHeight ) );
+	gameStates.emplace_back( new PlayState( window, *this, textureCodex, screenWidth, screenHeight ) );
 	currentState = StateTypes::PLAYSTATE;
 	lastState = StateTypes::PLAYSTATE;
 }

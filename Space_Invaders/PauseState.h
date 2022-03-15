@@ -5,7 +5,7 @@
 class PauseState : public GameState
 {
 public:
-	PauseState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn );
+	PauseState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn );
 
 public:
 	void InitializeState() override;

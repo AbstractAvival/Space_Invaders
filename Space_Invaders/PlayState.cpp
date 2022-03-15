@@ -1,6 +1,6 @@
 #include "PlayState.h"
 
-PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn )
+PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn )
 {}

@@ -6,7 +6,7 @@
 class PlayState : public GameState
 {
 public:
-	PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn );
+	PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn );
 
 public:
 	void InitializeState() override;
@@ -18,5 +18,4 @@ public:
 	void Render( float interpolation ) override;
 
 private:
-	Enemy enemy;
 };

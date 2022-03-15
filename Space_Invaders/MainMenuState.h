@@ -5,7 +5,7 @@
 class MainMenuState : public GameState
 {
 public:
-	MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn );
+	MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn );
 
 public:
 	void InitializeState() override;

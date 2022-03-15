@@ -1,6 +1,6 @@
 #include "PauseState.h"
 
-PauseState::PauseState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn )
+PauseState::PauseState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn )
 {}

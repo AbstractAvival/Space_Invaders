@@ -5,7 +5,7 @@
 class SettingsState : public GameState
 {
 public:
-	SettingsState( sf::RenderWindow& windowIn, StateHandler& handlerIn, int screenWidthIn, int screenHeightIn );
+	SettingsState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn );
 
 public:
 	void InitializeState() override;
