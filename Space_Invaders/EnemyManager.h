@@ -24,6 +24,10 @@ private:
 private:
 	static constexpr int enemyRowLength = 11;
 	static constexpr int enemyColumnHeight = 5;
+	static constexpr int horizontalSeparationDistance = 20;
+	static constexpr int verticalSeparationDistance = 20;
+	static constexpr int startingXPosition = 50;
+	static constexpr int startingYPosition = 75;
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
 };
