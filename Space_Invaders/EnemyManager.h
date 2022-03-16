@@ -8,6 +8,7 @@ using namespace std;
 class EnemyManager
 {
 public:
+	EnemyManager() = default;
 	EnemyManager( TextureCodex& textureCodex );
 	~EnemyManager();
 
