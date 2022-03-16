@@ -2,13 +2,13 @@
 
 Enemy::Enemy()
 	:
-	GameObject( sf::Vector2< int >( 0, 0 ) ),
+	GameObject( sf::Vector2< float >( 0, 0 ) ),
 	enemyType( EnemyTypes::TestEnemy )
 {
 	currentSprite = Sprites::Contract;
 }
 
-Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyTypeIn, sf::Vector2< int > positionIn )
+Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyTypeIn, sf::Vector2< float > positionIn )
 	:
 	GameObject( positionIn ),
 	enemyType( enemyTypeIn )

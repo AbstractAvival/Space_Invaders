@@ -1,18 +1,24 @@
 #include "GameObject.h"
 
-GameObject::GameObject( sf::Vector2< int > positionIn )
+GameObject::GameObject( sf::Vector2< float > positionIn )
 	:
-	position( positionIn ),
 	isDead( false )
-{}
+{
+	currentSprite = Sprites::Contract;
+	SetPosition( positionIn );
+}
 
-sf::Vector2< int > GameObject::GetPosition()
+sf::Vector2< float > GameObject::GetPosition()
 {
 	return position;
 }
 
-void GameObject::SetPosition( sf::Vector2< int > newPosition )
+void GameObject::SetPosition( sf::Vector2< float > newPosition )
 {
+	if( sprites.size() != 0 )
+	{
+		sprites[ int( currentSprite ) ].setPosition( newPosition );
+	}
 	position = newPosition;
 }
 

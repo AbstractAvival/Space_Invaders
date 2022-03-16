@@ -16,14 +16,14 @@ protected:
 	};
 
 protected:
-	GameObject( sf::Vector2< int > positionIn );
+	GameObject( sf::Vector2< float > positionIn );
 
 public:
 	virtual void Update() = 0;
 	virtual void Render( sf::RenderWindow& window, float interpolation ) = 0;
 
-	sf::Vector2< int > GetPosition();
-	void SetPosition( sf::Vector2< int > newPosition );
+	sf::Vector2< float > GetPosition();
+	void SetPosition( sf::Vector2< float > newPosition );
 	void Kill();
 	bool IsDead();
 
@@ -33,6 +33,6 @@ protected:
 protected:
 	Sprites currentSprite;
 	vector< sf::Sprite > sprites;
-	sf::Vector2< int > position;
+	sf::Vector2< float > position;
 	bool isDead;
 };

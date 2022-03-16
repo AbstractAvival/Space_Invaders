@@ -8,7 +8,7 @@ class Enemy : public GameObject
 {
 public:
 	Enemy();
-	Enemy( TextureCodex& textureCodex, EnemyTypes enemyTypeIn, sf::Vector2< int > positionIn );
+	Enemy( TextureCodex& textureCodex, EnemyTypes enemyTypeIn, sf::Vector2< float > positionIn );
 	~Enemy();
 
 public:
