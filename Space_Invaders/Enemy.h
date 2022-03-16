@@ -16,11 +16,12 @@ public:
 	void Render( sf::RenderWindow& window, float interpolation ) override;
 
 private:
-	void LoadSprites( TextureCodex& textureCodex );
+	void InitializeSprites( TextureCodex& textureCodex );
 	void LoadBossSprite( TextureCodex& textureCodex );
 	void LoadTierOneSprites( TextureCodex& textureCodex );
 	void LoadTierTwoSprites( TextureCodex& textureCodex );
 	void LoadTierThreeSprites( TextureCodex& textureCodex );
+	void LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] );
 
 private:
 	EnemyTypes enemyType;

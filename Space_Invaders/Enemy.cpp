@@ -31,7 +31,7 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 	}
 }
 
-void Enemy::LoadSprites( TextureCodex& textureCodex )
+void Enemy::InitializeSprites( TextureCodex& textureCodex )
 {
 	switch( enemyType )
 	{
@@ -64,12 +64,27 @@ void Enemy::LoadBossSprite( TextureCodex& textureCodex )
 
 void Enemy::LoadTierOneSprites( TextureCodex& textureCodex )
 {
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyOneFirst, GameTextureTypes::EnemyOneSecond, GameTextureTypes::Explosion };
+	LoadSprites( textureCodex, spriteTypes );
 }
 
 void Enemy::LoadTierTwoSprites( TextureCodex& textureCodex )
 {
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyTwoFirst, GameTextureTypes::EnemyTwoSecond, GameTextureTypes::Explosion };
+	LoadSprites( textureCodex, spriteTypes );
 }
 
 void Enemy::LoadTierThreeSprites( TextureCodex& textureCodex )
 {
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyThirdFirst, GameTextureTypes::EnemyThirdSecond, GameTextureTypes::Explosion };
+	LoadSprites( textureCodex, spriteTypes );
+}
+
+void Enemy::LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] )
+{
+	for( int spriteIndex = 0; spriteIndex < 3; spriteIndex++ )
+	{
+		sprites.emplace_back( sf::Sprite() );
+		sprites[ spriteIndex ].setTexture( textureCodex.GetGameTexture( types[ spriteIndex ] ) );
+	}
 }
