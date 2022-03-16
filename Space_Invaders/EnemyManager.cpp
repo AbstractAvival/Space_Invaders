@@ -61,7 +61,7 @@ void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
 
 void EnemyManager::CreateBoss( TextureCodex& textureCodex )
 {
-	sf::Vector2< int > enemyPosition = sf::Vector2< int >( -50, -50 );
+	sf::Vector2< float > enemyPosition = sf::Vector2< float >( -50.0f, -50.0f );
 	boss = new Enemy( textureCodex, EnemyTypes::Boss, enemyPosition );
 }
 
@@ -71,7 +71,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 	{
 		for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
 		{
-			sf::Vector2< int > enemyPosition = sf::Vector2< int >( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
+			sf::Vector2< float > enemyPosition = sf::Vector2< float >( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
 			enemies[ columnIndex * enemyRowLength + rowIndex ] = new Enemy( textureCodex, desiredEnemyType, enemyPosition );
 		}
 	}
