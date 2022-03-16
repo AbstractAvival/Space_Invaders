@@ -21,7 +21,7 @@ void SettingsState::HandleInput()
 {
 }
 
-void SettingsState::UpdateLogic()
+void SettingsState::UpdateLogic( float frameTime )
 {
 }
 

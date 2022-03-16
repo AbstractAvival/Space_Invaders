@@ -13,7 +13,7 @@ public:
 	void Enter() override;
 
 	void HandleInput() override;
-	void UpdateLogic() override;
+	void UpdateLogic( float frameTime ) override;
 	void Render( float interpolation ) override;
 
 private:

@@ -56,10 +56,10 @@ void Game::HandleEvents()
     stateHandler->GetCurrentState().HandleInput();
 }
 
-void Game::UpdateLogic()
+void Game::UpdateLogic( float frameTime )
 {
     HandleEvents();
-    stateHandler->GetCurrentState().UpdateLogic();
+    stateHandler->GetCurrentState().UpdateLogic( frameTime );
 }
 
 void Game::Draw( float interpolation )

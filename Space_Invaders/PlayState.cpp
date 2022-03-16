@@ -23,9 +23,9 @@ void PlayState::HandleInput()
 {
 }
 
-void PlayState::UpdateLogic()
+void PlayState::UpdateLogic( float frameTime )
 {
-	enemyManager.UpdateEnemies();
+	enemyManager.UpdateEnemies( frameTime );
 }
 
 void PlayState::Render( float interpolation )

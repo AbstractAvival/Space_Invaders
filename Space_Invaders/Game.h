@@ -11,7 +11,7 @@ public:
 	Game( string windowName, string fontFileName, int screenWidth, int screenHeight );
 	~Game();
 
-	void UpdateLogic();
+	void UpdateLogic( float frameTime );
 	void Draw( float interpolation );
 
 	bool Running();

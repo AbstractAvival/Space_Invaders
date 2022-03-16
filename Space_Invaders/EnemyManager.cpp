@@ -54,10 +54,11 @@ void EnemyManager::ResetEnemies()
 	movementColumnIndex = openingFormationY;
 }
 
-void EnemyManager::UpdateEnemies()
+void EnemyManager::UpdateEnemies( float frameTime )
 {
+	accumulatedFrameTime += frameTime;
 	DoOpeningFormation();
-	HandleEnemyMovement();
+	HandleEnemyMovement( frameTime );
 }
 
 void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation )
@@ -102,10 +103,11 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 	}
 }
 
-void EnemyManager::HandleEnemyMovement()
+void EnemyManager::HandleEnemyMovement( float frameTime )
 {
-	if( !executingOpeningFormation )
+	if( !executingOpeningFormation  && accumulatedFrameTime > maxFrameTime )
 	{
+		accumulatedFrameTime = 0.0f;
 		MoveEnemies( GetMovementVector() );
 		movementColumnIndex--;
 
@@ -168,6 +170,7 @@ void EnemyManager::SetMovementDirection()
 	}
 	else if( horizontalMovementCount == 0 && verticalMovementCount == 0 )
 	{
+		maxFrameTime -= 0.02f;
 		if( isGoingLeft )
 		{
 			currentMovementDirection = MovementDirections::RIGHT;

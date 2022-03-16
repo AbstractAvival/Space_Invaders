@@ -21,7 +21,7 @@ void MainMenuState::HandleInput()
 {
 }
 
-void MainMenuState::UpdateLogic()
+void MainMenuState::UpdateLogic( float frameTime )
 {
 }
 

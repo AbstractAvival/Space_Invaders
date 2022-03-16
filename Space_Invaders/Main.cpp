@@ -23,7 +23,7 @@ int main()
 		while( frameLagTime >= msPerFrame )
 		{
 			frameLagTime -= msPerFrame;
-			game.UpdateLogic();
+			game.UpdateLogic( elapsedFrameTime.count() );
 		}
 
 		interpolation = frameLagTime / msPerFrame;

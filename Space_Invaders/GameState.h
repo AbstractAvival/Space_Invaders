@@ -13,7 +13,7 @@ public:
 	virtual void Enter() = 0;
 
 	virtual void HandleInput() = 0;
-	virtual void UpdateLogic() = 0;
+	virtual void UpdateLogic( float frameTime ) = 0;
 	virtual void Render( float interpolation ) = 0;
 
 protected:

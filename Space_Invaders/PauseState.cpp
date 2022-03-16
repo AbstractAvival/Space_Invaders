@@ -21,7 +21,7 @@ void PauseState::HandleInput()
 {
 }
 
-void PauseState::UpdateLogic()
+void PauseState::UpdateLogic( float frameTime )
 {
 }
 
