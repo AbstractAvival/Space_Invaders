@@ -30,7 +30,7 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 {
 	if( !IsDead() )
 	{
-		window.draw( sprites[ ( int )currentSprite ] );
+		window.draw( sprites[ int( currentSprite ) ] );
 	}
 }
 
@@ -62,7 +62,7 @@ void Enemy::InitializeSprites( TextureCodex& textureCodex )
 void Enemy::LoadBossSprite( TextureCodex& textureCodex )
 {
 	sprites.emplace_back( sf::Sprite() );
-	sprites[ ( int )currentSprite ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
+	sprites[ int( currentSprite ) ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
 }
 
 void Enemy::LoadTierOneSprites( TextureCodex& textureCodex )

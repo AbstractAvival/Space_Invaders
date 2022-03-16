@@ -35,5 +35,5 @@ bool GameObject::IsDead()
 void GameObject::LoadTestSprite( TextureCodex& textureCodex )
 {
 	sprites.emplace_back( sf::Sprite() );
-	sprites[ ( int )currentSprite ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
+	sprites[ int( currentSprite ) ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
 }
