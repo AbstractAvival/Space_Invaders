@@ -13,8 +13,8 @@ public:
 	~EnemyManager();
 
 	void ResetEnemies();
-	void Update();
-	void Render( sf::RenderWindow& window, float interpolation );
+	void UpdateEnemies();
+	void RenderEnemies( sf::RenderWindow& window, float interpolation );
 
 private:
 	void CreateTierOneEnemies( TextureCodex& textureCodex );

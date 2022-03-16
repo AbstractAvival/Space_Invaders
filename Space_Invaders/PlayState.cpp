@@ -25,9 +25,10 @@ void PlayState::HandleInput()
 
 void PlayState::UpdateLogic()
 {
+	enemyManager.UpdateEnemies();
 }
 
 void PlayState::Render( float interpolation )
 {
-	enemyManager.Render( *window, interpolation );
+	enemyManager.RenderEnemies( *window, interpolation );
 }

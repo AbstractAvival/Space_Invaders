@@ -40,12 +40,12 @@ void EnemyManager::ResetEnemies()
 	initializationY = enemyColumnHeight - 1;
 }
 
-void EnemyManager::Update()
+void EnemyManager::UpdateEnemies()
 {
 	DoOpeningAnimation();
 }
 
-void EnemyManager::Render( sf::RenderWindow& window, float interpolation )
+void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation )
 {
 	for( auto enemy : enemies )
 	{
