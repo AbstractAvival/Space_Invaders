@@ -26,6 +26,7 @@ public:
 	sf::RectangleShape GetBoundary();
 	void SetPosition( sf::Vector2< float > newPosition );
 	void Kill();
+	void Revive();
 	bool IsDead();
 
 protected:

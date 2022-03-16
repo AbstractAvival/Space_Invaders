@@ -42,6 +42,11 @@ void GameObject::Kill()
 	isDead = true;
 }
 
+void GameObject::Revive()
+{
+	isDead = false;
+}
+
 bool GameObject::IsDead()
 {
 	return isDead;
