@@ -15,6 +15,7 @@ Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyTypeIn, sf::Vector2< float > 
 {
 	currentSprite = Sprites::Contract;
 	InitializeSprites( codex );
+	SetPosition( positionIn );
 }
 
 Enemy::~Enemy()

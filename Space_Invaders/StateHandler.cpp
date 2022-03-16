@@ -23,22 +23,22 @@ StateHandler::~StateHandler()
 
 void StateHandler::InitializeBeginningState()
 {
-	gameStates[ ( int )currentState ]->Enter();
+	gameStates[ int( currentState ) ]->Enter();
 }
 
 void StateHandler::ChangeState( StateTypes targetState )
 {
 	lastState = currentState;
 	currentState = targetState;
-	gameStates[ ( int )currentState ]->Enter();
+	gameStates[ int( currentState ) ]->Enter();
 }
 
 GameState& StateHandler::GetCurrentState()
 {
-	return *gameStates[ ( int )currentState ];
+	return *gameStates[ int( currentState ) ];
 }
 
 GameState& StateHandler::GetState( StateTypes targetState )
 {
-	return *gameStates[ ( int )targetState ];
+	return *gameStates[ int( targetState ) ];
 }
