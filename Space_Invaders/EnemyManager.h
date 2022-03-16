@@ -26,8 +26,8 @@ private:
 private:
 	static constexpr int enemyRowLength = 11;
 	static constexpr int enemyColumnHeight = 5;
-	static constexpr float horizontalSeparationDistance = 20.0f;
-	static constexpr float verticalSeparationDistance = 20.0f;
+	static constexpr float horizontalSeparationDistance = 25.0f;
+	static constexpr float verticalSeparationDistance = 25.0f;
 	static constexpr float startingXPosition = 50.0f;
 	static constexpr float startingYPosition = 75.0f;
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
