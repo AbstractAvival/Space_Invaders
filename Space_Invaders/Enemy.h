@@ -4,7 +4,7 @@
 #include "GameObject.h"
 #include "EnemyTypes.h"
 
-class Enemy : GameObject
+class Enemy : public GameObject
 {
 public:
 	Enemy();
