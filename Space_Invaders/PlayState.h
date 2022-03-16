@@ -1,6 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "StateHandler.h"
+#include "EnemyManager.h"
 
 class PlayState : public GameState
 {
@@ -17,4 +18,5 @@ public:
 	void Render( float interpolation ) override;
 
 private:
+	EnemyManager enemyManager;
 };

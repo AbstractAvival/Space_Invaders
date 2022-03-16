@@ -1,5 +1,13 @@
 #include "EnemyManager.h"
 
+EnemyManager::EnemyManager()
+{
+	for( auto enemy : enemies )
+	{
+		enemy = nullptr;
+	}
+}
+
 EnemyManager::EnemyManager( TextureCodex& textureCodex )
 {
 	CreateBoss( textureCodex );

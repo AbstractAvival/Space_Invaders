@@ -2,7 +2,8 @@
 
 PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
 	:
-	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn )
+	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn ),
+	enemyManager( EnemyManager( textureCodex ) )
 {
 }
 
@@ -28,4 +29,5 @@ void PlayState::UpdateLogic()
 
 void PlayState::Render( float interpolation )
 {
+	enemyManager.Render( *window, interpolation );
 }
