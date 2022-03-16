@@ -22,6 +22,8 @@ private:
 	void CreateTierThreeEnemies( TextureCodex& textureCodex );
 	void CreateBoss( TextureCodex& textureCodex);
 	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
+	void ResetEnemyPositions();
+	void DoOpeningAnimation();
 
 private:
 	static constexpr int enemyRowLength = 11;
@@ -32,4 +34,7 @@ private:
 	static constexpr float startingYPosition = 75.0f;
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
+	bool executingOpeningAnimation;
+	int initializationX;
+	int initializationY;
 };
