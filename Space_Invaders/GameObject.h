@@ -23,6 +23,7 @@ public:
 	virtual void Render( sf::RenderWindow& window, float interpolation ) = 0;
 
 	sf::Vector2< float > GetPosition();
+	sf::RectangleShape GetBoundary();
 	void SetPosition( sf::Vector2< float > newPosition );
 	void Kill();
 	bool IsDead();
