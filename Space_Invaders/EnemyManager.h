@@ -25,7 +25,7 @@ private:
 	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
 	void HandleEnemyMovement();
 	void ResetEnemyPositions();
-	void DoOpeningAnimation();
+	void DoOpeningFormation();
 	void MoveEnemies( sf::Vector2< float > direction );
 	void SetMovementDirection();
 	sf::Vector2< float > GetMovementVector();
@@ -40,12 +40,12 @@ private:
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
 	MovementDirections currentMovementDirection;
-	bool executingOpeningAnimation;
+	bool executingOpeningFormation = true;
 	bool isGoingLeft = false;
 	int horizontalMovementCount = 11;
 	int verticalMovementCount = 1;
-	int openingAnimationX;
-	int openingAnimationY;
+	int openingFormationX;
+	int openingFormationY;
 	int movementColumnIndex;
 	int movementXIndex;
 	int movementYIndex;

@@ -2,12 +2,11 @@
 
 EnemyManager::EnemyManager()
 	:
-	executingOpeningAnimation( true ),
-	openingAnimationX( enemyRowLength - 1 ),
-	openingAnimationY( enemyColumnHeight - 1 ),
-	movementXIndex( openingAnimationX ),
-	movementYIndex( openingAnimationY ),
-	movementColumnIndex( openingAnimationY ),
+	openingFormationX( enemyRowLength - 1 ),
+	openingFormationY( enemyColumnHeight - 1 ),
+	movementXIndex( openingFormationX ),
+	movementYIndex( openingFormationY ),
+	movementColumnIndex( openingFormationY ),
 	currentMovementDirection( MovementDirections::RIGHT )
 {
 	for( auto enemy : enemies )
@@ -18,12 +17,11 @@ EnemyManager::EnemyManager()
 
 EnemyManager::EnemyManager( TextureCodex& textureCodex )
 	:
-	executingOpeningAnimation( true ),
-	openingAnimationX( enemyRowLength - 1 ),
-	openingAnimationY( enemyColumnHeight - 1 ),
-	movementXIndex( openingAnimationX ),
-	movementYIndex( openingAnimationY ),
-	movementColumnIndex( openingAnimationY ),
+	openingFormationX( enemyRowLength - 1 ),
+	openingFormationY( enemyColumnHeight - 1 ),
+	movementXIndex( openingFormationX ),
+	movementYIndex( openingFormationY ),
+	movementColumnIndex( openingFormationY ),
 	currentMovementDirection( MovementDirections::RIGHT )
 {
 	CreateBoss( textureCodex );
@@ -47,14 +45,18 @@ EnemyManager::~EnemyManager()
 void EnemyManager::ResetEnemies()
 {
 	ResetEnemyPositions();
-	executingOpeningAnimation = true;
-	openingAnimationX = enemyRowLength - 1;
-	openingAnimationY = enemyColumnHeight - 1;
+	currentMovementDirection = MovementDirections::RIGHT;
+	executingOpeningFormation = true;
+	openingFormationX = enemyRowLength - 1;
+	openingFormationY = enemyColumnHeight - 1;
+	movementXIndex = openingFormationY;
+	movementYIndex = openingFormationY;
+	movementColumnIndex = openingFormationY;
 }
 
 void EnemyManager::UpdateEnemies()
 {
-	DoOpeningAnimation();
+	DoOpeningFormation();
 	HandleEnemyMovement();
 }
 
@@ -102,7 +104,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 
 void EnemyManager::HandleEnemyMovement()
 {
-	if( !executingOpeningAnimation )
+	if( !executingOpeningFormation )
 	{
 		MoveEnemies( GetMovementVector() );
 		movementColumnIndex--;
@@ -127,21 +129,21 @@ void EnemyManager::ResetEnemyPositions()
 	}
 }
 
-void EnemyManager::DoOpeningAnimation()
+void EnemyManager::DoOpeningFormation()
 {
-	if( executingOpeningAnimation )
+	if( executingOpeningFormation )
 	{
-		enemies[ openingAnimationY * enemyRowLength + openingAnimationX ]->Revive();
-		openingAnimationX -= 1;
+		enemies[ openingFormationY * enemyRowLength + openingFormationX ]->Revive();
+		openingFormationX -= 1;
 
-		if( openingAnimationX < 0 )
+		if(openingFormationX < 0 )
 		{
-			openingAnimationX = enemyRowLength - 1;
-			openingAnimationY -= 1;
+			openingFormationX = enemyRowLength - 1;
+			openingFormationY -= 1;
 		}
 
-		if( openingAnimationY < 0 )
-			executingOpeningAnimation = false;
+		if( openingFormationY < 0 )
+			executingOpeningFormation = false;
 	}
 }
 
