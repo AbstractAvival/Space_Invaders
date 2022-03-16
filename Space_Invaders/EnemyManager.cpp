@@ -3,8 +3,12 @@
 EnemyManager::EnemyManager()
 	:
 	executingOpeningAnimation( true ),
-	initializationX( enemyRowLength - 1 ),
-	initializationY( enemyColumnHeight - 1 )
+	openingAnimationX( enemyRowLength - 1 ),
+	openingAnimationY( enemyColumnHeight - 1 ),
+	movementXIndex( openingAnimationX ),
+	movementYIndex( openingAnimationY ),
+	movementColumnIndex( openingAnimationY ),
+	currentMovementDirection( MovementDirections::RIGHT )
 {
 	for( auto enemy : enemies )
 	{
@@ -13,6 +17,14 @@ EnemyManager::EnemyManager()
 }
 
 EnemyManager::EnemyManager( TextureCodex& textureCodex )
+	:
+	executingOpeningAnimation( true ),
+	openingAnimationX( enemyRowLength - 1 ),
+	openingAnimationY( enemyColumnHeight - 1 ),
+	movementXIndex( openingAnimationX ),
+	movementYIndex( openingAnimationY ),
+	movementColumnIndex( openingAnimationY ),
+	currentMovementDirection( MovementDirections::RIGHT )
 {
 	CreateBoss( textureCodex );
 	CreateTierOneEnemies( textureCodex );
@@ -36,13 +48,14 @@ void EnemyManager::ResetEnemies()
 {
 	ResetEnemyPositions();
 	executingOpeningAnimation = true;
-	initializationX = enemyRowLength - 1;
-	initializationY = enemyColumnHeight - 1;
+	openingAnimationX = enemyRowLength - 1;
+	openingAnimationY = enemyColumnHeight - 1;
 }
 
 void EnemyManager::UpdateEnemies()
 {
 	DoOpeningAnimation();
+	HandleEnemyMovement();
 }
 
 void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation )
@@ -87,6 +100,21 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 	}
 }
 
+void EnemyManager::HandleEnemyMovement()
+{
+	if( !executingOpeningAnimation )
+	{
+		MoveEnemies( GetMovementVector() );
+		movementColumnIndex--;
+
+		if( movementColumnIndex < 0 )
+		{
+			movementColumnIndex = enemyColumnHeight - 1;
+			SetMovementDirection();
+		}
+	}
+}
+
 void EnemyManager::ResetEnemyPositions()
 {
 	for( int columnIndex = 0; columnIndex < enemyColumnHeight; columnIndex++ )
@@ -103,16 +131,72 @@ void EnemyManager::DoOpeningAnimation()
 {
 	if( executingOpeningAnimation )
 	{
-		enemies[ initializationY * enemyRowLength + initializationX ]->Revive();
-		initializationX -= 1;
+		enemies[ openingAnimationY * enemyRowLength + openingAnimationX ]->Revive();
+		openingAnimationX -= 1;
 
-		if( initializationX < 0 )
+		if( openingAnimationX < 0 )
 		{
-			initializationX = enemyRowLength - 1;
-			initializationY -= 1;
+			openingAnimationX = enemyRowLength - 1;
+			openingAnimationY -= 1;
 		}
 
-		if( initializationY < 0 )
+		if( openingAnimationY < 0 )
 			executingOpeningAnimation = false;
+	}
+}
+
+void EnemyManager::MoveEnemies( sf::Vector2< float > direction )
+{
+	for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
+	{
+		enemies[ movementColumnIndex * enemyRowLength + rowIndex ]->Move( direction );
+	}
+}
+
+void EnemyManager::SetMovementDirection()
+{
+	if( horizontalMovementCount > 0 && verticalMovementCount == 1 )
+	{
+		horizontalMovementCount--;
+	}
+	else if( horizontalMovementCount == 0 && verticalMovementCount == 1 )
+	{
+		verticalMovementCount--;
+		currentMovementDirection = MovementDirections::DOWN;
+	}
+	else if( horizontalMovementCount == 0 && verticalMovementCount == 0 )
+	{
+		if( isGoingLeft )
+		{
+			currentMovementDirection = MovementDirections::RIGHT;
+			horizontalMovementCount = 11;
+			verticalMovementCount = 1;
+			isGoingLeft = !isGoingLeft;
+		}
+		else
+		{
+			currentMovementDirection = MovementDirections::LEFT;
+			horizontalMovementCount = 11;
+			verticalMovementCount = 1;
+			isGoingLeft = !isGoingLeft;
+		}
+	}
+}
+
+sf::Vector2< float > EnemyManager::GetMovementVector()
+{
+	switch( currentMovementDirection )
+	{
+	case MovementDirections::LEFT:
+		return sf::Vector2< float >( -20.0f, 0.0f );
+
+	case MovementDirections::RIGHT:
+		return sf::Vector2< float >( 20.0f, 0.0f );
+
+	case MovementDirections::DOWN:
+		return sf::Vector2< float >( 0.0f, 20.0f );
+
+	default:
+		return sf::Vector2< float >( 0.0f, 0.0f );
 	}
 }

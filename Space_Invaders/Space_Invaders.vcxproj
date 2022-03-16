@@ -168,6 +168,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="MainMenuSpriteTypes.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="MovementDirections.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="SettingsState.h" />

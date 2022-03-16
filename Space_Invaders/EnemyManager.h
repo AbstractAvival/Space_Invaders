@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "TextureCodex.h"
+#include "MovementDirections.h"
 #include "Enemy.h"
 using namespace std;
 
@@ -22,8 +23,12 @@ private:
 	void CreateTierThreeEnemies( TextureCodex& textureCodex );
 	void CreateBoss( TextureCodex& textureCodex);
 	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
+	void HandleEnemyMovement();
 	void ResetEnemyPositions();
 	void DoOpeningAnimation();
+	void MoveEnemies( sf::Vector2< float > direction );
+	void SetMovementDirection();
+	sf::Vector2< float > GetMovementVector();
 
 private:
 	static constexpr int enemyRowLength = 11;
@@ -34,7 +39,14 @@ private:
 	static constexpr float startingYPosition = 75.0f;
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
+	MovementDirections currentMovementDirection;
 	bool executingOpeningAnimation;
-	int initializationX;
-	int initializationY;
+	bool isGoingLeft = false;
+	int horizontalMovementCount = 11;
+	int verticalMovementCount = 1;
+	int openingAnimationX;
+	int openingAnimationY;
+	int movementColumnIndex;
+	int movementXIndex;
+	int movementYIndex;
 };

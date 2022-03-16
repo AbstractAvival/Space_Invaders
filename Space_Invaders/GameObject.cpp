@@ -37,6 +37,11 @@ void GameObject::SetPosition( sf::Vector2< float > newPosition )
 	position = newPosition;
 }
 
+void GameObject::Move( sf::Vector2< float > offset )
+{
+	SetPosition( GetPosition() + offset );
+}
+
 void GameObject::Kill()
 {
 	isDead = true;

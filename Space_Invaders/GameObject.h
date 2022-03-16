@@ -25,6 +25,7 @@ public:
 	sf::Vector2< float > GetPosition();
 	sf::RectangleShape GetBoundary();
 	void SetPosition( sf::Vector2< float > newPosition );
+	void Move( sf::Vector2< float > offset );
 	void Kill();
 	void Revive();
 	bool IsDead();
