@@ -38,38 +38,33 @@ void EnemyManager::Render( sf::RenderWindow& window, float interpolation )
 
 void EnemyManager::CreateTierOneEnemies( TextureCodex& textureCodex )
 {
-	for( int columnIndex = 3; columnIndex < 5; columnIndex++ )
-	{
-		for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
-		{
-			sf::Vector2< int > enemyPosition = sf::Vector2< int >( ( rowIndex * 20 + horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
-			enemies[ columnIndex * enemyRowLength + rowIndex ] = new Enemy( textureCodex, EnemyTypes::TestEnemy, enemyPosition );
-		}
-	}
+	CreateEnemies( textureCodex, EnemyTypes::TestEnemy, 3, 5 );
 }
 
 void EnemyManager::CreateTierTwoEnemies( TextureCodex& textureCodex )
 {
-	for( int columnIndex = 1; columnIndex < 3; columnIndex++ )
-	{
-		for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
-		{
-			sf::Vector2< int > enemyPosition = sf::Vector2< int >( ( rowIndex * 20 + horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
-			enemies[ columnIndex * enemyRowLength + rowIndex ] = new Enemy( textureCodex, EnemyTypes::TestEnemy, enemyPosition );
-		}
-	}
+	CreateEnemies( textureCodex, EnemyTypes::TestEnemy, 1, 3 );
 }
 
 void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
 {
-	int tierThreeRowIndex = 0;
-	for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
-	{
-		sf::Vector2< int > enemyPosition = sf::Vector2< int >( ( rowIndex * 20 + horizontalSeparationDistance ) + startingXPosition, startingYPosition );
-		enemies[ tierThreeRowIndex * enemyRowLength + rowIndex ] = new Enemy( textureCodex, EnemyTypes::TestEnemy, enemyPosition );
-	}
+	CreateEnemies( textureCodex, EnemyTypes::TestEnemy, 0, 1 );
 }
 
 void EnemyManager::CreateBoss( TextureCodex& textureCodex )
 {
+	sf::Vector2< int > enemyPosition = sf::Vector2< int >( -50, -50 );
+	boss = new Enemy( textureCodex, EnemyTypes::Boss, enemyPosition );
+}
+
+void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn )
+{
+	for( int columnIndex = startingColumn; columnIndex < endingColumn; columnIndex++ )
+	{
+		for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
+		{
+			sf::Vector2< int > enemyPosition = sf::Vector2< int >( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
+			enemies[ columnIndex * enemyRowLength + rowIndex ] = new Enemy( textureCodex, desiredEnemyType, enemyPosition );
+		}
+	}
 }

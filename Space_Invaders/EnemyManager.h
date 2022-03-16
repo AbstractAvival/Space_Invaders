@@ -20,6 +20,7 @@ private:
 	void CreateTierTwoEnemies( TextureCodex& textureCodex );
 	void CreateTierThreeEnemies( TextureCodex& textureCodex );
 	void CreateBoss( TextureCodex& textureCodex);
+	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
 
 private:
 	static constexpr int enemyRowLength = 11;
