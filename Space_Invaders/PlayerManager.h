@@ -11,11 +11,11 @@ public:
 	~PlayerManager();
 
 	void ResetPlayer();
-	void UpdatePlayer( int stageWidth, float frameTime );
+	void UpdatePlayer( int stageWidth );
 	void RenderPlayer( sf::RenderWindow& window, float interpolation );
 
 private:
-	void HandleUserInput( float frameTime );
+	void HandleUserInput();
 	void ImposeStageBoundaryLimits( int stageWidth );
 
 private:

@@ -17,9 +17,9 @@ void PlayerManager::ResetPlayer()
 	player->SetPosition( playerStartingPosition );
 }
 
-void PlayerManager::UpdatePlayer( int stageWidth, float frameTime )
+void PlayerManager::UpdatePlayer( int stageWidth )
 {
-	HandleUserInput( frameTime );
+	HandleUserInput();
 	ImposeStageBoundaryLimits( stageWidth );
 }
 
@@ -28,7 +28,7 @@ void PlayerManager::RenderPlayer( sf::RenderWindow& window, float interpolation 
 	player->Render( window, interpolation );
 }
 
-void PlayerManager::HandleUserInput( float frameTime )
+void PlayerManager::HandleUserInput()
 {
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
 	{
