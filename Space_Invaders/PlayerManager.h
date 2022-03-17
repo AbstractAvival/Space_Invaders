@@ -6,7 +6,7 @@
 class PlayerManager
 {
 public:
-	PlayerManager();
+	PlayerManager() = default;
 	PlayerManager( TextureCodex& textureCodex );
 	~PlayerManager();
 

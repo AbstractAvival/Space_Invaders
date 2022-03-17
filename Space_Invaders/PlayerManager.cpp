@@ -1,9 +1,5 @@
 #include "PlayerManager.h"
 
-PlayerManager::PlayerManager()
-{
-}
-
 PlayerManager::PlayerManager( TextureCodex& textureCodex )
 {
 	player = new PlayerShip( textureCodex, playerStartingPosition );
@@ -23,6 +19,8 @@ void PlayerManager::ResetPlayer()
 
 void PlayerManager::UpdatePlayer( int stageWidth, float frameTime )
 {
+	HandleUserInput( frameTime );
+	ImposeStageBoundaryLimits( stageWidth );
 }
 
 void PlayerManager::RenderPlayer( sf::RenderWindow& window, float interpolation )
@@ -32,12 +30,26 @@ void PlayerManager::RenderPlayer( sf::RenderWindow& window, float interpolation 
 
 void PlayerManager::HandleUserInput( float frameTime )
 {
+	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
+	{
+		player->Move( sf::Vector2< float >( -1.0f, 0.0f ) );
+	}
+
+	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) )
+	{
+		player->Move( sf::Vector2< float >( 1.0f, 0.0f ) );
+	}
 }
 
 void PlayerManager::ImposeStageBoundaryLimits( int stageWidth )
 {
 	if( player->GetBoundary().getGlobalBounds().left < 0 )
 	{
-		sf::Vector2< float > newPosition = player->GetPosition();
+		player->SetPosition( sf::Vector2< float >( 0 + player->GetTextureWidth() / 2, player->GetPosition().y ) );
+	}
+
+	if( player->GetBoundary().getGlobalBounds().width > stageWidth )
+	{
+		player->SetPosition( sf::Vector2< float >( stageWidth - player->GetTextureWidth() / 2, player->GetPosition().y ) );
 	}
 }
