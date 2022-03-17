@@ -19,8 +19,6 @@ public:
 	void Render( float interpolation ) override;
 
 private:
-	static constexpr int stageWidth = 800;
-	static constexpr int stageHeight = 600;
 	EnemyManager enemyManager;
 	PlayerManager playerManager;
 };
