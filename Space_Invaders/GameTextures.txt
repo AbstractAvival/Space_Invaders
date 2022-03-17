@@ -1,1 +1,2 @@
 WhiteBox30x30.png
+SpaceBox60x25.png
