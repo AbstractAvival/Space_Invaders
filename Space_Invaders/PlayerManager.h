@@ -20,6 +20,6 @@ private:
 
 private:
 	const sf::Vector2< float > playerStartingPosition = sf::Vector2< float >( 500.0f, 550.0f );
-	const float playerSpeed = 5.0f;
+	const float playerSpeed = 11.0f;
 	PlayerShip* player = nullptr;
 };
