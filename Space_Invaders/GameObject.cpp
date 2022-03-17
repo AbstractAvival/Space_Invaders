@@ -24,6 +24,24 @@ sf::RectangleShape GameObject::GetBoundary()
 	return boundaryRectangle;
 }
 
+float GameObject::GetTextureWidth()
+{
+	if( !sprites.empty() )
+	{
+		return float( sprites[ int( currentSprite ) ].getTexture()->getSize().x );
+	}
+	return 0.0f;
+}
+
+float GameObject::GetTextureHeight()
+{
+	if( !sprites.empty() )
+	{
+		return float( sprites[ int( currentSprite ) ].getTexture()->getSize().y );
+	}
+	return 0.0f;
+}
+
 void GameObject::SetPosition( sf::Vector2< float > newPosition )
 {
 	if( !sprites.empty() )
