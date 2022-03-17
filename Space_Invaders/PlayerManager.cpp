@@ -43,12 +43,12 @@ void PlayerManager::HandleUserInput( float frameTime )
 
 void PlayerManager::ImposeStageBoundaryLimits( int stageWidth )
 {
-	if( player->GetBoundary().getGlobalBounds().left < 0 )
+	if( player->GetBoundary().left < 0 )
 	{
 		player->SetPosition( sf::Vector2< float >( 0 + player->GetTextureWidth() / 2, player->GetPosition().y ) );
 	}
 
-	if( player->GetBoundary().getGlobalBounds().width > stageWidth )
+	if( player->GetBoundary().left + player->GetBoundary().width > stageWidth )
 	{
 		player->SetPosition( sf::Vector2< float >( stageWidth - player->GetTextureWidth() / 2, player->GetPosition().y ) );
 	}

@@ -23,7 +23,7 @@ public:
 	virtual void Render( sf::RenderWindow& window, float interpolation ) = 0;
 
 	sf::Vector2< float > GetPosition();
-	sf::RectangleShape GetBoundary();
+	sf::FloatRect GetBoundary();
 	float GetTextureWidth();
 	float GetTextureHeight();
 	void SetPosition( sf::Vector2< float > newPosition );
