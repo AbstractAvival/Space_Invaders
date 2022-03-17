@@ -6,6 +6,7 @@ PlayerShip::PlayerShip( TextureCodex& textureCodex, sf::Vector2< float > positio
 {
 	sprites.emplace_back( sf::Sprite() );
 	sprites[ int( currentSprite ) ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::PlayerShip ) );
+	SetPosition( positionIn );
 }
 
 void PlayerShip::Update()

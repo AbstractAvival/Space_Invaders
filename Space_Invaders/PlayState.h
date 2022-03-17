@@ -2,6 +2,7 @@
 #include "GameState.h"
 #include "StateHandler.h"
 #include "EnemyManager.h"
+#include "PlayerManager.h"
 
 class PlayState : public GameState
 {
@@ -18,5 +19,8 @@ public:
 	void Render( float interpolation ) override;
 
 private:
+	static constexpr int stageWidth = 800;
+	static constexpr int stageHeight = 600;
 	EnemyManager enemyManager;
+	PlayerManager playerManager;
 };

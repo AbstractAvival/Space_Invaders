@@ -32,12 +32,12 @@ void PlayerManager::HandleUserInput( float frameTime )
 {
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
 	{
-		player->Move( sf::Vector2< float >( -1.0f, 0.0f ) );
+		player->Move( sf::Vector2< float >( -playerSpeed, 0.0f ) );
 	}
 
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) )
 	{
-		player->Move( sf::Vector2< float >( 1.0f, 0.0f ) );
+		player->Move( sf::Vector2< float >( playerSpeed, 0.0f ) );
 	}
 }
 
