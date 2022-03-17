@@ -8,13 +8,8 @@ PlayerShip::PlayerShip( TextureCodex& textureCodex, sf::Vector2< float > positio
 	sprites[ int( currentSprite ) ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::PlayerShip ) );
 }
 
-void PlayerShip::HandleInput()
-{
-}
-
 void PlayerShip::Update()
 {
-	HandleInput();
 }
 
 void PlayerShip::Render( sf::RenderWindow& window, float interpolation )

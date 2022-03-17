@@ -9,7 +9,6 @@ public:
 	PlayerShip( TextureCodex& textureCodex, sf::Vector2< float > positionIn );
 
 public:
-	void HandleInput();
 	void Update() override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
 
