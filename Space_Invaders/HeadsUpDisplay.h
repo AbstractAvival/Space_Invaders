@@ -16,7 +16,7 @@ private:
 	void LoadHighScore( string fileName );
 	void InitializeDisplayPositions();
 	void InitializeScoreDisplays( TextureCodex& textureCodex );
-	void InitializeLivesDisplay();
+	void InitializeLivesDisplay( TextureCodex& textureCodex );
 
 private:
 	vector< sf::Text > scoreFonts;
