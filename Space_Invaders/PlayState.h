@@ -3,6 +3,7 @@
 #include "StateHandler.h"
 #include "EnemyManager.h"
 #include "PlayerManager.h"
+#include "HeadsUpDisplay.h"
 
 class PlayState : public GameState
 {
@@ -19,6 +20,7 @@ public:
 	void Render( float interpolation ) override;
 
 private:
+	HeadsUpDisplay headsUpDisplay;
 	EnemyManager enemyManager;
 	PlayerManager playerManager;
 };

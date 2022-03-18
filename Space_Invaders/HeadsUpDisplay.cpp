@@ -1,7 +1,8 @@
 #include "HeadsUpDisplay.h"
 
-HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFileName )
+HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFileNameIn )
 	:
+	highScoreFileName( highScoreFileNameIn ),
 	currentScore( 0 ),
 	currentlives( 3 ),
 	highScore( 0 )
