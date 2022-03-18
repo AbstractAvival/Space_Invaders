@@ -1,7 +1,5 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <iostream>
-#include <fstream>
 #include "TextureCodex.h"
 using namespace std;
 
@@ -13,13 +11,17 @@ public:
 	void ModifyLives( int lifeOffset );
 
 private:
-	void LoadHighScore();
-	void InitializeScoreDisplays();
+	void LoadHighScore( string fileName );
+	void InitializeDisplayPositions();
+	void InitializeScoreDisplays( TextureCodex& textureCodex );
 	void InitializeLivesDisplay();
 
 private:
 	vector< sf::Text > scoreSprites;
 	vector< sf::Sprite > lives;
+	vector< sf::Vector2< float > > displayPositions;
+	const int maxScoreDisplays = 4;
+	const int maxLives = 5;
 	int highScore;
 	int currentScore;
 	int lives;
