@@ -150,6 +150,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="HeadsUpDisplay.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
     <ClCompile Include="PauseState.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameTextureTypes.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="HeadsUpDisplay.h" />
     <ClInclude Include="MainMenuSpriteTypes.h" />
     <ClInclude Include="MainMenuState.h" />
     <ClInclude Include="MovementDirections.h" />
