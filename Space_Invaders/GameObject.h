@@ -16,18 +16,18 @@ protected:
 	};
 
 protected:
-	GameObject( sf::Vector2< float > positionIn );
+	GameObject( sf::Vector2f positionIn );
 
 public:
 	virtual void Update() = 0;
 	virtual void Render( sf::RenderWindow& window, float interpolation ) = 0;
 
-	sf::Vector2< float > GetPosition();
+	sf::Vector2f GetPosition();
 	sf::FloatRect GetBoundary();
 	float GetTextureWidth();
 	float GetTextureHeight();
-	void SetPosition( sf::Vector2< float > newPosition );
-	void Move( sf::Vector2< float > offset );
+	void SetPosition( sf::Vector2f newPosition );
+	void Move( sf::Vector2f offset );
 	void Kill();
 	void Revive();
 	bool IsDead();
@@ -38,6 +38,6 @@ protected:
 protected:
 	Sprites currentSprite;
 	vector< sf::Sprite > sprites;
-	sf::Vector2< float > position;
+	sf::Vector2f position;
 	bool isDead;
 };

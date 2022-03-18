@@ -57,9 +57,9 @@ void HeadsUpDisplay::LoadHighScore( string fileName )
 
 void HeadsUpDisplay::InitializeDisplayPositions()
 {
-	displayPositions.emplace_back( sf::Vector2< float >( 25.0f, 5.0f ) );
-	displayPositions.emplace_back( sf::Vector2< float >( 350.0f, 5.0f ) );
-	displayPositions.emplace_back( sf::Vector2< float >( 25.0f, 570.0f ) );
+	displayPositions.emplace_back( sf::Vector2f( 25.0f, 5.0f ) );
+	displayPositions.emplace_back( sf::Vector2f( 350.0f, 5.0f ) );
+	displayPositions.emplace_back( sf::Vector2f( 25.0f, 570.0f ) );
 }
 
 void HeadsUpDisplay::InitializeScoreDisplays( TextureCodex& textureCodex )
@@ -77,10 +77,10 @@ void HeadsUpDisplay::InitializeScoreDisplays( TextureCodex& textureCodex )
 	scoreFonts[ 1 ].setPosition( displayPositions[ 1 ] );
 	scoreFonts[ 1 ].setString( "HIGH-SCORE" );
 
-	scoreFonts[ 2 ].setPosition( sf::Vector2< float >( displayPositions[ 0 ].x, displayPositions[ 0 ].y + 20.0f ) );
+	scoreFonts[ 2 ].setPosition( sf::Vector2f( displayPositions[ 0 ].x, displayPositions[ 0 ].y + 20.0f ) );
 	scoreFonts[ 2 ].setString( to_string( currentScore ) );
 
-	scoreFonts[ 3 ].setPosition( sf::Vector2< float >( displayPositions[ 1 ].x, displayPositions[ 1 ].y + 20.0f ) );
+	scoreFonts[ 3 ].setPosition( sf::Vector2f( displayPositions[ 1 ].x, displayPositions[ 1 ].y + 20.0f ) );
 }
 
 void HeadsUpDisplay::InitializeLivesDisplay( TextureCodex& textureCodex )

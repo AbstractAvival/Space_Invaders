@@ -26,9 +26,9 @@ private:
 	void HandleEnemyMovement( float frameTime );
 	void ResetEnemyPositions();
 	void DoOpeningFormation();
-	void MoveEnemies( sf::Vector2< float > direction );
+	void MoveEnemies( sf::Vector2f direction );
 	void SetMovementDirection();
-	sf::Vector2< float > GetMovementVector();
+	sf::Vector2f GetMovementVector();
 
 private:
 	static constexpr int enemyRowLength = 11;

@@ -86,7 +86,7 @@ void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
 
 void EnemyManager::CreateBoss( TextureCodex& textureCodex )
 {
-	sf::Vector2< float > enemyPosition = sf::Vector2< float >( -50.0f, -50.0f );
+	sf::Vector2f enemyPosition = sf::Vector2f( -50.0f, -50.0f );
 	boss = new Enemy( textureCodex, EnemyTypes::Boss, enemyPosition );
 }
 
@@ -96,7 +96,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 	{
 		for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
 		{
-			sf::Vector2< float > enemyPosition = sf::Vector2< float >( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
+			sf::Vector2f enemyPosition = sf::Vector2f( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
 			enemies[ columnIndex * enemyRowLength + rowIndex ] = new Enemy( textureCodex, desiredEnemyType, enemyPosition );
 			enemies[ columnIndex * enemyRowLength + rowIndex ]->Kill();
 		}
@@ -125,7 +125,7 @@ void EnemyManager::ResetEnemyPositions()
 	{
 		for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
 		{
-			sf::Vector2< float > enemyPosition = sf::Vector2< float >( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
+			sf::Vector2f enemyPosition = sf::Vector2f( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
 			enemies[ columnIndex * enemyRowLength + rowIndex ]->SetPosition( enemyPosition );
 		}
 	}
@@ -149,7 +149,7 @@ void EnemyManager::DoOpeningFormation()
 	}
 }
 
-void EnemyManager::MoveEnemies( sf::Vector2< float > direction )
+void EnemyManager::MoveEnemies( sf::Vector2f direction )
 {
 	for( int rowIndex = 0; rowIndex < enemyRowLength; rowIndex++ )
 	{
@@ -188,20 +188,20 @@ void EnemyManager::SetMovementDirection()
 	}
 }
 
-sf::Vector2< float > EnemyManager::GetMovementVector()
+sf::Vector2f EnemyManager::GetMovementVector()
 {
 	switch( currentMovementDirection )
 	{
 	case MovementDirections::LEFT:
-		return sf::Vector2< float >( -20.0f, 0.0f );
+		return sf::Vector2f( -20.0f, 0.0f );
 
 	case MovementDirections::RIGHT:
-		return sf::Vector2< float >( 20.0f, 0.0f );
+		return sf::Vector2f( 20.0f, 0.0f );
 
 	case MovementDirections::DOWN:
-		return sf::Vector2< float >( 0.0f, 20.0f );
+		return sf::Vector2f( 0.0f, 20.0f );
 
 	default:
-		return sf::Vector2< float >( 0.0f, 0.0f );
+		return sf::Vector2f( 0.0f, 0.0f );
 	}
 }

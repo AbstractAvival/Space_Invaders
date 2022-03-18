@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject( sf::Vector2< float > positionIn )
+GameObject::GameObject( sf::Vector2f positionIn )
 	:
 	isDead( false )
 {
@@ -8,7 +8,7 @@ GameObject::GameObject( sf::Vector2< float > positionIn )
 	SetPosition( positionIn );
 }
 
-sf::Vector2< float > GameObject::GetPosition()
+sf::Vector2f GameObject::GetPosition()
 {
 	return position;
 }
@@ -36,20 +36,20 @@ float GameObject::GetTextureHeight()
 	return 0.0f;
 }
 
-void GameObject::SetPosition( sf::Vector2< float > newPosition )
+void GameObject::SetPosition( sf::Vector2f newPosition )
 {
 	if( !sprites.empty() )
 	{
 		for( int spriteIndex = 0; spriteIndex < int( sprites.size() ); spriteIndex++ )
 		{
-			sf::Vector2< float > offsetPosition( newPosition.x - ( sprites[ spriteIndex ].getTexture()->getSize().x / 2 ), newPosition.y - ( sprites[ spriteIndex ].getTexture()->getSize().y  / 2 ) );
+			sf::Vector2f offsetPosition( newPosition.x - ( sprites[ spriteIndex ].getTexture()->getSize().x / 2 ), newPosition.y - ( sprites[ spriteIndex ].getTexture()->getSize().y  / 2 ) );
 			sprites[ spriteIndex ].setPosition( offsetPosition );
 		}
 	}
 	position = newPosition;
 }
 
-void GameObject::Move( sf::Vector2< float > offset )
+void GameObject::Move( sf::Vector2f offset )
 {
 	SetPosition( GetPosition() + offset );
 }

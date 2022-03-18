@@ -31,12 +31,12 @@ void PlayerManager::HandlePlayerInput()
 {
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
 	{
-		player->Move( sf::Vector2< float >( -playerSpeed, 0.0f ) );
+		player->Move( sf::Vector2f( -playerSpeed, 0.0f ) );
 	}
 
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) )
 	{
-		player->Move( sf::Vector2< float >( playerSpeed, 0.0f ) );
+		player->Move( sf::Vector2f( playerSpeed, 0.0f ) );
 	}
 }
 
@@ -44,11 +44,11 @@ void PlayerManager::ImposeStageBoundaryLimits( int stageWidth )
 {
 	if( player->GetBoundary().left < 0 )
 	{
-		player->SetPosition( sf::Vector2< float >( 0 + player->GetTextureWidth() / 2, player->GetPosition().y ) );
+		player->SetPosition( sf::Vector2f( 0 + player->GetTextureWidth() / 2, player->GetPosition().y ) );
 	}
 
 	if( player->GetBoundary().left + player->GetBoundary().width > stageWidth )
 	{
-		player->SetPosition( sf::Vector2< float >( stageWidth - player->GetTextureWidth() / 2, player->GetPosition().y ) );
+		player->SetPosition( sf::Vector2f( stageWidth - player->GetTextureWidth() / 2, player->GetPosition().y ) );
 	}
 }
