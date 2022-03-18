@@ -42,7 +42,7 @@ private:
 	MovementDirections currentMovementDirection;
 	bool executingOpeningFormation = true;
 	bool isGoingLeft = false;
-	float maxFrameTime = 0.2f;
+	float maxFrameTime = 0.15f;
 	float accumulatedFrameTime = 0.0f;
 	int horizontalMovementCount = 11;
 	int verticalMovementCount = 1;

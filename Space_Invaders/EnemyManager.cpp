@@ -105,7 +105,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 
 void EnemyManager::HandleEnemyMovement( float frameTime )
 {
-	if( !executingOpeningFormation  && accumulatedFrameTime > maxFrameTime )
+	if( !executingOpeningFormation && accumulatedFrameTime > maxFrameTime )
 	{
 		accumulatedFrameTime = 0.0f;
 		MoveEnemies( GetMovementVector() );
