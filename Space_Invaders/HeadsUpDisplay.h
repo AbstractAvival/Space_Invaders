@@ -7,6 +7,8 @@ class HeadsUpDisplay
 {
 public:
 	HeadsUpDisplay( TextureCodex& textureCodex );
+	void UpdateHUD();
+	void RenderHUD( sf::RenderWindow& window );
 	void ModifyScore( int scoreOffset );
 	void ModifyLives( int lifeOffset );
 
@@ -17,12 +19,12 @@ private:
 	void InitializeLivesDisplay();
 
 private:
-	vector< sf::Text > scoreSprites;
+	vector< sf::Text > scoreFonts;
 	vector< sf::Sprite > lives;
 	vector< sf::Vector2< float > > displayPositions;
 	const int maxScoreDisplays = 4;
 	const int maxLives = 5;
 	int highScore;
 	int currentScore;
-	int lives;
+	int currentlives;
 };
