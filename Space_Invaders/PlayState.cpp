@@ -21,6 +21,7 @@ void PlayState::Enter()
 
 void PlayState::HandleInput()
 {
+	playerManager.HandlePlayerInput();
 }
 
 void PlayState::UpdateLogic( float frameTime )
