@@ -19,12 +19,12 @@ void HeadsUpDisplay::UpdateHUD()
 
 void HeadsUpDisplay::RenderHUD( sf::RenderWindow& window )
 {
-	for( int currentFontIndex = 0; currentFontIndex < int( scoreFonts.size() ); currentFontIndex++ )
+	for( int currentTextIndex = 0; currentTextIndex < int( scoreFonts.size() ); currentTextIndex++ )
 	{
-		window.draw( scoreFonts[ currentFontIndex ] );
+		window.draw( scoreFonts[ currentTextIndex ] );
 	}
 
-	for( int currentLifeIndex = 0; currentLifeIndex < int( lives.size() );currentLifeIndex++ )
+	for( int currentLifeIndex = 0; currentLifeIndex < currentlives; currentLifeIndex++ )
 	{
 		window.draw( lives[ currentLifeIndex ] );
 	}
@@ -57,18 +57,18 @@ void HeadsUpDisplay::LoadHighScore( string fileName )
 
 void HeadsUpDisplay::InitializeDisplayPositions()
 {
-	displayPositions.emplace_back( sf::Vector2< float >( 25.0f, 25.0f ) );
-	displayPositions.emplace_back( sf::Vector2< float >( 370.0f, 25.0f ) );
+	displayPositions.emplace_back( sf::Vector2< float >( 25.0f, 5.0f ) );
+	displayPositions.emplace_back( sf::Vector2< float >( 350.0f, 5.0f ) );
 	displayPositions.emplace_back( sf::Vector2< float >( 25.0f, 570.0f ) );
 }
 
 void HeadsUpDisplay::InitializeScoreDisplays( TextureCodex& textureCodex )
 {
-	for( int currentFontIndex = 0; currentFontIndex < maxScoreDisplays; currentFontIndex++ )
+	for( int currentTextIndex = 0; currentTextIndex < maxScoreDisplays; currentTextIndex++ )
 	{
-		scoreFonts.emplace_back( sf::Font() );
-		scoreFonts[ currentFontIndex ].setFont( textureCodex.GetFont() );
-		scoreFonts[ currentFontIndex ].setCharacterSize( 35 );
+		scoreFonts.emplace_back( sf::Text() );
+		scoreFonts[ currentTextIndex ].setFont( textureCodex.GetFont() );
+		scoreFonts[ currentTextIndex ].setCharacterSize( characterSize );
 	}
 
 	scoreFonts[ 0 ].setPosition( displayPositions[ 0 ] );
@@ -77,10 +77,10 @@ void HeadsUpDisplay::InitializeScoreDisplays( TextureCodex& textureCodex )
 	scoreFonts[ 1 ].setPosition( displayPositions[ 1 ] );
 	scoreFonts[ 1 ].setString( "HIGH-SCORE" );
 
-	scoreFonts[ 2 ].setPosition( sf::Vector2< float >( displayPositions[ 0 ].x, displayPositions[ 0 ].y + 50.0f ) );
+	scoreFonts[ 2 ].setPosition( sf::Vector2< float >( displayPositions[ 0 ].x, displayPositions[ 0 ].y + 20.0f ) );
 	scoreFonts[ 2 ].setString( to_string( currentScore ) );
 
-	scoreFonts[ 3 ].setPosition( sf::Vector2< float >( displayPositions[ 1 ].x, displayPositions[ 1 ].y + 50.0f ) );
+	scoreFonts[ 3 ].setPosition( sf::Vector2< float >( displayPositions[ 1 ].x, displayPositions[ 1 ].y + 20.0f ) );
 }
 
 void HeadsUpDisplay::InitializeLivesDisplay( TextureCodex& textureCodex )
@@ -89,6 +89,6 @@ void HeadsUpDisplay::InitializeLivesDisplay( TextureCodex& textureCodex )
 	{
 		lives.emplace_back( sf::Sprite() );
 		lives[ currentLifeIndex ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::PlayerShip ) );
-		lives[ currentLifeIndex ].setPosition( { ( displayPositions[ 2 ].x * currentLifeIndex + 25.0f ), displayPositions[ 2 ].y } );
+		lives[ currentLifeIndex ].setPosition( { displayPositions[ 2 ].x + currentLifeIndex * 70.0f, displayPositions[ 2 ].y } );
 	}
 }

@@ -23,6 +23,7 @@ private:
 	vector< sf::Sprite > lives;
 	vector< sf::Vector2< float > > displayPositions;
 	string highScoreFileName;
+	const int characterSize = 15;
 	const int maxScoreDisplays = 4;
 	const int maxLives = 5;
 	int highScore;

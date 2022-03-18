@@ -33,6 +33,7 @@ void PlayState::UpdateLogic( float frameTime )
 
 void PlayState::Render( float interpolation )
 {
+	headsUpDisplay.RenderHUD( *window );
 	enemyManager.RenderEnemies( *window, interpolation );
 	playerManager.RenderPlayer( *window, interpolation );
 }
