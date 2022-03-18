@@ -6,7 +6,7 @@ using namespace std;
 class HeadsUpDisplay
 {
 public:
-	HeadsUpDisplay( TextureCodex& textureCodex );
+	HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFileName );
 	void UpdateHUD();
 	void RenderHUD( sf::RenderWindow& window );
 	void ModifyScore( int scoreOffset );

@@ -1,6 +1,6 @@
 #include "HeadsUpDisplay.h"
 
-HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex )
+HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFileName )
 	:
 	currentScore( 0 ),
 	currentlives( 3 ),
@@ -8,6 +8,7 @@ HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex )
 {
 	InitializeDisplayPositions();
 	InitializeScoreDisplays( textureCodex );
+	LoadHighScore( highScoreFileName );
 }
 
 void HeadsUpDisplay::UpdateHUD()
