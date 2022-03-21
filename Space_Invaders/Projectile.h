@@ -14,15 +14,13 @@ public:
 	};
 
 public:
-	Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool isShootingUpIn );
+	Projectile( TextureCodex& textureCodex, sf::Vector2f position );
 	void Update() override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
-	bool IsShootingUp();
 
 private:
 	void InitializeSprites( TextureCodex& textureCodex );
 
 private:
 	ProjectileStatus currentSprite;
-	bool isShootingUp;
 };

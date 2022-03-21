@@ -1,10 +1,9 @@
 #include "Projectile.h"
 
-Projectile::Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool isShootingUpIn )
+Projectile::Projectile( TextureCodex& textureCodex, sf::Vector2f position )
 	:
 	GameObject( position ),
-	currentSprite( ProjectileStatus::Normal ),
-	isShootingUp( isShootingUpIn )
+	currentSprite( ProjectileStatus::Normal )
 {
 	InitializeSprites( textureCodex );
 }
@@ -16,11 +15,6 @@ void Projectile::Update()
 void Projectile::Render( sf::RenderWindow& window, float interpolation )
 {
 	window.draw( sprites[ int( currentSprite ) ] );
-}
-
-bool Projectile::IsShootingUp()
-{
-	return isShootingUp;
 }
 
 void Projectile::InitializeSprites( TextureCodex& textureCodex )
