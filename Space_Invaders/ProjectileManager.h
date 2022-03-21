@@ -22,6 +22,8 @@ private:
 	TextureCodex* textureCodex;
 	vector< Projectile* > playerProjectiles;
 	vector< Projectile* > enemyProjectiles;
+	const float endingPlayerProjectilePosition = 70.0f;
+	const float endingEnemyProjectilePosition = 560.0f;
 	const float playerProjectileSpeed = 12.0f;
 	const float enemyProjectileSpeed = 8.0f;
 };

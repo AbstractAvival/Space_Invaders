@@ -22,7 +22,7 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::Update()
+void Enemy::Update( float frameTime )
 {
 }
 
@@ -81,13 +81,4 @@ void Enemy::LoadTierThreeSprites( TextureCodex& textureCodex )
 {
 	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyThirdFirst, GameTextureTypes::EnemyThirdSecond, GameTextureTypes::Explosion };
 	LoadSprites( textureCodex, spriteTypes );
-}
-
-void Enemy::LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] )
-{
-	for( int spriteIndex = 0; spriteIndex < 3; spriteIndex++ )
-	{
-		sprites.emplace_back( sf::Sprite() );
-		sprites[ spriteIndex ].setTexture( textureCodex.GetGameTexture( types[ spriteIndex ] ) );
-	}
 }

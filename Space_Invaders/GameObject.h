@@ -19,13 +19,13 @@ protected:
 	GameObject( sf::Vector2f positionIn );
 
 public:
-	virtual void Update() = 0;
+	virtual void Update( float frameTime ) = 0;
 	virtual void Render( sf::RenderWindow& window, float interpolation ) = 0;
 
 	sf::Vector2f GetPosition();
-	sf::FloatRect GetBoundary();
-	float GetTextureWidth();
-	float GetTextureHeight();
+	virtual sf::FloatRect GetBoundary();
+	virtual float GetTextureWidth();
+	virtual float GetTextureHeight();
 	void SetPosition( sf::Vector2f newPosition );
 	void Move( sf::Vector2f offset );
 	void Kill();
@@ -33,6 +33,7 @@ public:
 	bool IsDead();
 
 protected:
+	virtual void LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] );
 	void LoadTestSprite( TextureCodex& textureCodex );
 
 protected:

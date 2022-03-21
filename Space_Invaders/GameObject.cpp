@@ -69,6 +69,15 @@ bool GameObject::IsDead()
 	return isDead;
 }
 
+void GameObject::LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] )
+{
+	for( int spriteIndex = 0; spriteIndex < 3; spriteIndex++ )
+	{
+		sprites.emplace_back( sf::Sprite() );
+		sprites[ spriteIndex ].setTexture( textureCodex.GetGameTexture( types[ spriteIndex ] ) );
+	}
+}
+
 void GameObject::LoadTestSprite( TextureCodex& textureCodex )
 {
 	sprites.emplace_back( sf::Sprite() );

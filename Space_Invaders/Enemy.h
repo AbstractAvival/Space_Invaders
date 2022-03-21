@@ -12,7 +12,7 @@ public:
 	~Enemy();
 
 public:
-	void Update() override;
+	void Update( float frameTime ) override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
 
 private:
@@ -21,7 +21,6 @@ private:
 	void LoadTierOneSprites( TextureCodex& textureCodex );
 	void LoadTierTwoSprites( TextureCodex& textureCodex );
 	void LoadTierThreeSprites( TextureCodex& textureCodex );
-	void LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] );
 
 private:
 	EnemyTypes enemyType;

@@ -14,13 +14,22 @@ public:
 	};
 
 public:
-	Projectile( TextureCodex& textureCodex, sf::Vector2f position );
-	void Update() override;
+	Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool isPlayerProjectile );
+	void Update( float frameTime ) override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
+	sf::FloatRect GetBoundary() override;
+	float GetTextureWidth() override;
+	float GetTextureHeight() override;
+	void Explode();
 
 private:
-	void InitializeSprites( TextureCodex& textureCodex );
+	void InitializeSprites( TextureCodex& textureCodex, bool isPlayerProjectile );
+	void InitializePlayerSprites( TextureCodex& textureCodex );
+	void InitializeEnemySprites( TextureCodex& textureCodex );
+	void DoExplodingAnimation( float frameTime );
 
 private:
-	ProjectileStatus currentSprite;
+	ProjectileStatus projectileStatus;
+	bool isDoingEndingAnimation;
+	float remainingTime;
 };

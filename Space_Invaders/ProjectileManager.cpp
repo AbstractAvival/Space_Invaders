@@ -9,12 +9,18 @@ void ProjectileManager::UpdateProjectiles()
 {
 	for( auto playerProjectile : playerProjectiles )
 	{
-		playerProjectile->Move( sf::Vector2f( 0.0f, -playerProjectileSpeed ) );
+		if( !playerProjectile->IsDead() )
+		{
+			playerProjectile->Move( sf::Vector2f( 0.0f, -playerProjectileSpeed ) );
+		}
 	}
 
 	for( auto enemyProjectile : enemyProjectiles )
 	{
-		enemyProjectile->Move( sf::Vector2f( 0.0f, enemyProjectileSpeed ) );
+		if( !enemyProjectile->IsDead() )
+		{
+			enemyProjectile->Move( sf::Vector2f( 0.0f, enemyProjectileSpeed ) );
+		}
 	}
 }
 
@@ -33,7 +39,5 @@ void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 void ProjectileManager::HandlePlayerProjectiles()
 {
 	for( auto currentProjectile = playerProjectiles.begin(); currentProjectile != playerProjectiles.end(); )
-	{
-
-	}
+	{}
 }

@@ -9,7 +9,7 @@ PlayerShip::PlayerShip( TextureCodex& textureCodex, sf::Vector2< float > positio
 	SetPosition( positionIn );
 }
 
-void PlayerShip::Update()
+void PlayerShip::Update( float frameTime )
 {
 }
 
