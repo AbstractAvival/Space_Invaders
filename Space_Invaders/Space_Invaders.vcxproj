@@ -157,6 +157,7 @@
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="PlayerShip.cpp" />
     <ClCompile Include="PlayState.cpp" />
+    <ClCompile Include="ProjectileManager.cpp" />
     <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="StateHandler.cpp" />
     <ClCompile Include="TextureCodex.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="PlayerManager.h" />
     <ClInclude Include="PlayerShip.h" />
     <ClInclude Include="PlayState.h" />
+    <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="SettingsState.h" />
     <ClInclude Include="TextureCodex.h" />
     <ClInclude Include="StateHandler.h" />
