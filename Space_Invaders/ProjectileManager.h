@@ -12,6 +12,9 @@ public:
 	void UpdateProjectiles();
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
 
+public:
+	void ShootPlayerProjectile( sf::Vector2f position );
+
 private:
 	TextureCodex* textureCodex;
 	vector< GameObject* > playerProjectiles;

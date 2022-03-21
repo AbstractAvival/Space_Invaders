@@ -16,3 +16,7 @@ void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float inter
 		playerProjectile->Render( window, interpolation );
 	}
 }
+
+void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
+{
+}
