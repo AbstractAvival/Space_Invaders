@@ -33,7 +33,7 @@ public:
 	bool IsDead();
 
 protected:
-	virtual void LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] );
+	void LoadSprites( TextureCodex& textureCodex, GameTextureTypes types[ 3 ] );
 	void LoadTestSprite( TextureCodex& textureCodex );
 
 protected:

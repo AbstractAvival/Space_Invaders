@@ -11,5 +11,11 @@ enum class GameTextureTypes
 	EnemyTwoSecond,
 	EnemyThirdFirst,
 	EnemyThirdSecond,
-	Explosion
+	Explosion,
+	PlayerProjectileNormal,
+	PlayerProyectileHeated,
+	PlayerProjectileExploded,
+	EnemyProjectileNormal,
+	EnemyProjectileHeated,
+	EnemyProjectileExploded
 };

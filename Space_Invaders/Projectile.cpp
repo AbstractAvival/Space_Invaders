@@ -7,7 +7,7 @@ Projectile::Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool 
 	isDoingEndingAnimation( false ),
 	remainingTime( 0.5f )
 {
-	InitializeSprites( textureCodex );
+	InitializeSprites( textureCodex, isPlayerProjectile );
 }
 
 void Projectile::Update( float frameTime )
@@ -63,10 +63,14 @@ void Projectile::InitializeSprites( TextureCodex& textureCodex, bool isPlayerPro
 
 void Projectile::InitializePlayerSprites( TextureCodex& textureCodex )
 {
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::PlayerProjectileNormal, GameTextureTypes::PlayerProyectileHeated, GameTextureTypes::PlayerProjectileExploded };
+	LoadSprites( textureCodex, spriteTypes );
 }
 
 void Projectile::InitializeEnemySprites( TextureCodex& textureCodex )
 {
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyProjectileNormal, GameTextureTypes::EnemyProjectileHeated, GameTextureTypes::EnemyProjectileExploded };
+	LoadSprites( textureCodex, spriteTypes );
 }
 
 void Projectile::DoExplodingAnimation( float frameTime )
