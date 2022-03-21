@@ -4,6 +4,7 @@ enum class GameTextureTypes
 {
 	WhiteBox,
 	PlayerShip,
+	PlayerShipReduced,
 	EnemyOneFirst,
 	EnemyOneSecond,
 	EnemyTwoFirst,
