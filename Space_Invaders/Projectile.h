@@ -17,11 +17,12 @@ public:
 	Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool isShootingUpIn );
 	void Update() override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
+	bool IsShootingUp();
 
 private:
-	void InitializeSprites();
+	void InitializeSprites( TextureCodex& textureCodex );
 
 private:
-	float projectileSpeed;
+	ProjectileStatus currentSprite;
 	bool isShootingUp;
 };

@@ -7,6 +7,15 @@ ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn )
 
 void ProjectileManager::UpdateProjectiles()
 {
+	for( auto playerProjectile : playerProjectiles )
+	{
+		playerProjectile->Move( sf::Vector2f( 0.0f, -playerProjectileSpeed ) );
+	}
+
+	for( auto enemyProjectile : enemyProjectiles )
+	{
+		enemyProjectile->Move( sf::Vector2f( 0.0f, enemyProjectileSpeed ) );
+	}
 }
 
 void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float interpolation )
@@ -19,4 +28,12 @@ void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float inter
 
 void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 {
+}
+
+void ProjectileManager::HandlePlayerProjectiles()
+{
+	for( auto currentProjectile = playerProjectiles.begin(); currentProjectile != playerProjectiles.end(); )
+	{
+
+	}
 }

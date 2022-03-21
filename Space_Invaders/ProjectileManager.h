@@ -2,7 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "TextureCodex.h"
-#include "GameObject.h"
+#include "Projectile.h"
 using namespace std;
 
 class ProjectileManager
@@ -16,6 +16,12 @@ public:
 	void ShootPlayerProjectile( sf::Vector2f position );
 
 private:
+	void HandlePlayerProjectiles();
+
+private:
 	TextureCodex* textureCodex;
-	vector< GameObject* > playerProjectiles;
+	vector< Projectile* > playerProjectiles;
+	vector< Projectile* > enemyProjectiles;
+	const float playerProjectileSpeed = 12.0f;
+	const float enemyProjectileSpeed = 8.0f;
 };
