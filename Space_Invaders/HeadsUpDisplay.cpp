@@ -88,7 +88,7 @@ void HeadsUpDisplay::InitializeLivesDisplay( TextureCodex& textureCodex )
 	for( int currentLifeIndex = 0; currentLifeIndex < maxLives; currentLifeIndex++ )
 	{
 		lives.emplace_back( sf::Sprite() );
-		lives[ currentLifeIndex ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::PlayerShip ) );
+		lives[ currentLifeIndex ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::PlayerShipReduced ) );
 		lives[ currentLifeIndex ].setPosition( { displayPositions[ 2 ].x + currentLifeIndex * 70.0f, displayPositions[ 2 ].y } );
 	}
 }
