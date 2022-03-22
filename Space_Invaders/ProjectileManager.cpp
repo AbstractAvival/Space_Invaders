@@ -16,6 +16,8 @@ void ProjectileManager::UpdateProjectiles( float frameTime )
 	{
 		enemyProjectile->Update( frameTime );
 	}
+
+	HandlePlayerProjectiles();
 }
 
 void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float interpolation )
