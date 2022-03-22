@@ -8,10 +8,16 @@ Projectile::Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool 
 	remainingTime( 0.5f )
 {
 	InitializeSprites( textureCodex, isPlayerProjectile );
+	SetPosition( position );
+	SetVelocity( isPlayerProjectile );
 }
 
 void Projectile::Update( float frameTime )
 {
+	if( !IsDead() && !isDoingEndingAnimation )
+	{
+		Move( projectileVelocity );
+	}
 	DoExplodingAnimation( frameTime );
 }
 
@@ -43,6 +49,11 @@ float Projectile::GetTextureHeight()
 	return 0.0f;
 }
 
+void Projectile::ChangeStatus( ProjectileStatus newStatus )
+{
+	projectileStatus = newStatus;
+}
+
 void Projectile::Explode()
 {
 	projectileStatus = ProjectileStatus::Exploded;
@@ -71,6 +82,18 @@ void Projectile::InitializeEnemySprites( TextureCodex& textureCodex )
 {
 	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyProjectileNormal, GameTextureTypes::EnemyProjectileHeated, GameTextureTypes::EnemyProjectileExploded };
 	LoadSprites( textureCodex, spriteTypes );
+}
+
+void Projectile::SetVelocity( bool isPlayerProjectile )
+{
+	if( isPlayerProjectile )
+	{
+		projectileVelocity = sf::Vector2f( 0.0f, 12.0f );
+	}
+	else
+	{
+		projectileVelocity = sf::Vector2f( 0.0f, -8.0f );
+	}
 }
 
 void Projectile::DoExplodingAnimation( float frameTime )

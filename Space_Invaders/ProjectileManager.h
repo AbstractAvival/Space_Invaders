@@ -9,7 +9,7 @@ class ProjectileManager
 {
 public:
 	ProjectileManager( TextureCodex& textureCodexIn );
-	void UpdateProjectiles();
+	void UpdateProjectiles( float frameTime );
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
 
 public:
@@ -24,6 +24,4 @@ private:
 	vector< Projectile* > enemyProjectiles;
 	const float endingPlayerProjectilePosition = 70.0f;
 	const float endingEnemyProjectilePosition = 560.0f;
-	const float playerProjectileSpeed = 12.0f;
-	const float enemyProjectileSpeed = 8.0f;
 };

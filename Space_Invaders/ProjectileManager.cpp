@@ -5,22 +5,16 @@ ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn )
 	textureCodex( &textureCodexIn )
 {}
 
-void ProjectileManager::UpdateProjectiles()
+void ProjectileManager::UpdateProjectiles( float frameTime )
 {
 	for( auto playerProjectile : playerProjectiles )
 	{
-		if( !playerProjectile->IsDead() )
-		{
-			playerProjectile->Move( sf::Vector2f( 0.0f, -playerProjectileSpeed ) );
-		}
+		playerProjectile->Update( frameTime );
 	}
 
 	for( auto enemyProjectile : enemyProjectiles )
 	{
-		if( !enemyProjectile->IsDead() )
-		{
-			enemyProjectile->Move( sf::Vector2f( 0.0f, enemyProjectileSpeed ) );
-		}
+		enemyProjectile->Update( frameTime );
 	}
 }
 
@@ -39,5 +33,15 @@ void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 void ProjectileManager::HandlePlayerProjectiles()
 {
 	for( auto currentProjectile = playerProjectiles.begin(); currentProjectile != playerProjectiles.end(); )
-	{}
+	{
+		if( ( *currentProjectile )->GetPosition().y <= 200.0f )
+		{
+			( *currentProjectile )->ChangeStatus( Projectile::ProjectileStatus::Heated );
+		}
+
+		if( ( *currentProjectile )->GetPosition().y <= 75.0f )
+		{
+			( *currentProjectile )->Explode();
+		}
+	}
 }

@@ -20,16 +20,19 @@ public:
 	sf::FloatRect GetBoundary() override;
 	float GetTextureWidth() override;
 	float GetTextureHeight() override;
+	void ChangeStatus( ProjectileStatus newStatus );
 	void Explode();
 
 private:
 	void InitializeSprites( TextureCodex& textureCodex, bool isPlayerProjectile );
 	void InitializePlayerSprites( TextureCodex& textureCodex );
 	void InitializeEnemySprites( TextureCodex& textureCodex );
+	void SetVelocity( bool isPlayerProjectile );
 	void DoExplodingAnimation( float frameTime );
 
 private:
 	ProjectileStatus projectileStatus;
+	sf::Vector2f projectileVelocity;
 	bool isDoingEndingAnimation;
 	float remainingTime;
 };
