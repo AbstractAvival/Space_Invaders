@@ -5,6 +5,21 @@ ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn )
 	textureCodex( &textureCodexIn )
 {}
 
+ProjectileManager::~ProjectileManager()
+{
+	for( auto projectile : playerProjectiles )
+	{
+		delete projectile;
+		projectile = nullptr;
+	}
+
+	for( auto projectile : enemyProjectiles )
+	{
+		delete projectile;
+		projectile = nullptr;
+	}
+}
+
 void ProjectileManager::UpdateProjectiles( float frameTime )
 {
 	for( auto playerProjectile : playerProjectiles )

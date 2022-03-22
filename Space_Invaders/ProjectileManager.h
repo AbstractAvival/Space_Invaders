@@ -9,6 +9,7 @@ class ProjectileManager
 {
 public:
 	ProjectileManager( TextureCodex& textureCodexIn );
+	~ProjectileManager();
 	void UpdateProjectiles( float frameTime );
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
 
