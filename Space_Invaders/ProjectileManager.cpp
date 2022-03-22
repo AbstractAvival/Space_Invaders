@@ -45,6 +45,7 @@ void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float inter
 
 void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 {
+	playerProjectiles.emplace_back( new Projectile( *textureCodex, position, true ) );
 }
 
 void ProjectileManager::HandlePlayerProjectiles()
