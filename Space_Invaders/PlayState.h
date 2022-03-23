@@ -4,6 +4,7 @@
 #include "EnemyManager.h"
 #include "PlayerManager.h"
 #include "HeadsUpDisplay.h"
+#include "ProjectileManager.h"
 
 class PlayState : public GameState
 {
@@ -21,6 +22,7 @@ public:
 
 private:
 	HeadsUpDisplay headsUpDisplay;
+	ProjectileManager projectileManager;
 	EnemyManager enemyManager;
 	PlayerManager playerManager;
 };
