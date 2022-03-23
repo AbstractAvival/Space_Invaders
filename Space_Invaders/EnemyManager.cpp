@@ -2,6 +2,7 @@
 
 EnemyManager::EnemyManager()
 	:
+	randomNumberGenerator( RandomNumberGenerator() ),
 	openingFormationX( enemyRowLength - 1 ),
 	openingFormationY( enemyColumnHeight - 1 ),
 	movementXIndex( openingFormationX ),
@@ -17,6 +18,7 @@ EnemyManager::EnemyManager()
 
 EnemyManager::EnemyManager( TextureCodex& textureCodex )
 	:
+	randomNumberGenerator( RandomNumberGenerator() ),
 	openingFormationX( enemyRowLength - 1 ),
 	openingFormationY( enemyColumnHeight - 1 ),
 	movementXIndex( openingFormationX ),
@@ -71,6 +73,10 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 
 Enemy EnemyManager::GetRandomFrontlineEnemy()
 {
+	for( int yAxis = 4; yAxis > -1; yAxis-- )
+	{
+		//TODO
+	}
 	return Enemy();
 }
 
