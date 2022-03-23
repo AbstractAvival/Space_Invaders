@@ -5,7 +5,7 @@ Projectile::Projectile( TextureCodex& textureCodex, sf::Vector2f position, bool 
 	GameObject( position ),
 	projectileStatus( ProjectileStatus::Normal ),
 	isDoingEndingAnimation( false ),
-	remainingTime( 0.5f )
+	remainingTime( 0.15f )
 {
 	InitializeSprites( textureCodex, isPlayerProjectile );
 	SetPosition( position );
@@ -88,7 +88,7 @@ void Projectile::SetVelocity( bool isPlayerProjectile )
 {
 	if( isPlayerProjectile )
 	{
-		projectileVelocity = sf::Vector2f( 0.0f, -12.0f );
+		projectileVelocity = sf::Vector2f( 0.0f, -16.0f );
 	}
 	else
 	{

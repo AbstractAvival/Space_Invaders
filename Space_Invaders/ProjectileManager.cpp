@@ -22,6 +22,9 @@ ProjectileManager::~ProjectileManager()
 
 void ProjectileManager::UpdateProjectiles( float frameTime )
 {
+	playerProjectileCooldown -= frameTime;
+	HandlePlayerProjectiles();
+
 	for( auto playerProjectile : playerProjectiles )
 	{
 		playerProjectile->Update( frameTime );
@@ -31,8 +34,6 @@ void ProjectileManager::UpdateProjectiles( float frameTime )
 	{
 		enemyProjectile->Update( frameTime );
 	}
-
-	HandlePlayerProjectiles();
 }
 
 void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float interpolation )
@@ -45,7 +46,11 @@ void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float inter
 
 void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 {
-	playerProjectiles.emplace_back( new Projectile( *textureCodex, position, true ) );
+	if( playerProjectiles.size() < 1 && playerProjectileCooldown <= 0.0f )
+	{
+		playerProjectiles.emplace_back( new Projectile( *textureCodex, position, true ) );
+		playerProjectileCooldown = 0.15f;
+	}
 }
 
 void ProjectileManager::HandlePlayerProjectiles()
