@@ -64,6 +64,7 @@ void ProjectileManager::HandlePlayerProjectiles()
 
 		if( ( *currentProjectile )->IsDead() )
 		{
+			delete ( *currentProjectile );
 			currentProjectile = playerProjectiles.erase( currentProjectile );
 		}
 		else

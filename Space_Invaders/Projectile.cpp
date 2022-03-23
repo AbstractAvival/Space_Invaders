@@ -88,11 +88,11 @@ void Projectile::SetVelocity( bool isPlayerProjectile )
 {
 	if( isPlayerProjectile )
 	{
-		projectileVelocity = sf::Vector2f( 0.0f, 12.0f );
+		projectileVelocity = sf::Vector2f( 0.0f, -12.0f );
 	}
 	else
 	{
-		projectileVelocity = sf::Vector2f( 0.0f, -8.0f );
+		projectileVelocity = sf::Vector2f( 0.0f, 8.0f );
 	}
 }
 
