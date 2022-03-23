@@ -8,3 +8,6 @@ EnemyTwoSecond.png
 EnemyThreeFirst.png
 EnemyThreeSecond.png
 Explosion.png
+PlayerProjectileNormal.png
+PlayerProjectileHeated.png
+PlayerProjectileExploded.png
