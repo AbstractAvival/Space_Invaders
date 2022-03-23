@@ -23,7 +23,7 @@ void Projectile::Update( float frameTime )
 
 void Projectile::Render( sf::RenderWindow& window, float interpolation )
 {
-	window.draw( sprites[ int( currentSprite ) ] );
+	window.draw( sprites[ int( projectileStatus ) ] );
 }
 
 sf::FloatRect Projectile::GetBoundary()
