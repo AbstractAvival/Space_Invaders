@@ -4,6 +4,7 @@
 #include "TextureCodex.h"
 #include "MovementDirections.h"
 #include "Enemy.h"
+#include "RandomNumberGenerator.h"
 using namespace std;
 
 class EnemyManager
@@ -41,6 +42,7 @@ private:
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
 	MovementDirections currentMovementDirection;
+	RandomNumberGenerator randomNumberGenerator;
 	bool executingOpeningFormation = true;
 	bool isGoingLeft = false;
 	float maxFrameTime = 0.13f;
