@@ -27,7 +27,7 @@ void PlayerManager::RenderPlayer( sf::RenderWindow& window, float interpolation 
 	player->Render( window, interpolation );
 }
 
-void PlayerManager::HandlePlayerInput()
+void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager )
 {
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
 	{
@@ -37,6 +37,11 @@ void PlayerManager::HandlePlayerInput()
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) )
 	{
 		player->Move( sf::Vector2f( playerSpeed, 0.0f ) );
+	}
+
+	if( sf::Keyboard::isKeyPressed( sf::Keyboard::S ) )
+	{
+		projectileManager.ShootPlayerProjectile( player->GetPosition() );
 	}
 }
 

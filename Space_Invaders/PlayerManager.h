@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "TextureCodex.h"
 #include "PlayerShip.h"
+#include "ProjectileManager.h"
 
 class PlayerManager
 {
@@ -11,7 +12,7 @@ public:
 	~PlayerManager();
 
 	void ResetPlayer();
-	void HandlePlayerInput();
+	void HandlePlayerInput( ProjectileManager& projectileManager );
 	void UpdatePlayer( int stageWidth );
 	void RenderPlayer( sf::RenderWindow& window, float interpolation );
 

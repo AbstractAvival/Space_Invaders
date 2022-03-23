@@ -23,18 +23,20 @@ void PlayState::Enter()
 
 void PlayState::HandleInput()
 {
-	playerManager.HandlePlayerInput();
+	playerManager.HandlePlayerInput( projectileManager );
 }
 
 void PlayState::UpdateLogic( float frameTime )
 {
 	enemyManager.UpdateEnemies( frameTime );
 	playerManager.UpdatePlayer( maxScreenWidth );
+	projectileManager.UpdateProjectiles( frameTime );
 }
 
 void PlayState::Render( float interpolation )
 {
 	headsUpDisplay.RenderHUD( *window );
 	enemyManager.RenderEnemies( *window, interpolation );
+	projectileManager.RenderProjectiles( *window, interpolation );
 	playerManager.RenderPlayer( *window, interpolation );
 }
