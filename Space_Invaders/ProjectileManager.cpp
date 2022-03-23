@@ -57,6 +57,11 @@ void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 
 void ProjectileManager::ShootEnemyProjectile()
 {
+	if( enemyProjectileCooldown <= 0.0f )
+	{
+		enemyProjectiles.emplace_back( new Projectile( *textureCodex, enemyManager->GetRandomFrontlineEnemy().GetPosition(), false ) );
+		enemyProjectileCooldown = 0.02f;
+	}
 }
 
 void ProjectileManager::HandlePlayerProjectiles()

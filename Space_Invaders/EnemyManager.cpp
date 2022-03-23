@@ -69,6 +69,11 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 	}
 }
 
+Enemy EnemyManager::GetRandomFrontlineEnemy()
+{
+	return Enemy();
+}
+
 void EnemyManager::CreateTierOneEnemies( TextureCodex& textureCodex )
 {
 	CreateEnemies( textureCodex, EnemyTypes::TierOne, 3, 5 );
