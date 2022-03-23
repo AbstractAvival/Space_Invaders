@@ -1,8 +1,9 @@
 #include "ProjectileManager.h"
 
-ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn )
+ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn )
 	:
-	textureCodex( &textureCodexIn )
+	textureCodex( &textureCodexIn ),
+	enemyManager( &enemyManagerIn )
 {}
 
 ProjectileManager::~ProjectileManager()
@@ -24,6 +25,7 @@ void ProjectileManager::UpdateProjectiles( float frameTime )
 {
 	playerProjectileCooldown -= frameTime;
 	HandlePlayerProjectiles();
+	HandleEnemyProjectiles();
 
 	for( auto playerProjectile : playerProjectiles )
 	{
@@ -53,6 +55,10 @@ void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 	}
 }
 
+void ProjectileManager::ShootEnemyProjectile()
+{
+}
+
 void ProjectileManager::HandlePlayerProjectiles()
 {
 	for( auto currentProjectile = playerProjectiles.begin(); currentProjectile != playerProjectiles.end(); )
@@ -71,6 +77,32 @@ void ProjectileManager::HandlePlayerProjectiles()
 		{
 			delete ( *currentProjectile );
 			currentProjectile = playerProjectiles.erase( currentProjectile );
+		}
+		else
+		{
+			++currentProjectile;
+		}
+	}
+}
+
+void ProjectileManager::HandleEnemyProjectiles()
+{
+	for( auto currentProjectile = enemyProjectiles.begin(); currentProjectile != enemyProjectiles.end(); )
+	{
+		if( ( *currentProjectile )->GetPosition().y >= 475.0f )
+		{
+			( *currentProjectile )->ChangeStatus( Projectile::ProjectileStatus::Heated );
+		}
+
+		if( ( *currentProjectile )->GetPosition().y >= 575.0f )
+		{
+			( *currentProjectile )->Explode();
+		}
+
+		if( ( *currentProjectile )->IsDead() )
+		{
+			delete ( *currentProjectile );
+			currentProjectile = enemyProjectiles.erase( currentProjectile );
 		}
 		else
 		{

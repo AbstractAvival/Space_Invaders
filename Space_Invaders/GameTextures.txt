@@ -11,3 +11,6 @@ Explosion.png
 PlayerProjectileNormal.png
 PlayerProjectileHeated.png
 PlayerProjectileExploded.png
+EnemyProjectileNormal.png
+EnemyProjectileHeated.png
+EnemyProjectileExploded.png
