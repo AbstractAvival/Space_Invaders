@@ -36,6 +36,8 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 
 void Enemy::Move( sf::Vector2f offset )
 {
+	SwapMovementSprite();
+	GameObject::Move( offset );
 }
 
 void Enemy::InitializeSprites( TextureCodex& textureCodex )
