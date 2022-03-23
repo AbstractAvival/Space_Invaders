@@ -52,7 +52,7 @@ void ProjectileManager::HandlePlayerProjectiles()
 {
 	for( auto currentProjectile = playerProjectiles.begin(); currentProjectile != playerProjectiles.end(); )
 	{
-		if( ( *currentProjectile )->GetPosition().y <= 200.0f )
+		if( ( *currentProjectile )->GetPosition().y <= 150.0f )
 		{
 			( *currentProjectile )->ChangeStatus( Projectile::ProjectileStatus::Heated );
 		}
