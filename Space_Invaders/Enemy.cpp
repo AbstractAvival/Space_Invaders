@@ -34,6 +34,10 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 	}
 }
 
+void Enemy::Move( sf::Vector2f offset )
+{
+}
+
 void Enemy::InitializeSprites( TextureCodex& textureCodex )
 {
 	switch( enemyType )
@@ -82,4 +86,16 @@ void Enemy::LoadTierThreeSprites( TextureCodex& textureCodex )
 {
 	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::EnemyThirdFirst, GameTextureTypes::EnemyThirdSecond, GameTextureTypes::Explosion };
 	LoadSprites( textureCodex, spriteTypes );
+}
+
+void Enemy::SwapMovementSprite()
+{
+	if( currentSprite == Sprites::Contract )
+	{
+		currentSprite = Sprites::Expand;
+	}
+	else if( currentSprite == Sprites::Expand )
+	{
+		currentSprite = Sprites::Contract;
+	}
 }

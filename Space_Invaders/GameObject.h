@@ -27,7 +27,7 @@ public:
 	virtual float GetTextureWidth();
 	virtual float GetTextureHeight();
 	void SetPosition( sf::Vector2f newPosition );
-	void Move( sf::Vector2f offset );
+	virtual void Move( sf::Vector2f offset );
 	void Kill();
 	void Revive();
 	bool IsDead();

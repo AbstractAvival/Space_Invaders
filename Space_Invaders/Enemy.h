@@ -14,6 +14,7 @@ public:
 public:
 	void Update( float frameTime ) override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
+	void Move( sf::Vector2f offset ) override;
 
 private:
 	void InitializeSprites( TextureCodex& textureCodex );
@@ -21,6 +22,7 @@ private:
 	void LoadTierOneSprites( TextureCodex& textureCodex );
 	void LoadTierTwoSprites( TextureCodex& textureCodex );
 	void LoadTierThreeSprites( TextureCodex& textureCodex );
+	void SwapMovementSprite();
 
 private:
 	EnemyTypes enemyType;
