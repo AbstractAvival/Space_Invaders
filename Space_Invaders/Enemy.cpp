@@ -48,6 +48,7 @@ void Enemy::InitializeSprites( TextureCodex& textureCodex )
 
 	case EnemyTypes::TierTwo:
 		LoadTierTwoSprites( textureCodex );
+		break;
 
 	case EnemyTypes::TierThree:
 		LoadTierThreeSprites( textureCodex );

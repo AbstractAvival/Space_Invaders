@@ -71,17 +71,17 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 
 void EnemyManager::CreateTierOneEnemies( TextureCodex& textureCodex )
 {
-	CreateEnemies( textureCodex, EnemyTypes::TestEnemy, 3, 5 );
+	CreateEnemies( textureCodex, EnemyTypes::TierOne, 3, 5 );
 }
 
 void EnemyManager::CreateTierTwoEnemies( TextureCodex& textureCodex )
 {
-	CreateEnemies( textureCodex, EnemyTypes::TestEnemy, 1, 3 );
+	CreateEnemies( textureCodex, EnemyTypes::TierTwo, 1, 3 );
 }
 
 void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
 {
-	CreateEnemies( textureCodex, EnemyTypes::TestEnemy, 0, 1 );
+	CreateEnemies( textureCodex, EnemyTypes::TierThree, 0, 1 );
 }
 
 void EnemyManager::CreateBoss( TextureCodex& textureCodex )
