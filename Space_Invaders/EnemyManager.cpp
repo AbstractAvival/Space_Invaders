@@ -174,17 +174,15 @@ void EnemyManager::SetMovementDirection()
 		if( isGoingLeft )
 		{
 			currentMovementDirection = MovementDirections::RIGHT;
-			horizontalMovementCount = 11;
-			verticalMovementCount = 1;
-			isGoingLeft = !isGoingLeft;
 		}
 		else
 		{
 			currentMovementDirection = MovementDirections::LEFT;
-			horizontalMovementCount = 11;
-			verticalMovementCount = 1;
-			isGoingLeft = !isGoingLeft;
 		}
+
+		horizontalMovementCount = 14;
+		verticalMovementCount = 1;
+		isGoingLeft = !isGoingLeft;
 	}
 }
 

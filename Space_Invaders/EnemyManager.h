@@ -33,18 +33,18 @@ private:
 private:
 	static constexpr int enemyRowLength = 11;
 	static constexpr int enemyColumnHeight = 5;
-	static constexpr float horizontalSeparationDistance = 45.0f;
-	static constexpr float verticalSeparationDistance = 40.0f;
+	static constexpr float horizontalSeparationDistance = 40.0f;
+	static constexpr float verticalSeparationDistance = 35.0f;
 	static constexpr float startingXPosition = 50.0f;
-	static constexpr float startingYPosition = 75.0f;
+	static constexpr float startingYPosition = 110.0f;
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
 	MovementDirections currentMovementDirection;
 	bool executingOpeningFormation = true;
 	bool isGoingLeft = false;
-	float maxFrameTime = 0.15f;
+	float maxFrameTime = 0.13f;
 	float accumulatedFrameTime = 0.0f;
-	int horizontalMovementCount = 11;
+	int horizontalMovementCount = 14;
 	int verticalMovementCount = 1;
 	int openingFormationX;
 	int openingFormationY;
