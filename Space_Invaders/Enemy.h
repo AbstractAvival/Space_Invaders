@@ -9,7 +9,7 @@ class Enemy : public GameObject
 public:
 	Enemy();
 	Enemy( TextureCodex& textureCodex, EnemyTypes enemyTypeIn, sf::Vector2f positionIn );
-	Enemy( Enemy& enemy );
+	Enemy( const Enemy& enemy );
 	~Enemy();
 
 public:

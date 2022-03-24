@@ -60,9 +60,10 @@ void ProjectileManager::ShootEnemyProjectile()
 	if( enemyProjectileCooldown <= 0.0f )
 	{
 		Enemy enemy = enemyManager->GetRandomFrontlineEnemy();
-		if( enemy != null )
+		if( !enemy.IsDead() )
 		{
-
+			enemyProjectiles.emplace_back( new Projectile( *textureCodex, enemy.GetPosition(), false ) );
+			enemyProjectileCooldown = 0.02f;
 		}
 	}
 }

@@ -18,7 +18,7 @@ Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyTypeIn, sf::Vector2f position
 	SetPosition( positionIn );
 }
 
-Enemy::Enemy( Enemy& enemy )
+Enemy::Enemy( const Enemy& enemy )
 	:
 	GameObject( enemy.position ),
 	enemyType( enemy.enemyType )
