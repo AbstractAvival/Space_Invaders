@@ -59,8 +59,11 @@ void ProjectileManager::ShootEnemyProjectile()
 {
 	if( enemyProjectileCooldown <= 0.0f )
 	{
-		enemyProjectiles.emplace_back( new Projectile( *textureCodex, enemyManager->GetRandomFrontlineEnemy().GetPosition(), false ) );
-		enemyProjectileCooldown = 0.02f;
+		Enemy enemy = enemyManager->GetRandomFrontlineEnemy();
+		if( enemy != null )
+		{
+
+		}
 	}
 }
 

@@ -18,6 +18,20 @@ Enemy::Enemy( TextureCodex& codex, EnemyTypes enemyTypeIn, sf::Vector2f position
 	SetPosition( positionIn );
 }
 
+Enemy::Enemy( Enemy& enemy )
+	:
+	GameObject( enemy.position ),
+	enemyType( enemy.enemyType )
+{
+	currentSprite = enemy.currentSprite;
+	for( int spriteIndex = 0; spriteIndex < int( enemy.sprites.size() ); spriteIndex++ )
+	{
+		sprites.emplace_back( sf::Sprite() );
+		sprites[ spriteIndex ].setTexture( *enemy.sprites[ spriteIndex ].getTexture() );
+	}
+	SetPosition( enemy.position );
+}
+
 Enemy::~Enemy()
 {
 }

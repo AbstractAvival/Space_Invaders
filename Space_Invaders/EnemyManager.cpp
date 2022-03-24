@@ -71,11 +71,11 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 
 Enemy EnemyManager::GetRandomFrontlineEnemy()
 {
-	for( int yAxis = 4; yAxis > -1; yAxis-- )
+	for( int column = 4; column > -1; column-- )
 	{
-		//TODO
+		
 	}
-	return Enemy();
+	return ;
 }
 
 void EnemyManager::CreateTierOneEnemies( TextureCodex& textureCodex )
