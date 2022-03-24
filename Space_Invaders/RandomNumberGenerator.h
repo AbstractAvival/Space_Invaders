@@ -9,6 +9,6 @@ public:
 	int GetRandomInt( int minLimit, int maxLimit );
 
 private:
-	random_device randomDevice;
-	mt19937 randomNumberGenerator;
+	mt19937 numberGenerator;
+	uniform_int_distribution< int > intValues;
 };

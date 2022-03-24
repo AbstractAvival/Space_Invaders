@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <iostream>
 #include "TextureCodex.h"
 #include "MovementDirections.h"
 #include "Enemy.h"
@@ -42,7 +43,7 @@ private:
 	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
 	GameObject* boss = nullptr;
 	MovementDirections currentMovementDirection;
-	RandomNumberGenerator randomNumberGenerator;
+	RandomNumberGenerator numberGenerator;
 	bool executingOpeningFormation = true;
 	bool isGoingLeft = false;
 	float maxFrameTime = 0.13f;

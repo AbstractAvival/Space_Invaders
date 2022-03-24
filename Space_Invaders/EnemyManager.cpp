@@ -2,7 +2,6 @@
 
 EnemyManager::EnemyManager()
 	:
-	randomNumberGenerator( RandomNumberGenerator() ),
 	openingFormationX( enemyRowLength - 1 ),
 	openingFormationY( enemyColumnHeight - 1 ),
 	movementXIndex( openingFormationX ),
@@ -18,7 +17,6 @@ EnemyManager::EnemyManager()
 
 EnemyManager::EnemyManager( TextureCodex& textureCodex )
 	:
-	randomNumberGenerator( RandomNumberGenerator() ),
 	openingFormationX( enemyRowLength - 1 ),
 	openingFormationY( enemyColumnHeight - 1 ),
 	movementXIndex( openingFormationX ),
