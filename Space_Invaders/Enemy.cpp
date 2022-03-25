@@ -23,6 +23,7 @@ Enemy::Enemy( const Enemy& enemy )
 	GameObject( enemy.position ),
 	enemyType( enemy.enemyType )
 {
+	isDead = enemy.isDead;
 	currentSprite = enemy.currentSprite;
 	for( int spriteIndex = 0; spriteIndex < int( enemy.sprites.size() ); spriteIndex++ )
 	{
