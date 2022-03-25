@@ -36,18 +36,22 @@ void HeadsUpDisplay::ModifyScore( EnemyTypes killedEnemyType )
 	{
 	case EnemyTypes::Boss:
 		currentScore += 50;
+		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierOne:
 		currentScore += 10;
+		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierTwo:
 		currentScore += 20;
+		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierThree:
 		currentScore += 30;
+		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 	}
 }
