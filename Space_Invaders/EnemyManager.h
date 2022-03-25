@@ -44,7 +44,7 @@ private:
 	static constexpr float horizontalSeparationDistance = 40.0f;
 	static constexpr float verticalSeparationDistance = 35.0f;
 	static constexpr float startingXPosition = 50.0f;
-	static constexpr float startingYPosition = 110.0f;
+	static constexpr float startingYPosition = 130.0f;
 	Enemy* enemies[ enemyRowLength * enemyColumnHeight ];
 	Enemy* boss = nullptr;
 	HeadsUpDisplay* hudDisplay = nullptr;
