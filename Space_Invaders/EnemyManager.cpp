@@ -59,14 +59,32 @@ void EnemyManager::UpdateEnemies( float frameTime )
 	accumulatedFrameTime += frameTime;
 	DoOpeningFormation();
 	HandleEnemyMovement( frameTime );
+	ClearExplodedEnemies();
 }
 
 void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation )
 {
 	for( auto enemy : enemies )
 	{
-		enemy->Render( window, interpolation );
+		if( !enemy->IsDead() )
+		{
+			enemy->Render( window, interpolation );
+		}
 	}
+}
+
+bool EnemyManager::CheckCollisionAndKill( sf::FloatRect playerShotBoundary )
+{
+	bool collided = false;
+	for( auto enemy : enemies )
+	{
+		if( !enemy->IsDead() && playerShotBoundary.intersects( enemy->GetBoundary() ) )
+		{
+			enemy->SetSprite( explodedValue );
+			collided = true;
+		}
+	}
+	return collided;
 }
 
 bool EnemyManager::IsExecutingOpeningFormation()
@@ -202,6 +220,15 @@ void EnemyManager::SetMovementDirection()
 		horizontalMovementCount = 14;
 		verticalMovementCount = 1;
 		isGoingLeft = !isGoingLeft;
+	}
+}
+
+void EnemyManager::ClearExplodedEnemies()
+{
+	for( auto enemy : enemies )
+	{
+		if( enemy->GetCurrentSprite() == explodedValue )
+			enemy->Kill();
 	}
 }
 

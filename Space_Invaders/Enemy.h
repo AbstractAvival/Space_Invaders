@@ -16,6 +16,8 @@ public:
 	void Update( float frameTime ) override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
 	void Move( sf::Vector2f offset ) override;
+	void SetSprite( int spriteIndex );
+	int GetCurrentSprite();
 
 private:
 	void InitializeSprites( TextureCodex& textureCodex );

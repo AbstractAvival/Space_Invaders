@@ -18,6 +18,7 @@ public:
 	void ResetEnemies();
 	void UpdateEnemies( float frameTime );
 	void RenderEnemies( sf::RenderWindow& window, float interpolation );
+	bool CheckCollisionAndKill( sf::FloatRect playerShotBoundary );
 	bool IsExecutingOpeningFormation();
 	Enemy GetRandomFrontlineEnemy();
 
@@ -32,11 +33,13 @@ private:
 	void DoOpeningFormation();
 	void MoveEnemies( sf::Vector2f direction );
 	void SetMovementDirection();
+	void ClearExplodedEnemies();
 	sf::Vector2f GetMovementVector();
 
 private:
 	static constexpr int enemyRowLength = 11;
 	static constexpr int enemyColumnHeight = 5;
+	static constexpr int explodedValue = 2;
 	static constexpr float horizontalSeparationDistance = 40.0f;
 	static constexpr float verticalSeparationDistance = 35.0f;
 	static constexpr float startingXPosition = 50.0f;

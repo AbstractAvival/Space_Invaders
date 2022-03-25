@@ -54,6 +54,16 @@ void Enemy::Move( sf::Vector2f offset )
 	GameObject::Move( offset );
 }
 
+void Enemy::SetSprite( int spriteIndex )
+{
+	currentSprite = Sprites( spriteIndex );
+}
+
+int Enemy::GetCurrentSprite()
+{
+	return int( currentSprite );
+}
+
 void Enemy::InitializeSprites( TextureCodex& textureCodex )
 {
 	switch( enemyType )

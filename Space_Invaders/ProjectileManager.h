@@ -19,6 +19,7 @@ public:
 
 private:
 	void HandlePlayerProjectiles();
+	void HandlePlayerShotCollision();
 	void HandleEnemyProjectiles();
 	void ShootEnemyProjectile();
 

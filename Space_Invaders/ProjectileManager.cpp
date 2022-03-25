@@ -27,6 +27,7 @@ void ProjectileManager::UpdateProjectiles( float frameTime )
 	{
 		enemyProjectileCooldown -= frameTime;
 		HandlePlayerProjectiles();
+		HandlePlayerShotCollision();
 		HandleEnemyProjectiles();
 		ShootEnemyProjectile();
 	}
@@ -99,6 +100,15 @@ void ProjectileManager::HandlePlayerProjectiles()
 		{
 			++currentProjectile;
 		}
+	}
+}
+
+void ProjectileManager::HandlePlayerShotCollision()
+{
+	if( !playerProjectiles.empty() && enemyManager->CheckCollisionAndKill( playerProjectiles[ 0 ]->GetBoundary() ) )
+	{
+		delete playerProjectiles[ 0 ];
+		playerProjectiles.clear();
 	}
 }
 
