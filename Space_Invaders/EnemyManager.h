@@ -40,8 +40,8 @@ private:
 	static constexpr float verticalSeparationDistance = 35.0f;
 	static constexpr float startingXPosition = 50.0f;
 	static constexpr float startingYPosition = 110.0f;
-	GameObject* enemies[ enemyRowLength * enemyColumnHeight ];
-	GameObject* boss = nullptr;
+	Enemy* enemies[ enemyRowLength * enemyColumnHeight ];
+	Enemy* boss = nullptr;
 	MovementDirections currentMovementDirection;
 	RandomNumberGenerator numberGenerator;
 	bool executingOpeningFormation = true;

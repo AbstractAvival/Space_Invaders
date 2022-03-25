@@ -71,11 +71,16 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 
 Enemy EnemyManager::GetRandomFrontlineEnemy()
 {
-	for( int column = 4; column > -1; column-- )
+	int xIndex = numberGenerator.GetRandomInt( 0, 11 );
+	Enemy placeholder = *enemies[ 0 + xIndex ];
+	for( int column = 0; column > 5; column++ )
 	{
-		
+		if( !enemies[ column * enemyRowLength + xIndex ]->IsDead() )
+		{
+			placeholder = *enemies[ column * enemyRowLength + xIndex ];
+		}
 	}
-	return ;
+	return placeholder;
 }
 
 void EnemyManager::CreateTierOneEnemies( TextureCodex& textureCodex )
