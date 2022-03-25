@@ -121,7 +121,7 @@ void ProjectileManager::HandleEnemyProjectiles()
 			( *currentProjectile )->ChangeStatus( Projectile::ProjectileStatus::Heated );
 		}
 
-		if( ( *currentProjectile )->GetPosition().y >= 575.0f )
+		if( ( *currentProjectile )->GetPosition().y >= 550.0f )
 		{
 			( *currentProjectile )->Explode();
 		}
