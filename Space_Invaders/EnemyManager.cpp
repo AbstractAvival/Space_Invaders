@@ -15,8 +15,9 @@ EnemyManager::EnemyManager()
 	}
 }
 
-EnemyManager::EnemyManager( TextureCodex& textureCodex )
+EnemyManager::EnemyManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDisplayIn )
 	:
+	hudDisplay( &hudDisplayIn ),
 	openingFormationX( enemyRowLength - 1 ),
 	openingFormationY( enemyColumnHeight - 1 ),
 	movementXIndex( openingFormationX ),
@@ -81,6 +82,7 @@ bool EnemyManager::CheckCollisionAndKill( sf::FloatRect playerShotBoundary )
 		if( !enemy->IsDead() && playerShotBoundary.intersects( enemy->GetBoundary() ) )
 		{
 			enemy->SetSprite( explodedValue );
+			hudDisplay->ModifyScore( enemy->GetEnemyType() );
 			collided = true;
 		}
 	}

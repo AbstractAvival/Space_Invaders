@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "TextureCodex.h"
+#include "EnemyTypes.h"
 using namespace std;
 
 class HeadsUpDisplay
@@ -9,7 +10,7 @@ public:
 	HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFileName );
 	void UpdateHUD();
 	void RenderHUD( sf::RenderWindow& window );
-	void ModifyScore( int scoreOffset );
+	void ModifyScore( EnemyTypes killedEnemyType );
 	void ModifyLives( int lifeOffset );
 
 private:

@@ -18,6 +18,7 @@ public:
 	void Move( sf::Vector2f offset ) override;
 	void SetSprite( int spriteIndex );
 	int GetCurrentSprite();
+	EnemyTypes GetEnemyType();
 
 private:
 	void InitializeSprites( TextureCodex& textureCodex );

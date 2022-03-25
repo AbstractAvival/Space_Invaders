@@ -30,9 +30,26 @@ void HeadsUpDisplay::RenderHUD( sf::RenderWindow& window )
 	}
 }
 
-void HeadsUpDisplay::ModifyScore( int scoreOffset )
+void HeadsUpDisplay::ModifyScore( EnemyTypes killedEnemyType )
 {
-	currentScore += scoreOffset;
+	switch( killedEnemyType )
+	{
+	case EnemyTypes::Boss:
+		currentScore += 50;
+		break;
+
+	case EnemyTypes::TierOne:
+		currentScore += 10;
+		break;
+
+	case EnemyTypes::TierTwo:
+		currentScore += 20;
+		break;
+
+	case EnemyTypes::TierThree:
+		currentScore += 30;
+		break;
+	}
 }
 
 void HeadsUpDisplay::ModifyLives( int lifeOffset )

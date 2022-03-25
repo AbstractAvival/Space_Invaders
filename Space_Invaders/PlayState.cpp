@@ -3,9 +3,9 @@
 PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn ),
-	enemyManager( EnemyManager( textureCodex ) ),
-	playerManager( PlayerManager( textureCodex ) ),
 	headsUpDisplay( HeadsUpDisplay( textureCodex, "HighScoreLog.txt" ) ),
+	enemyManager( EnemyManager( textureCodex, headsUpDisplay ) ),
+	playerManager( PlayerManager( textureCodex ) ),
 	projectileManager( ProjectileManager( textureCodex, enemyManager ) )
 {}
 

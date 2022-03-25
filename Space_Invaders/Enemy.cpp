@@ -65,6 +65,11 @@ int Enemy::GetCurrentSprite()
 	return int( currentSprite );
 }
 
+EnemyTypes Enemy::GetEnemyType()
+{
+	return enemyType;
+}
+
 void Enemy::InitializeSprites( TextureCodex& textureCodex )
 {
 	switch( enemyType )
