@@ -23,9 +23,14 @@ ProjectileManager::~ProjectileManager()
 
 void ProjectileManager::UpdateProjectiles( float frameTime )
 {
-	playerProjectileCooldown -= frameTime;
-	HandlePlayerProjectiles();
-	HandleEnemyProjectiles();
+	if( !enemyManager->IsExecutingOpeningFormation() )
+	{
+		playerProjectileCooldown -= frameTime;
+		enemyProjectileCooldown -= frameTime;
+		HandlePlayerProjectiles();
+		HandleEnemyProjectiles();
+		ShootEnemyProjectile();
+	}
 
 	for( auto playerProjectile : playerProjectiles )
 	{
@@ -43,6 +48,11 @@ void ProjectileManager::RenderProjectiles( sf::RenderWindow& window, float inter
 	for( auto playerProjectile : playerProjectiles )
 	{
 		playerProjectile->Render( window, interpolation );
+	}
+
+	for( auto enemyProjectile : enemyProjectiles )
+	{
+		enemyProjectile->Render( window, interpolation );
 	}
 }
 
@@ -63,7 +73,7 @@ void ProjectileManager::ShootEnemyProjectile()
 		if( !enemy.IsDead() )
 		{
 			enemyProjectiles.emplace_back( new Projectile( *textureCodex, enemy.GetPosition(), false ) );
-			enemyProjectileCooldown = 0.02f;
+			enemyProjectileCooldown = 0.12f;
 		}
 	}
 }

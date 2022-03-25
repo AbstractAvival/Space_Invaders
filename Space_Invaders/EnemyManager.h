@@ -18,6 +18,7 @@ public:
 	void ResetEnemies();
 	void UpdateEnemies( float frameTime );
 	void RenderEnemies( sf::RenderWindow& window, float interpolation );
+	bool IsExecutingOpeningFormation();
 	Enemy GetRandomFrontlineEnemy();
 
 private:
@@ -44,7 +45,7 @@ private:
 	Enemy* boss = nullptr;
 	MovementDirections currentMovementDirection;
 	RandomNumberGenerator numberGenerator;
-	bool executingOpeningFormation = true;
+	bool isExecutingOpeningFormation = true;
 	bool isGoingLeft = false;
 	float maxFrameTime = 0.13f;
 	float accumulatedFrameTime = 0.0f;

@@ -30,5 +30,5 @@ private:
 	const float endingPlayerProjectilePosition = 70.0f;
 	const float endingEnemyProjectilePosition = 560.0f;
 	float playerProjectileCooldown = 0.15f;
-	float enemyProjectileCooldown = 0.02f;
+	float enemyProjectileCooldown = 0.12f;
 };

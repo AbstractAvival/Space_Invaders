@@ -46,7 +46,7 @@ void EnemyManager::ResetEnemies()
 {
 	ResetEnemyPositions();
 	currentMovementDirection = MovementDirections::RIGHT;
-	executingOpeningFormation = true;
+	isExecutingOpeningFormation = true;
 	openingFormationX = enemyRowLength - 1;
 	openingFormationY = enemyColumnHeight - 1;
 	movementXIndex = openingFormationY;
@@ -69,11 +69,16 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 	}
 }
 
+bool EnemyManager::IsExecutingOpeningFormation()
+{
+	return isExecutingOpeningFormation;
+}
+
 Enemy EnemyManager::GetRandomFrontlineEnemy()
 {
-	int xIndex = numberGenerator.GetRandomInt( 0, 11 );
+	int xIndex = numberGenerator.GetRandomInt( 0, 10 );
 	Enemy placeholder = *enemies[ 0 + xIndex ];
-	for( int column = 0; column > 5; column++ )
+	for( int column = 0; column < 5; column++ )
 	{
 		if( !enemies[ column * enemyRowLength + xIndex ]->IsDead() )
 		{
@@ -119,7 +124,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 
 void EnemyManager::HandleEnemyMovement( float frameTime )
 {
-	if( !executingOpeningFormation && accumulatedFrameTime > maxFrameTime )
+	if( !isExecutingOpeningFormation && accumulatedFrameTime > maxFrameTime )
 	{
 		accumulatedFrameTime = 0.0f;
 		MoveEnemies( GetMovementVector() );
@@ -147,7 +152,7 @@ void EnemyManager::ResetEnemyPositions()
 
 void EnemyManager::DoOpeningFormation()
 {
-	if( executingOpeningFormation )
+	if( isExecutingOpeningFormation )
 	{
 		enemies[ openingFormationY * enemyRowLength + openingFormationX ]->Revive();
 		openingFormationX -= 1;
@@ -159,7 +164,7 @@ void EnemyManager::DoOpeningFormation()
 		}
 
 		if( openingFormationY < 0 )
-			executingOpeningFormation = false;
+			isExecutingOpeningFormation = false;
 	}
 }
 
