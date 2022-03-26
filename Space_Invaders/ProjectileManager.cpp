@@ -1,9 +1,10 @@
 #include "ProjectileManager.h"
 
-ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn )
+ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, PlayerManager& playerManagerIn )
 	:
 	textureCodex( &textureCodexIn ),
-	enemyManager( &enemyManagerIn )
+	enemyManager( &enemyManagerIn ),
+	playerManager( &playerManagerIn )
 {}
 
 ProjectileManager::~ProjectileManager()
@@ -29,6 +30,7 @@ void ProjectileManager::UpdateProjectiles( float frameTime )
 		HandlePlayerProjectiles();
 		HandlePlayerShotCollision();
 		HandleEnemyProjectiles();
+		HandleEnemyShotCollision();
 		ShootEnemyProjectile();
 	}
 
@@ -134,6 +136,25 @@ void ProjectileManager::HandleEnemyProjectiles()
 		else
 		{
 			++currentProjectile;
+		}
+	}
+}
+
+void ProjectileManager::HandleEnemyShotCollision()
+{
+	if( !enemyProjectiles.empty() )
+	{
+		for( auto currentProjectile = enemyProjectiles.begin(); currentProjectile != enemyProjectiles.end(); )
+		{
+			if( playerManager->CheckCollisionAndKill( ( *currentProjectile )->GetBoundary() ) )
+			{
+				delete ( *currentProjectile );
+				currentProjectile = enemyProjectiles.erase( currentProjectile );
+			}
+			else
+			{
+				++currentProjectile;
+			}
 		}
 	}
 }
