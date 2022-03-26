@@ -1,6 +1,7 @@
 #include "ProjectileManager.h"
+#include "PlayerManager.h"
 
-ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, PlayerManager& playerManagerIn )
+ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn )
 	:
 	textureCodex( &textureCodexIn ),
 	enemyManager( &enemyManagerIn ),

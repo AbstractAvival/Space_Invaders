@@ -4,13 +4,12 @@
 #include "TextureCodex.h"
 #include "Projectile.h"
 #include "EnemyManager.h"
-#include "PlayerManager.h"
 using namespace std;
 
 class ProjectileManager
 {
 public:
-	ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, PlayerManager& playerManagerIn );
+	ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn );
 	~ProjectileManager();
 	void UpdateProjectiles( float frameTime );
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
@@ -28,7 +27,7 @@ private:
 private:
 	TextureCodex* textureCodex;
 	EnemyManager* enemyManager;
-	PlayerManager* playerManager;
+	class PlayerManager* playerManager;
 	vector< Projectile* > playerProjectiles;
 	vector< Projectile* > enemyProjectiles;
 	const float endingPlayerProjectilePosition = 70.0f;
