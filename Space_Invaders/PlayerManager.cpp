@@ -1,6 +1,8 @@
 #include "PlayerManager.h"
 
-PlayerManager::PlayerManager( TextureCodex& textureCodex )
+PlayerManager::PlayerManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDisplayIn )
+	:
+	hudDisplay( &hudDisplayIn )
 {
 	player = new PlayerShip( textureCodex, playerStartingPosition );
 }
@@ -25,6 +27,17 @@ void PlayerManager::UpdatePlayer( int stageWidth )
 void PlayerManager::RenderPlayer( sf::RenderWindow& window, float interpolation )
 {
 	player->Render( window, interpolation );
+}
+
+bool PlayerManager::CheckCollisionAndKill( sf::FloatRect enemyShotBoundary )
+{
+	bool collided = false;
+	if( enemyShotBoundary.intersects( player->GetBoundary() ) )
+	{
+		hudDisplay->ModifyLives( -1 );
+		collided = true;
+	}
+	return collided;
 }
 
 void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager )
