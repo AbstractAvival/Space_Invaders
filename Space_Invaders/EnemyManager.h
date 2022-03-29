@@ -55,10 +55,10 @@ private:
 	bool isExecutingOpeningFormation = true;
 	bool isGoingLeft = false;
 	float maxFrameTime = 0.13f;
-	float bossSpawnCooldown = 0.3f;
 	float accumulatedMoveFrameTime = 0.0f;
 	float accumulatedBossFrameTime = 0.0f;
 	float horizontalBossMovement = -10.0f;
+	float bossSpawnCooldown;
 	int horizontalMovementCount = 14;
 	int verticalMovementCount = 1;
 	int openingFormationX;

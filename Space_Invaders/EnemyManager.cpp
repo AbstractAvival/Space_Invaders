@@ -23,7 +23,8 @@ EnemyManager::EnemyManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDispl
 	movementXIndex( openingFormationX ),
 	movementYIndex( openingFormationY ),
 	movementColumnIndex( openingFormationY ),
-	currentMovementDirection( MovementDirections::RIGHT )
+	currentMovementDirection( MovementDirections::RIGHT ),
+	bossSpawnCooldown( numberGenerator.GetRandomFloat( 15.0f, 35.0f ) )
 {
 	CreateBoss( textureCodex );
 	CreateTierOneEnemies( textureCodex );
@@ -63,6 +64,7 @@ void EnemyManager::UpdateEnemies( float frameTime )
 	HandleEnemyMovement();
 	HandleBossMovement();
 	ClearExplodedEnemies();
+	ResetBossPosition();
 }
 
 void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation )
@@ -191,6 +193,7 @@ void EnemyManager::ResetBossPosition()
 			boss->SetPosition( { 850.0f, 75.0f } );
 		}
 		accumulatedBossFrameTime = 0.0f;
+		bossSpawnCooldown = numberGenerator.GetRandomFloat( 15.0f, 35.0f );
 		horizontalBossMovement = -horizontalBossMovement;
 		boss->Revive();
 	}
