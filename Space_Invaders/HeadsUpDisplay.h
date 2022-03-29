@@ -15,6 +15,8 @@ public:
 
 private:
 	void LoadHighScore( string fileName );
+	void SaveHighScore();
+	void UpdateHighScore();
 	void InitializeDisplayPositions();
 	void InitializeScoreDisplays( TextureCodex& textureCodex );
 	void InitializeLivesDisplay( TextureCodex& textureCodex );

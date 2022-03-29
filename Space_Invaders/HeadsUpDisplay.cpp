@@ -15,6 +15,7 @@ HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFile
 
 void HeadsUpDisplay::UpdateHUD()
 {
+	UpdateHighScore();
 }
 
 void HeadsUpDisplay::RenderHUD( sf::RenderWindow& window )
@@ -73,6 +74,22 @@ void HeadsUpDisplay::LoadHighScore( string fileName )
 			scoreFonts[ 3 ].setString( LoadedHighScore );
 		}
 		highScoreFile.close();
+	}
+}
+
+void HeadsUpDisplay::SaveHighScore()
+{
+	ofstream highScoreFile( highScoreFileName );
+	highScoreFile << to_string( highScore );
+	highScoreFile.close();
+}
+
+void HeadsUpDisplay::UpdateHighScore()
+{
+	if( currentScore > highScore )
+	{
+		highScore = currentScore;
+		scoreFonts[ 3 ].setString( to_string( highScore ) );
 	}
 }
 
