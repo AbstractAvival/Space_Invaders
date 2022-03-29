@@ -63,14 +63,14 @@ void HeadsUpDisplay::ModifyLives( int lifeOffset )
 
 void HeadsUpDisplay::LoadHighScore( string fileName )
 {
-	string highScore;
+	string LoadedHighScore;
 	ifstream highScoreFile( fileName );
 	if( highScoreFile.is_open() )
 	{
-		while( getline( highScoreFile, highScore ) )
+		while( getline( highScoreFile, LoadedHighScore ) )
 		{
-			highScore = stoi( highScore );
-			scoreFonts[ 3 ].setString( highScore );
+			highScore = stoi( LoadedHighScore );
+			scoreFonts[ 3 ].setString( LoadedHighScore );
 		}
 		highScoreFile.close();
 	}
@@ -98,10 +98,10 @@ void HeadsUpDisplay::InitializeScoreDisplays( TextureCodex& textureCodex )
 	scoreFonts[ 1 ].setPosition( displayPositions[ 1 ] );
 	scoreFonts[ 1 ].setString( "HIGH-SCORE" );
 
-	scoreFonts[ 2 ].setPosition( sf::Vector2f( displayPositions[ 0 ].x, displayPositions[ 0 ].y + 20.0f ) );
+	scoreFonts[ 2 ].setPosition( sf::Vector2f( displayPositions[ 0 ].x + scoreFonts[ 2 ].getCharacterSize(), displayPositions[ 0 ].y + 20.0f ) );
 	scoreFonts[ 2 ].setString( to_string( currentScore ) );
 
-	scoreFonts[ 3 ].setPosition( sf::Vector2f( displayPositions[ 1 ].x, displayPositions[ 1 ].y + 20.0f ) );
+	scoreFonts[ 3 ].setPosition( sf::Vector2f( displayPositions[ 1 ].x + scoreFonts[ 3 ].getCharacterSize(), displayPositions[ 1 ].y + 20.0f ) );
 }
 
 void HeadsUpDisplay::InitializeLivesDisplay( TextureCodex& textureCodex )
