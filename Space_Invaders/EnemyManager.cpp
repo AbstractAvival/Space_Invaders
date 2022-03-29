@@ -7,7 +7,8 @@ EnemyManager::EnemyManager()
 	movementXIndex( openingFormationX ),
 	movementYIndex( openingFormationY ),
 	movementColumnIndex( openingFormationY ),
-	currentMovementDirection( MovementDirections::RIGHT )
+	currentMovementDirection( MovementDirections::RIGHT ),
+	bossSpawnCooldown( numberGenerator.GetRandomFloat( 15.0f, 35.0f ) )
 {
 	for( auto enemy : enemies )
 	{
@@ -170,7 +171,7 @@ void EnemyManager::HandleEnemyMovement()
 
 void EnemyManager::HandleBossMovement()
 {
-	if( !isExecutingOpeningFormation && accumulatedBossFrameTime > bossSpawnCooldown )
+	if( !isExecutingOpeningFormation && !boss->IsDead() && accumulatedBossFrameTime > bossSpawnCooldown )
 	{
 		boss->Move( { horizontalBossMovement, 0.0f } );
 	}
@@ -269,6 +270,9 @@ void EnemyManager::ClearExplodedEnemies()
 		if( enemy->GetCurrentSprite() == explodedValue )
 			enemy->Kill();
 	}
+
+	if( boss->GetCurrentSprite() == explodedValue )
+		boss->Kill();
 }
 
 sf::Vector2f EnemyManager::GetMovementVector()
