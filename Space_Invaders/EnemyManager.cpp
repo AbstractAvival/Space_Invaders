@@ -79,6 +79,14 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 bool EnemyManager::CheckCollisionAndKill( sf::FloatRect playerShotBoundary )
 {
 	bool collided = false;
+
+	if( !boss->IsDead() && playerShotBoundary.intersects( boss->GetBoundary() ) )
+	{
+		boss->SetSprite( explodedValue );
+		hudDisplay->ModifyScore( boss->GetEnemyType() );
+		collided = true;
+	}
+
 	for( auto enemy : enemies )
 	{
 		if( !enemy->IsDead() && playerShotBoundary.intersects( enemy->GetBoundary() ) )

@@ -100,8 +100,8 @@ void Enemy::InitializeSprites( TextureCodex& textureCodex )
 
 void Enemy::LoadBossSprite( TextureCodex& textureCodex )
 {
-	sprites.emplace_back( sf::Sprite() );
-	sprites[ int( currentSprite ) ].setTexture( textureCodex.GetGameTexture( GameTextureTypes::WhiteBox ) );
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::WhiteBox, GameTextureTypes::WhiteBox, GameTextureTypes::Explosion };
+	LoadSprites( textureCodex, spriteTypes );
 }
 
 void Enemy::LoadTierOneSprites( TextureCodex& textureCodex )
