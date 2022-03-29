@@ -57,7 +57,8 @@ void EnemyManager::ResetEnemies()
 
 void EnemyManager::UpdateEnemies( float frameTime )
 {
-	accumulatedFrameTime += frameTime;
+	accumulatedMoveFrameTime += frameTime;
+	accumulatedBossFrameTime += frameTime;
 	DoOpeningFormation();
 	HandleEnemyMovement( frameTime );
 	ClearExplodedEnemies();
@@ -125,7 +126,7 @@ void EnemyManager::CreateTierThreeEnemies( TextureCodex& textureCodex )
 
 void EnemyManager::CreateBoss( TextureCodex& textureCodex )
 {
-	sf::Vector2f enemyPosition = sf::Vector2f( -50.0f, -50.0f );
+	sf::Vector2f enemyPosition = sf::Vector2f( 850.0f, 75.0f );
 	boss = new Enemy( textureCodex, EnemyTypes::Boss, enemyPosition );
 }
 
@@ -144,9 +145,9 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 
 void EnemyManager::HandleEnemyMovement( float frameTime )
 {
-	if( !isExecutingOpeningFormation && accumulatedFrameTime > maxFrameTime )
+	if( !isExecutingOpeningFormation && accumulatedMoveFrameTime > maxFrameTime )
 	{
-		accumulatedFrameTime = 0.0f;
+		accumulatedMoveFrameTime = 0.0f;
 		MoveEnemies( GetMovementVector() );
 		movementColumnIndex--;
 

@@ -53,7 +53,8 @@ private:
 	bool isExecutingOpeningFormation = true;
 	bool isGoingLeft = false;
 	float maxFrameTime = 0.13f;
-	float accumulatedFrameTime = 0.0f;
+	float accumulatedMoveFrameTime = 0.0f;
+	float accumulatedBossFrameTime = 0.0f;
 	int horizontalMovementCount = 14;
 	int verticalMovementCount = 1;
 	int openingFormationX;
