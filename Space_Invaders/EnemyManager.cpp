@@ -178,6 +178,24 @@ void EnemyManager::ResetEnemyPositions()
 	}
 }
 
+void EnemyManager::ResetBossPosition()
+{
+	if( boss->GetPosition().x < -100.0f  || boss->GetPosition().x > 900.0f || boss->IsDead() )
+	{
+		if( horizontalBossMovement < 0.0f )
+		{
+			boss->SetPosition( { -50.0f, 75.0f } );
+		}
+		else
+		{
+			boss->SetPosition( { 850.0f, 75.0f } );
+		}
+		accumulatedBossFrameTime = 0.0f;
+		horizontalBossMovement = -horizontalBossMovement;
+		boss->Revive();
+	}
+}
+
 void EnemyManager::DoOpeningFormation()
 {
 	if( isExecutingOpeningFormation )

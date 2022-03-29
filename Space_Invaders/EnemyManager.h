@@ -32,6 +32,7 @@ private:
 	void HandleEnemyMovement();
 	void HandleBossMovement();
 	void ResetEnemyPositions();
+	void ResetBossPosition();
 	void DoOpeningFormation();
 	void MoveEnemies( sf::Vector2f direction );
 	void SetMovementDirection();
