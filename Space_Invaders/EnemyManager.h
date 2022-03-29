@@ -29,7 +29,8 @@ private:
 	void CreateTierThreeEnemies( TextureCodex& textureCodex );
 	void CreateBoss( TextureCodex& textureCodex);
 	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
-	void HandleEnemyMovement( float frameTime );
+	void HandleEnemyMovement();
+	void HandleBossMovement();
 	void ResetEnemyPositions();
 	void DoOpeningFormation();
 	void MoveEnemies( sf::Vector2f direction );
@@ -53,8 +54,10 @@ private:
 	bool isExecutingOpeningFormation = true;
 	bool isGoingLeft = false;
 	float maxFrameTime = 0.13f;
+	float bossSpawnCooldown = 0.3f;
 	float accumulatedMoveFrameTime = 0.0f;
 	float accumulatedBossFrameTime = 0.0f;
+	float horizontalBossMovement = -10.0f;
 	int horizontalMovementCount = 14;
 	int verticalMovementCount = 1;
 	int openingFormationX;

@@ -60,7 +60,8 @@ void EnemyManager::UpdateEnemies( float frameTime )
 	accumulatedMoveFrameTime += frameTime;
 	accumulatedBossFrameTime += frameTime;
 	DoOpeningFormation();
-	HandleEnemyMovement( frameTime );
+	HandleEnemyMovement();
+	HandleBossMovement();
 	ClearExplodedEnemies();
 }
 
@@ -68,11 +69,9 @@ void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation 
 {
 	for( auto enemy : enemies )
 	{
-		if( !enemy->IsDead() )
-		{
-			enemy->Render( window, interpolation );
-		}
+		enemy->Render( window, interpolation );
 	}
+	boss->Render( window, interpolation );
 }
 
 bool EnemyManager::CheckCollisionAndKill( sf::FloatRect playerShotBoundary )
@@ -143,7 +142,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 	}
 }
 
-void EnemyManager::HandleEnemyMovement( float frameTime )
+void EnemyManager::HandleEnemyMovement()
 {
 	if( !isExecutingOpeningFormation && accumulatedMoveFrameTime > maxFrameTime )
 	{
@@ -156,6 +155,14 @@ void EnemyManager::HandleEnemyMovement( float frameTime )
 			movementColumnIndex = enemyColumnHeight - 1;
 			SetMovementDirection();
 		}
+	}
+}
+
+void EnemyManager::HandleBossMovement()
+{
+	if( !isExecutingOpeningFormation && accumulatedBossFrameTime > bossSpawnCooldown )
+	{
+		boss->Move( { horizontalBossMovement, 0.0f } );
 	}
 }
 

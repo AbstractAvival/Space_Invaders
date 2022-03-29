@@ -51,7 +51,9 @@ void Enemy::Render( sf::RenderWindow& window, float interpolation )
 
 void Enemy::Move( sf::Vector2f offset )
 {
-	SwapMovementSprite();
+	if( enemyType != EnemyTypes::Boss )
+		SwapMovementSprite();
+
 	GameObject::Move( offset );
 }
 
