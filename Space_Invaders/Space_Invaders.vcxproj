@@ -153,6 +153,7 @@
     <ClCompile Include="HeadsUpDisplay.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
     <ClCompile Include="PlayerShip.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="HeadsUpDisplay.h" />
     <ClInclude Include="MainMenuSpriteTypes.h" />
     <ClInclude Include="MainMenuState.h" />
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="MovementDirections.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayerManager.h" />
