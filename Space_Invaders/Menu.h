@@ -12,6 +12,7 @@ public:
 	Menu();
 	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight );
 	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
+	~Menu();
 
 	void HandleInput();
 	void Render( sf::RenderWindow& window, float interpolation );
