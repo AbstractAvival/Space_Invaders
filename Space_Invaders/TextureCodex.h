@@ -4,7 +4,7 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "MainMenuSpriteTypes.h"
+#include "MenuTextureTypes.h"
 #include "GameTextureTypes.h"
 using namespace std;
 
@@ -19,11 +19,11 @@ public:
 	void LoadGametextures( string fileName );
 
 	sf::Font& GetFont();
-	sf::Texture& GetMainMenuTexture( MainMenuSpriteTypes targetTexture );
+	sf::Texture& GetMenuTexture( MenuTextureTypes targetTexture );
 	sf::Texture& GetGameTexture( GameTextureTypes targetTexture );
 
 private:
-	vector< sf::Texture* > mainMenuTextures;
+	vector< sf::Texture* > menuTextures;
 	vector< sf::Texture* > gameTextures;
 	sf::Font* font = nullptr;
 };
