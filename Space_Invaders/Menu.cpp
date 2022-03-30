@@ -44,6 +44,7 @@ void Menu::InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes >
 	{
 		items.emplace_back( sf::Text() );
 		items[ int( items.size() ) - 1 ]->setFont( textureCodex.GetFont() );
+		items[ int( items.size() ) - 1 ]->setCharacterSize( 25 );
 		items[ int( items.size() ) - 1 ]->setString( GetMenuItemText( item ) );
 	}
 }
