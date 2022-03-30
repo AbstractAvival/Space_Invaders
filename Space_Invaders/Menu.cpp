@@ -10,6 +10,7 @@ Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screen
 {}
 
 Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
+	:
 {
 	InitializeMenuItems( textureCodex, items );
 	SetMenuItemPositions( screenWidth, screenHeight, xDisplacement, yDisplacement );
@@ -39,6 +40,7 @@ int Menu::getCurrentOption()
 
 void Menu::InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems )
 {
+	selector.setTexture( textureCodex.GetMainMenuTexture( MenuTextureTypes ) );
 	for( auto item : desiredItems )
 	{
 		items.emplace_back( sf::Text() );

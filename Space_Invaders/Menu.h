@@ -26,5 +26,6 @@ private:
 
 private:
 	vector< sf::Text* > items;
+	sf::Sprite selector;
 	int currentOption = 0;
 };
