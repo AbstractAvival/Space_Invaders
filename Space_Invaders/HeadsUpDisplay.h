@@ -12,6 +12,7 @@ public:
 	void RenderHUD( sf::RenderWindow& window );
 	void ModifyScore( EnemyTypes killedEnemyType );
 	void ModifyLives( int lifeOffset );
+	int GetCurrentLives() const;
 
 private:
 	void LoadHighScore( string fileName );

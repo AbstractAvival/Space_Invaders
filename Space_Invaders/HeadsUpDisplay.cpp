@@ -62,6 +62,11 @@ void HeadsUpDisplay::ModifyLives( int lifeOffset )
 	currentlives += lifeOffset;
 }
 
+int HeadsUpDisplay::GetCurrentLives() const
+{
+	return currentlives;
+}
+
 void HeadsUpDisplay::LoadHighScore( string fileName )
 {
 	string LoadedHighScore;
