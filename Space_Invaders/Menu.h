@@ -14,7 +14,7 @@ public:
 	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 	~Menu();
 
-	void HandleInput();
+	void HandleInput( class StateHandler& handler );
 	void Update( float frameTime );
 	void Render( sf::RenderWindow& window, float interpolation );
 	void ResetOptions();
@@ -24,6 +24,7 @@ private:
 	void InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems );
 	void SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 	void SetItemSelectorPosition();
+	StateTypes GetDesiredState();
 	string GetMenuItemText( StateTypes state );
 
 private:

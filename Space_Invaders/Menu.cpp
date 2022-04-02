@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "StateHandler.h"
 
 Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight )
 	:
@@ -16,7 +17,7 @@ Menu::~Menu()
 {
 }
 
-void Menu::HandleInput()
+void Menu::HandleInput( StateHandler& handler )
 {
 	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Up ) )
 	{
@@ -44,6 +45,11 @@ void Menu::HandleInput()
 		}
 		accumulatedFrameTime = 0.0f;
 		SetItemSelectorPosition();
+	}
+
+	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Enter ) )
+	{
+		handler.ChangeState( GetDesiredState() );
 	}
 }
 
@@ -103,6 +109,21 @@ void Menu::SetItemSelectorPosition()
 	float yPosition = items[ currentItem ].getPosition().y + ( estimatedCharacterHeight / 2 ) - ( selector.getGlobalBounds().height / 2 );
 	float xPosition = items[ currentItem ].getPosition().x - ( selector.getGlobalBounds().width + horizontalSeparationDistance );
 	selector.setPosition( xPosition, yPosition );
+}
+
+StateTypes Menu::GetDesiredState()
+{
+	switch( currentItem )
+	{
+	case 0:
+		return StateTypes::PLAYSTATE;
+
+	case 1:
+		return StateTypes::SETTINGSSTATE;
+		
+	default:
+		return StateTypes::MAINMENUSTATE;
+	}
 }
 
 string Menu::GetMenuItemText( StateTypes state )

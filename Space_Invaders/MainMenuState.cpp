@@ -12,6 +12,7 @@ void MainMenuState::InitializeState()
 
 void MainMenuState::ResetState()
 {
+	mainMenu.ResetOptions();
 }
 
 void MainMenuState::Enter()
@@ -20,7 +21,7 @@ void MainMenuState::Enter()
 
 void MainMenuState::HandleInput()
 {
-	mainMenu.HandleInput();
+	mainMenu.HandleInput( *handler );
 }
 
 void MainMenuState::UpdateLogic( float frameTime )
