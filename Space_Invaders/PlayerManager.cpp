@@ -19,7 +19,7 @@ void PlayerManager::ResetPlayer()
 	player->SetPosition( playerStartingPosition );
 }
 
-void PlayerManager::UpdatePlayer( float frameTime, int stageWidth )
+void PlayerManager::UpdatePlayer( EnemyManager& enemyManager, float frameTime, int stageWidth )
 {
 	if( PlayerExploded() )
 	{
@@ -28,6 +28,7 @@ void PlayerManager::UpdatePlayer( float frameTime, int stageWidth )
 		RevivePlayer();
 	}
 	ImposeStageBoundaryLimits( stageWidth );
+	CheckEnemyCollisionAndKill( enemyManager );
 }
 
 void PlayerManager::RenderPlayer( sf::RenderWindow& window, float interpolation )
@@ -40,8 +41,7 @@ bool PlayerManager::CheckCollisionAndKill( sf::FloatRect enemyShotBoundary )
 	bool collided = false;
 	if( enemyShotBoundary.intersects( player->GetBoundary() ) )
 	{
-		hudDisplay->ModifyLives( -1 );
-		player->SetCurrentSprite( Sprites::Expand );
+		KillPlayer();
 		collided = true;
 	}
 	return collided;
@@ -96,6 +96,20 @@ void PlayerManager::HandlePlayerExplosionSprites()
 	{
 		player->SetCurrentSprite( Sprites::Expand );
 	}
+}
+
+void PlayerManager::CheckEnemyCollisionAndKill( EnemyManager& enemyManager )
+{
+	if( enemyManager.CheckCollisionAndKill( player->GetBoundary() ) )
+	{
+		KillPlayer();
+	}
+}
+
+void PlayerManager::KillPlayer()
+{
+	hudDisplay->ModifyLives( -1 );
+	player->SetCurrentSprite( Sprites::Expand );
 }
 
 void PlayerManager::RevivePlayer()

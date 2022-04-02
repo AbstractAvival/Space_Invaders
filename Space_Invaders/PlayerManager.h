@@ -4,6 +4,7 @@
 #include "PlayerShip.h"
 #include "ProjectileManager.h"
 #include "Sprites.h"
+#include "EnemyManager.h"
 
 class PlayerManager
 {
@@ -14,7 +15,7 @@ public:
 
 	void ResetPlayer();
 	void HandlePlayerInput( ProjectileManager& projectileManager, bool enemyIsExecutingOpeningFormation );
-	void UpdatePlayer( float frameTime, int stageWidth );
+	void UpdatePlayer( EnemyManager& enemyManager, float frameTime, int stageWidth );
 	void RenderPlayer( sf::RenderWindow& window, float interpolation );
 	bool CheckCollisionAndKill( sf::FloatRect enemyShotBoundary );
 	bool PlayerExploded();
@@ -22,6 +23,8 @@ public:
 private:
 	void ImposeStageBoundaryLimits( int stageWidth );
 	void HandlePlayerExplosionSprites();
+	void CheckEnemyCollisionAndKill( EnemyManager& enemyManager );
+	void KillPlayer();
 	void RevivePlayer();
 
 private:
