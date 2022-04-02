@@ -9,7 +9,7 @@ using namespace std;
 class Menu
 {
 public:
-	Menu();
+	Menu() = default;
 	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight );
 	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 	~Menu();

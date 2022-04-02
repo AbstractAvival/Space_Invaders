@@ -1,9 +1,5 @@
 #include "Menu.h"
 
-Menu::Menu()
-{
-}
-
 Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight )
 	:
 	Menu( textureCodex, items, screenWidth, screenHeight, 0, 0 )
