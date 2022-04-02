@@ -30,7 +30,7 @@ private:
 	const float estimatedCharacterHeight = 30.0f;
 	const float verticalSeparationDistance = 20.0f;
 	const float horizontalSeparationDistance = 20.0f;
-	const float maxInputCooldown = 0.10f;
+	const float maxInputCooldown = 0.08f;
 	vector< sf::Text > items;
 	sf::Sprite selector;
 	float accumulatedFrameTime = 0.0f;
