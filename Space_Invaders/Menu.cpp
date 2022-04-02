@@ -18,6 +18,41 @@ Menu::~Menu()
 
 void Menu::HandleInput()
 {
+	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Up ) )
+	{
+		if( currentItem <= 0 )
+		{
+			currentItem = int( items.size() - 1 );
+		}
+		else
+		{
+			currentItem--;
+		}
+		accumulatedFrameTime = 0.0f;
+		SetItemSelectorPosition();
+	}
+
+	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Down ) )
+	{
+		if( currentItem >= int( items.size() - 1 ) )
+		{
+			currentItem = 0;
+		}
+		else
+		{
+			currentItem++;
+		}
+		accumulatedFrameTime = 0.0f;
+		SetItemSelectorPosition();
+	}
+}
+
+void Menu::Update( float frameTime )
+{
+	if( accumulatedFrameTime < maxInputCooldown )
+	{
+		accumulatedFrameTime += frameTime;
+	}
 }
 
 void Menu::Render( sf::RenderWindow& window, float interpolation )

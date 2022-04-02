@@ -20,10 +20,12 @@ void MainMenuState::Enter()
 
 void MainMenuState::HandleInput()
 {
+	mainMenu.HandleInput();
 }
 
 void MainMenuState::UpdateLogic( float frameTime )
 {
+	mainMenu.Update( frameTime );
 }
 
 void MainMenuState::Render( float interpolation )
