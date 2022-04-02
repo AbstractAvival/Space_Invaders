@@ -26,7 +26,10 @@ private:
 	string GetMenuItemText( StateTypes state );
 
 private:
-	vector< sf::Text* > items;
+	const float estimatedCharacterHeight = 30.0f;
+	const float verticalSeparationDistance = 20.0f;
+	const float horizontalSeparationDistance = 20.0f;
+	vector< sf::Text > items;
 	sf::Sprite selector;
 	int currentOption = 0;
 };

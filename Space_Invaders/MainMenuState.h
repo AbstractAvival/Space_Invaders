@@ -1,6 +1,8 @@
 #pragma once
+#include <vector>
 #include "GameState.h"
 #include "StateHandler.h"
+#include "Menu.h"
 
 class MainMenuState : public GameState
 {
@@ -17,4 +19,6 @@ public:
 	void Render( float interpolation ) override;
 
 private:
+	const vector< StateTypes > desiredItems = { StateTypes::PLAYSTATE, StateTypes::SETTINGSSTATE };
+	Menu mainMenu;
 };

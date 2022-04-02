@@ -18,11 +18,6 @@ Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screen
 
 Menu::~Menu()
 {
-	for( auto item : items )
-	{
-		delete item;
-		item = nullptr;
-	}
 }
 
 void Menu::HandleInput()
@@ -33,7 +28,7 @@ void Menu::Render( sf::RenderWindow& window, float interpolation )
 {
 	for( auto item : items )
 	{
-		window.draw( *item );
+		window.draw( item );
 	}
 	window.draw( selector );
 }
@@ -52,19 +47,30 @@ void Menu::InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes >
 	selector.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::Selector ) );
 	for( auto item : desiredItems )
 	{
-		items.emplace_back( new sf::Text() );
-		items[ int( items.size() ) - 1 ]->setFont( textureCodex.GetFont() );
-		items[ int( items.size() ) - 1 ]->setCharacterSize( 25 );
-		items[ int( items.size() ) - 1 ]->setString( GetMenuItemText( item ) );
+		items.emplace_back( sf::Text() );
+		items[ int( items.size() ) - 1 ].setFont( textureCodex.GetFont() );
+		items[ int( items.size() ) - 1 ].setCharacterSize( 25 );
+		items[ int( items.size() ) - 1 ].setString( GetMenuItemText( item ) );
 	}
 }
 
 void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
 {
+	float startingHeight = ( screenHeight / 2 ) - ( items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
+	for( int index = 0; index < int( items.size() ); index++ )
+	{
+		float xPosition = ( screenWidth / 2 - items[ index ].getCharacterSize() / 2 ) + xDisplacement;
+		float yPosition = startingHeight + ( estimatedCharacterHeight + verticalSeparationDistance ) * index;
+		items[ index ].setPosition( { xPosition, yPosition } );
+	}
+
 }
 
 void Menu::SetItemSelectorPosition()
 {
+	float yPosition = items[ 0 ].getPosition().y + ( estimatedCharacterHeight / 2 ) - ( selector.getGlobalBounds().height / 2 );
+	float xPosition = items[ 0 ].getPosition().x - ( selector.getGlobalBounds().width + horizontalSeparationDistance );
+	selector.setPosition( xPosition, yPosition );
 }
 
 string Menu::GetMenuItemText( StateTypes state )

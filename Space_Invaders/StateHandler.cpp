@@ -6,8 +6,8 @@ StateHandler::StateHandler( sf::RenderWindow& window, TextureCodex& textureCodex
 	gameStates.emplace_back( new PauseState( window, *this, textureCodex, screenWidth, screenHeight ) );
 	gameStates.emplace_back( new SettingsState( window, *this, textureCodex, screenWidth, screenHeight ) );
 	gameStates.emplace_back( new PlayState( window, *this, textureCodex, screenWidth, screenHeight ) );
-	currentState = StateTypes::PLAYSTATE;
-	lastState = StateTypes::PLAYSTATE;
+	currentState = StateTypes::MAINMENUSTATE;
+	lastState = StateTypes::MAINMENUSTATE;
 }
 
 StateHandler::~StateHandler()
