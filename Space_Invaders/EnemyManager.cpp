@@ -8,7 +8,7 @@ EnemyManager::EnemyManager()
 	movementYIndex( openingFormationY ),
 	movementColumnIndex( openingFormationY ),
 	currentMovementDirection( MovementDirections::RIGHT ),
-	bossSpawnCooldown( numberGenerator.GetRandomFloat( 15.0f, 35.0f ) )
+	bossSpawnCooldown( numberGenerator.GetRandomFloat( 10.0f, 20.0f ) )
 {
 	for( auto enemy : enemies )
 	{
@@ -202,7 +202,7 @@ void EnemyManager::ResetBossPosition()
 			boss->SetPosition( { 850.0f, 75.0f } );
 		}
 		accumulatedBossFrameTime = 0.0f;
-		bossSpawnCooldown = numberGenerator.GetRandomFloat( 15.0f, 35.0f );
+		bossSpawnCooldown = numberGenerator.GetRandomFloat( 10.0f, 20.0f );
 		horizontalBossMovement = -horizontalBossMovement;
 		boss->Revive();
 		boss->SetSprite( 0 );
