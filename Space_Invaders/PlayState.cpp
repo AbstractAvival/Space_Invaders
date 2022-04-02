@@ -23,7 +23,7 @@ void PlayState::Enter()
 
 void PlayState::HandleInput()
 {
-	playerManager.HandlePlayerInput( projectileManager );
+	playerManager.HandlePlayerInput( projectileManager, enemyManager.IsExecutingOpeningFormation() );
 }
 
 void PlayState::UpdateLogic( float frameTime )

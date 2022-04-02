@@ -52,9 +52,9 @@ bool PlayerManager::PlayerExploded()
 	return player->GetCurrentSprite() != Sprites::Contract;
 }
 
-void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager )
+void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager, bool enemyIsExecutingOpeningFormation )
 {
-	if( !PlayerExploded() )
+	if( !PlayerExploded() && !enemyIsExecutingOpeningFormation )
 	{
 		if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
 		{

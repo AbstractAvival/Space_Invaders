@@ -13,7 +13,7 @@ public:
 	~PlayerManager();
 
 	void ResetPlayer();
-	void HandlePlayerInput( ProjectileManager& projectileManager );
+	void HandlePlayerInput( ProjectileManager& projectileManager, bool enemyIsExecutingOpeningFormation );
 	void UpdatePlayer( float frameTime, int stageWidth );
 	void RenderPlayer( sf::RenderWindow& window, float interpolation );
 	bool CheckCollisionAndKill( sf::FloatRect enemyShotBoundary );
