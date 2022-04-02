@@ -205,6 +205,7 @@ void EnemyManager::ResetBossPosition()
 		bossSpawnCooldown = numberGenerator.GetRandomFloat( 15.0f, 35.0f );
 		horizontalBossMovement = -horizontalBossMovement;
 		boss->Revive();
+		boss->SetSprite( 0 );
 	}
 }
 
