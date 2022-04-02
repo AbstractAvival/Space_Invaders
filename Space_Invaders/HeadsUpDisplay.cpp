@@ -4,7 +4,7 @@ HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFile
 	:
 	highScoreFileName( highScoreFileNameIn ),
 	currentScore( 0 ),
-	currentlives( 3 ),
+	currentLives( 3 ),
 	highScore( 0 )
 {
 	InitializeDisplayPositions();
@@ -25,7 +25,7 @@ void HeadsUpDisplay::RenderHUD( sf::RenderWindow& window )
 		window.draw( scoreFonts[ currentTextIndex ] );
 	}
 
-	for( int currentLifeIndex = 0; currentLifeIndex < currentlives; currentLifeIndex++ )
+	for( int currentLifeIndex = 0; currentLifeIndex < currentLives; currentLifeIndex++ )
 	{
 		window.draw( lives[ currentLifeIndex ] );
 	}
@@ -59,12 +59,17 @@ void HeadsUpDisplay::ModifyScore( EnemyTypes killedEnemyType )
 
 void HeadsUpDisplay::ModifyLives( int lifeOffset )
 {
-	currentlives += lifeOffset;
+	currentLives += lifeOffset;
 }
 
 int HeadsUpDisplay::GetCurrentLives() const
 {
-	return currentlives;
+	return currentLives;
+}
+
+bool HeadsUpDisplay::IsGameOver()
+{
+	return currentLives >= 1;
 }
 
 void HeadsUpDisplay::LoadHighScore( string fileName )

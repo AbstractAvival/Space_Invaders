@@ -13,6 +13,7 @@ public:
 	void ModifyScore( EnemyTypes killedEnemyType );
 	void ModifyLives( int lifeOffset );
 	int GetCurrentLives() const;
+	bool IsGameOver();
 
 private:
 	void LoadHighScore( string fileName );
@@ -32,5 +33,5 @@ private:
 	const int maxLives = 5;
 	int highScore;
 	int currentScore;
-	int currentlives;
+	int currentLives;
 };

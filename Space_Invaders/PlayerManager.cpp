@@ -114,7 +114,7 @@ void PlayerManager::KillPlayer()
 
 void PlayerManager::RevivePlayer()
 {
-	if( accumulatedReviveFrameTime >= playerReviveCooldown && hudDisplay->GetCurrentLives() >= 1 )
+	if( !hudDisplay->IsGameOver() && accumulatedReviveFrameTime >= playerReviveCooldown )
 	{
 		accumulatedReviveFrameTime = 0.0f;
 		ResetPlayer();
