@@ -11,7 +11,7 @@ class ProjectileManager
 public:
 	ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn );
 	~ProjectileManager();
-	void UpdateProjectiles( float frameTime );
+	void UpdateProjectiles( float frameTime, bool playerExploded );
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
 
 public:

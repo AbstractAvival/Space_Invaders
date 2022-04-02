@@ -23,7 +23,7 @@ ProjectileManager::~ProjectileManager()
 	}
 }
 
-void ProjectileManager::UpdateProjectiles( float frameTime )
+void ProjectileManager::UpdateProjectiles( float frameTime, bool playerExploded )
 {
 	if( !enemyManager->IsExecutingOpeningFormation() )
 	{
@@ -32,7 +32,10 @@ void ProjectileManager::UpdateProjectiles( float frameTime )
 		HandlePlayerShotCollision();
 		HandleEnemyProjectiles();
 		HandleEnemyShotCollision();
-		ShootEnemyProjectile();
+		if( !playerExploded )
+		{
+			ShootEnemyProjectile();
+		}
 	}
 
 	for( auto playerProjectile : playerProjectiles )

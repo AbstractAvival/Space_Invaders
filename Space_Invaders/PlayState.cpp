@@ -31,7 +31,7 @@ void PlayState::UpdateLogic( float frameTime )
 	headsUpDisplay.UpdateHUD();
 	enemyManager.UpdateEnemies( frameTime, playerManager.PlayerExploded() );
 	playerManager.UpdatePlayer( frameTime, maxScreenWidth );
-	projectileManager.UpdateProjectiles( frameTime );
+	projectileManager.UpdateProjectiles( frameTime, playerManager.PlayerExploded() );
 }
 
 void PlayState::Render( float interpolation )
