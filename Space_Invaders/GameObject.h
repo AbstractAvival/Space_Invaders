@@ -22,7 +22,7 @@ public:
 	void SetPosition( sf::Vector2f newPosition );
 	virtual void Move( sf::Vector2f offset );
 	void Kill();
-	void Revive();
+	virtual void Revive();
 	bool IsDead();
 
 protected:

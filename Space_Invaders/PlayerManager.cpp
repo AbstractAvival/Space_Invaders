@@ -19,8 +19,14 @@ void PlayerManager::ResetPlayer()
 	player->SetPosition( playerStartingPosition );
 }
 
-void PlayerManager::UpdatePlayer( int stageWidth )
+void PlayerManager::UpdatePlayer( float frameTime, int stageWidth )
 {
+	if( PlayerExploded() )
+	{
+		accumulatedReviveFrameTime += frameTime;
+		HandlePlayerExplosionSprites();
+		RevivePlayer();
+	}
 	ImposeStageBoundaryLimits( stageWidth );
 }
 
@@ -35,6 +41,7 @@ bool PlayerManager::CheckCollisionAndKill( sf::FloatRect enemyShotBoundary )
 	if( enemyShotBoundary.intersects( player->GetBoundary() ) )
 	{
 		hudDisplay->ModifyLives( -1 );
+		player->SetCurrentSprite( Sprites::Expand );
 		collided = true;
 	}
 	return collided;
@@ -73,5 +80,26 @@ void PlayerManager::ImposeStageBoundaryLimits( int stageWidth )
 	if( player->GetBoundary().left + player->GetBoundary().width > stageWidth )
 	{
 		player->SetPosition( sf::Vector2f( stageWidth - player->GetTextureWidth() / 2, player->GetPosition().y ) );
+	}
+}
+
+void PlayerManager::HandlePlayerExplosionSprites()
+{
+	if( player->GetCurrentSprite() == Sprites::Expand )
+	{
+		player->SetCurrentSprite( Sprites::Explode );
+	}
+	else
+	{
+		player->SetCurrentSprite( Sprites::Expand );
+	}
+}
+
+void PlayerManager::RevivePlayer()
+{
+	if( accumulatedReviveFrameTime >= playerReviveCooldown && hudDisplay->GetCurrentLives() >= 1 )
+	{
+		accumulatedReviveFrameTime = 0.0f;
+		ResetPlayer();
 	}
 }

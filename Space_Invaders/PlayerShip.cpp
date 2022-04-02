@@ -18,6 +18,17 @@ void PlayerShip::Render( sf::RenderWindow& window, float interpolation )
 	window.draw( sprites[ int( currentSprite ) ] );
 }
 
+void PlayerShip::SetCurrentSprite(Sprites newSprite)
+{
+	currentSprite = newSprite;
+}
+
+void PlayerShip::Revive()
+{
+	GameObject::Revive();
+	currentSprite = Sprites::Contract;
+}
+
 Sprites PlayerShip::GetCurrentSprite()
 {
 	return currentSprite;

@@ -12,6 +12,8 @@ public:
 public:
 	void Update( float frameTime ) override;
 	void Render( sf::RenderWindow& window, float interpolation ) override;
+	void SetCurrentSprite( Sprites newSprite );
+	void Revive() override;
 	Sprites GetCurrentSprite();
 
 private:

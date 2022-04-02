@@ -14,17 +14,21 @@ public:
 
 	void ResetPlayer();
 	void HandlePlayerInput( ProjectileManager& projectileManager );
-	void UpdatePlayer( int stageWidth );
+	void UpdatePlayer( float frameTime, int stageWidth );
 	void RenderPlayer( sf::RenderWindow& window, float interpolation );
 	bool CheckCollisionAndKill( sf::FloatRect enemyShotBoundary );
 	bool PlayerExploded();
 
 private:
 	void ImposeStageBoundaryLimits( int stageWidth );
+	void HandlePlayerExplosionSprites();
+	void RevivePlayer();
 
 private:
 	const sf::Vector2f playerStartingPosition = sf::Vector2f( 500.0f, 530.0f );
 	const float playerSpeed = 11.0f;
 	HeadsUpDisplay* hudDisplay = nullptr;
 	PlayerShip* player = nullptr;
+	float playerReviveCooldown = 0.10f;
+	float accumulatedReviveFrameTime = 0.0f;
 };
