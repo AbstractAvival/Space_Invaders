@@ -48,6 +48,8 @@ EnemyManager::~EnemyManager()
 void EnemyManager::ResetEnemies()
 {
 	ResetEnemyPositions();
+	accumulatedMoveFrameTime = 0.0f;
+	accumulatedBossFrameTime = 0.0f;
 	currentMovementDirection = MovementDirections::RIGHT;
 	isExecutingOpeningFormation = true;
 	openingFormationX = enemyRowLength - 1;
