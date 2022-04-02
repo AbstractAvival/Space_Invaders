@@ -15,6 +15,11 @@ void PlayState::InitializeState()
 
 void PlayState::ResetState()
 {
+	accumulatedWaitTime = 0.0f;
+	headsUpDisplay.ResetHUD();
+	enemyManager.ResetEnemies();
+	playerManager.ResetPlayer();
+	projectileManager.ResetProjectiles();
 }
 
 void PlayState::Enter()
@@ -32,6 +37,15 @@ void PlayState::UpdateLogic( float frameTime )
 	enemyManager.UpdateEnemies( frameTime, playerManager.PlayerExploded() );
 	playerManager.UpdatePlayer( enemyManager, frameTime, maxScreenWidth );
 	projectileManager.UpdateProjectiles( frameTime, playerManager.PlayerExploded() );
+
+	if( headsUpDisplay.IsGameOver() )
+	{
+		accumulatedWaitTime += frameTime;
+		if( accumulatedWaitTime >= gameOverWaitTime )
+		{
+			handler->ChangeState( StateTypes::MAINMENUSTATE );
+		}
+	}
 }
 
 void PlayState::Render( float interpolation )

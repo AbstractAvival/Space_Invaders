@@ -17,6 +17,7 @@ void PlayerManager::ResetPlayer()
 {
 	player->Revive();
 	player->SetPosition( playerStartingPosition );
+	accumulatedReviveFrameTime = 0.0f;
 }
 
 void PlayerManager::UpdatePlayer( EnemyManager& enemyManager, float frameTime, int stageWidth )
@@ -116,7 +117,8 @@ void PlayerManager::RevivePlayer()
 {
 	if( !hudDisplay->IsGameOver() && accumulatedReviveFrameTime >= playerReviveCooldown )
 	{
+		player->Revive();
+		player->SetPosition( playerStartingPosition );
 		accumulatedReviveFrameTime = 0.0f;
-		ResetPlayer();
 	}
 }

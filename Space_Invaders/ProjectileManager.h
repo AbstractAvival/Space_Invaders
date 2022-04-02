@@ -13,9 +13,8 @@ public:
 	~ProjectileManager();
 	void UpdateProjectiles( float frameTime, bool playerExploded );
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
-
-public:
 	void ShootPlayerProjectile( sf::Vector2f position );
+	void ResetProjectiles();
 
 private:
 	void HandlePlayerProjectiles();

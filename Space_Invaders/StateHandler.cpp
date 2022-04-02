@@ -28,6 +28,7 @@ void StateHandler::InitializeBeginningState()
 
 void StateHandler::ChangeState( StateTypes targetState )
 {
+	gameStates[ int( currentState ) ]->ResetState();
 	lastState = currentState;
 	currentState = targetState;
 	gameStates[ int( currentState ) ]->Enter();

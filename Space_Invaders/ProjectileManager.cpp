@@ -70,6 +70,22 @@ void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 	}
 }
 
+void ProjectileManager::ResetProjectiles()
+{
+	enemyProjectileCooldown = maxEnemyProjectileCooldown;
+	for( auto currentProjectile = enemyProjectiles.begin(); currentProjectile != enemyProjectiles.end(); )
+	{
+		delete ( *currentProjectile );
+		currentProjectile = enemyProjectiles.erase( currentProjectile );
+	}
+
+	for( auto currentProjectile = playerProjectiles.begin(); currentProjectile != playerProjectiles.end(); )
+	{
+		delete ( *currentProjectile );
+		currentProjectile = playerProjectiles.erase( currentProjectile );
+	}
+}
+
 void ProjectileManager::ShootEnemyProjectile()
 {
 	if( enemyProjectileCooldown <= 0.0f )

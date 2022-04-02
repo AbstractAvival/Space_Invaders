@@ -31,7 +31,7 @@ private:
 	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
 	void HandleEnemyMovement();
 	void HandleBossMovement();
-	void ResetEnemyPositions();
+	void ResetEnemyPositionsAndKill();
 	void ResetBossPosition();
 	void DoOpeningFormation();
 	void MoveEnemies( sf::Vector2f direction );

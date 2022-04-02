@@ -47,16 +47,19 @@ EnemyManager::~EnemyManager()
 
 void EnemyManager::ResetEnemies()
 {
-	ResetEnemyPositions();
+	ResetEnemyPositionsAndKill();
 	accumulatedMoveFrameTime = 0.0f;
 	accumulatedBossFrameTime = 0.0f;
 	currentMovementDirection = MovementDirections::RIGHT;
 	isExecutingOpeningFormation = true;
 	openingFormationX = enemyRowLength - 1;
 	openingFormationY = enemyColumnHeight - 1;
-	movementXIndex = openingFormationY;
+	movementXIndex = openingFormationX;
 	movementYIndex = openingFormationY;
 	movementColumnIndex = openingFormationY;
+	horizontalMovementCount = 14;
+	verticalMovementCount = 1;
+	boss->SetPosition( { -150.0f, boss->GetPosition().y } );
 }
 
 void EnemyManager::UpdateEnemies( float frameTime, bool playerExploded )
@@ -182,7 +185,7 @@ void EnemyManager::HandleBossMovement()
 	}
 }
 
-void EnemyManager::ResetEnemyPositions()
+void EnemyManager::ResetEnemyPositionsAndKill()
 {
 	for( int columnIndex = 0; columnIndex < enemyColumnHeight; columnIndex++ )
 	{
@@ -190,6 +193,8 @@ void EnemyManager::ResetEnemyPositions()
 		{
 			sf::Vector2f enemyPosition = sf::Vector2f( ( rowIndex * horizontalSeparationDistance ) + startingXPosition, ( columnIndex * verticalSeparationDistance ) + startingYPosition );
 			enemies[ columnIndex * enemyRowLength + rowIndex ]->SetPosition( enemyPosition );
+			enemies[ columnIndex * enemyRowLength + rowIndex ]->SetSprite( int( Sprites::Contract ) );
+			enemies[ columnIndex * enemyRowLength + rowIndex ]->Kill();
 		}
 	}
 }

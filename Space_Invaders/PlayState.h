@@ -25,4 +25,6 @@ private:
 	ProjectileManager projectileManager;
 	EnemyManager enemyManager;
 	PlayerManager playerManager;
+	const float gameOverWaitTime = 1.0f;
+	float accumulatedWaitTime = 0.0f;
 };

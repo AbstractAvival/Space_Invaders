@@ -62,6 +62,14 @@ void HeadsUpDisplay::ModifyLives( int lifeOffset )
 	currentLives += lifeOffset;
 }
 
+void HeadsUpDisplay::ResetHUD()
+{
+	SaveHighScore();
+	currentLives = 3;
+	currentScore = 0;
+	scoreFonts[ 2 ].setString( to_string( currentScore ) );
+}
+
 int HeadsUpDisplay::GetCurrentLives() const
 {
 	return currentLives;
@@ -69,7 +77,7 @@ int HeadsUpDisplay::GetCurrentLives() const
 
 bool HeadsUpDisplay::IsGameOver()
 {
-	return currentLives >= 1;
+	return currentLives <= 0;
 }
 
 void HeadsUpDisplay::LoadHighScore( string fileName )
