@@ -96,7 +96,6 @@ void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xD
 		float yPosition = startingHeight + ( estimatedCharacterHeight + verticalSeparationDistance ) * index;
 		items[ index ].setPosition( { xPosition, yPosition } );
 	}
-
 }
 
 void Menu::SetItemSelectorPosition()
