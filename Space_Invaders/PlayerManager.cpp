@@ -40,6 +40,11 @@ bool PlayerManager::CheckCollisionAndKill( sf::FloatRect enemyShotBoundary )
 	return collided;
 }
 
+bool PlayerManager::PlayerExploded()
+{
+	return false;
+}
+
 void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager )
 {
 	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )

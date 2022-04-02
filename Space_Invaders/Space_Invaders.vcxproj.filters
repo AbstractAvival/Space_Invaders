@@ -143,5 +143,8 @@
     <ClInclude Include="MenuTextureTypes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Sprites.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

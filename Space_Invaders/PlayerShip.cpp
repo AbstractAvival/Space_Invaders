@@ -17,3 +17,8 @@ void PlayerShip::Render( sf::RenderWindow& window, float interpolation )
 {
 	window.draw( sprites[ int( currentSprite ) ] );
 }
+
+Sprites PlayerShip::GetCurrentSprite()
+{
+	return currentSprite;
+}

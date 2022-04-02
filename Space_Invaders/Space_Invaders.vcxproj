@@ -186,6 +186,7 @@
     <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
     <ClInclude Include="SettingsState.h" />
+    <ClInclude Include="Sprites.h" />
     <ClInclude Include="TextureCodex.h" />
     <ClInclude Include="StateHandler.h" />
     <ClInclude Include="StateTypes.h" />

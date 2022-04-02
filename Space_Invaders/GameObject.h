@@ -3,18 +3,11 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "TextureCodex.h"
+#include "Sprites.h"
 using namespace std;
 
 class GameObject
 {
-protected:
-	enum class Sprites
-	{
-		Contract,
-		Expand,
-		Explode
-	};
-
 protected:
 	GameObject( sf::Vector2f positionIn );
 

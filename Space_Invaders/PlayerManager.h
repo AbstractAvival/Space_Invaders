@@ -16,6 +16,7 @@ public:
 	void UpdatePlayer( int stageWidth );
 	void RenderPlayer( sf::RenderWindow& window, float interpolation );
 	bool CheckCollisionAndKill( sf::FloatRect enemyShotBoundary );
+	bool PlayerExploded();
 
 private:
 	void ImposeStageBoundaryLimits( int stageWidth );
