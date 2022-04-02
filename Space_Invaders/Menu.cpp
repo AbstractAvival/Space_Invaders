@@ -49,7 +49,7 @@ int Menu::getCurrentOption()
 
 void Menu::InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems )
 {
-	selector.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::MenuSelector ) );
+	selector.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::Selector ) );
 	for( auto item : desiredItems )
 	{
 		items.emplace_back( new sf::Text() );

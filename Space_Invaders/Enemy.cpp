@@ -100,7 +100,7 @@ void Enemy::InitializeSprites( TextureCodex& textureCodex )
 
 void Enemy::LoadBossSprite( TextureCodex& textureCodex )
 {
-	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::WhiteBox, GameTextureTypes::WhiteBox, GameTextureTypes::Explosion };
+	GameTextureTypes spriteTypes[ 3 ] = { GameTextureTypes::BossShip, GameTextureTypes::BossShip, GameTextureTypes::Explosion };
 	LoadSprites( textureCodex, spriteTypes );
 }
 
