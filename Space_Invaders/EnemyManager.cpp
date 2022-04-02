@@ -51,7 +51,6 @@ void EnemyManager::ResetEnemies()
 	accumulatedMoveFrameTime = 0.0f;
 	accumulatedBossFrameTime = 0.0f;
 	currentMovementDirection = MovementDirections::RIGHT;
-	isExecutingOpeningFormation = true;
 	openingFormationX = enemyRowLength - 1;
 	openingFormationY = enemyColumnHeight - 1;
 	movementXIndex = openingFormationX;
@@ -59,6 +58,9 @@ void EnemyManager::ResetEnemies()
 	movementColumnIndex = openingFormationY;
 	horizontalMovementCount = 14;
 	verticalMovementCount = 1;
+	maxFrameTime = 0.13f;
+	isExecutingOpeningFormation = true;
+	isGoingLeft = false;
 	boss->SetPosition( { -150.0f, boss->GetPosition().y } );
 }
 
