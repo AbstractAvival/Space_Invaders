@@ -29,6 +29,6 @@ private:
 	const float playerSpeed = 11.0f;
 	HeadsUpDisplay* hudDisplay = nullptr;
 	PlayerShip* player = nullptr;
-	float playerReviveCooldown = 0.10f;
+	float playerReviveCooldown = 0.20f;
 	float accumulatedReviveFrameTime = 0.0f;
 };

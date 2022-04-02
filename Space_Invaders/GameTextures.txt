@@ -1,6 +1,8 @@
 WhiteBox30x30.png
 PlayerShip.png
 PlayerShipReduced.png
+PlayerShipExplosionA.png
+PlayerShipExplosionB.png
 EnemyOneFirst.png
 EnemyOneSecond.png
 EnemyTwoFirst.png

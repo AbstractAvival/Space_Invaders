@@ -54,19 +54,22 @@ bool PlayerManager::PlayerExploded()
 
 void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager )
 {
-	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
+	if( !PlayerExploded() )
 	{
-		player->Move( sf::Vector2f( -playerSpeed, 0.0f ) );
-	}
+		if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left ) )
+		{
+			player->Move( sf::Vector2f( -playerSpeed, 0.0f ) );
+		}
 
-	if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) )
-	{
-		player->Move( sf::Vector2f( playerSpeed, 0.0f ) );
-	}
+		if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right ) )
+		{
+			player->Move( sf::Vector2f( playerSpeed, 0.0f ) );
+		}
 
-	if( sf::Keyboard::isKeyPressed( sf::Keyboard::S ) )
-	{
-		projectileManager.ShootPlayerProjectile( player->GetPosition() );
+		if( sf::Keyboard::isKeyPressed( sf::Keyboard::S ) )
+		{
+			projectileManager.ShootPlayerProjectile( player->GetPosition() );
+		}
 	}
 }
 

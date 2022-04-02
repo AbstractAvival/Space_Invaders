@@ -5,6 +5,8 @@ enum class GameTextureTypes
 	WhiteBox,
 	PlayerShip,
 	PlayerShipReduced,
+	PlayerShipExplosionA,
+	PlayerShipExplosionB,
 	EnemyOneFirst,
 	EnemyOneSecond,
 	EnemyTwoFirst,

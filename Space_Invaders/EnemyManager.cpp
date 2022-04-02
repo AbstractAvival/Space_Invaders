@@ -59,12 +59,15 @@ void EnemyManager::ResetEnemies()
 	movementColumnIndex = openingFormationY;
 }
 
-void EnemyManager::UpdateEnemies( float frameTime )
+void EnemyManager::UpdateEnemies( float frameTime, bool playerExploded )
 {
 	accumulatedMoveFrameTime += frameTime;
 	accumulatedBossFrameTime += frameTime;
 	DoOpeningFormation();
-	HandleEnemyMovement();
+	if( !playerExploded )
+	{
+		HandleEnemyMovement();
+	}
 	HandleBossMovement();
 	ClearExplodedEnemies();
 	ResetBossPosition();

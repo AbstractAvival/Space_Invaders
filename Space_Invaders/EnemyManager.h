@@ -17,7 +17,7 @@ public:
 	~EnemyManager();
 
 	void ResetEnemies();
-	void UpdateEnemies( float frameTime );
+	void UpdateEnemies( float frameTime, bool playerExploded );
 	void RenderEnemies( sf::RenderWindow& window, float interpolation );
 	bool CheckCollisionAndKill( sf::FloatRect playerShotBoundary );
 	bool IsExecutingOpeningFormation();

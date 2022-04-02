@@ -29,7 +29,7 @@ void PlayState::HandleInput()
 void PlayState::UpdateLogic( float frameTime )
 {
 	headsUpDisplay.UpdateHUD();
-	enemyManager.UpdateEnemies( frameTime );
+	enemyManager.UpdateEnemies( frameTime, playerManager.PlayerExploded() );
 	playerManager.UpdatePlayer( frameTime, maxScreenWidth );
 	projectileManager.UpdateProjectiles( frameTime );
 }
