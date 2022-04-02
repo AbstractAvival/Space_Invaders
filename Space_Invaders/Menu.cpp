@@ -26,7 +26,7 @@ void Menu::HandleInput()
 
 void Menu::Render( sf::RenderWindow& window, float interpolation )
 {
-	for( auto item : items )
+	for( auto& item : items )
 	{
 		window.draw( item );
 	}
@@ -35,6 +35,8 @@ void Menu::Render( sf::RenderWindow& window, float interpolation )
 
 void Menu::ResetOptions()
 {
+	currentItem = 0;
+	SetItemSelectorPosition();
 }
 
 int Menu::getCurrentMenuItem()
@@ -59,7 +61,7 @@ void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xD
 	float startingHeight = ( screenHeight / 2 ) - ( items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
 	for( int index = 0; index < int( items.size() ); index++ )
 	{
-		float xPosition = ( screenWidth / 2 - items[ index ].getCharacterSize() / 2 ) + xDisplacement;
+		float xPosition = ( screenWidth / 2 - float( items[ index ].getCharacterSize() / 2 ) ) + xDisplacement;
 		float yPosition = startingHeight + ( estimatedCharacterHeight + verticalSeparationDistance ) * index;
 		items[ index ].setPosition( { xPosition, yPosition } );
 	}
