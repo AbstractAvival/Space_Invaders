@@ -3,6 +3,7 @@
 #include "TextureCodex.h"
 #include "PlayerShip.h"
 #include "ProjectileManager.h"
+#include "Sprites.h"
 
 class PlayerManager
 {

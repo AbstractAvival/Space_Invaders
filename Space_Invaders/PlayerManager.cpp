@@ -42,7 +42,7 @@ bool PlayerManager::CheckCollisionAndKill( sf::FloatRect enemyShotBoundary )
 
 bool PlayerManager::PlayerExploded()
 {
-	return false;
+	return player->GetCurrentSprite() != Sprites::Contract;
 }
 
 void PlayerManager::HandlePlayerInput( ProjectileManager& projectileManager )
