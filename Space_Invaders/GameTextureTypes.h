@@ -17,5 +17,6 @@ enum class GameTextureTypes
 	PlayerProjectileExploded,
 	EnemyProjectileNormal,
 	EnemyProjectileHeated,
-	EnemyProjectileExploded
+	EnemyProjectileExploded,
+	BossShip
 };

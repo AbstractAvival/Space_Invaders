@@ -14,3 +14,4 @@ PlayerProjectileExploded.png
 EnemyProjectileNormal.png
 EnemyProjectileHeated.png
 EnemyProjectileExploded.png
+BossShip.png

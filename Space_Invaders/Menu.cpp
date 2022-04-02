@@ -35,6 +35,7 @@ void Menu::Render( sf::RenderWindow& window, float interpolation )
 	{
 		window.draw( *item );
 	}
+	window.draw( selector );
 }
 
 void Menu::ResetOptions()
