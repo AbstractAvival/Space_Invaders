@@ -17,7 +17,7 @@ public:
 	void HandleInput();
 	void Render( sf::RenderWindow& window, float interpolation );
 	void ResetOptions();
-	int getCurrentOption();
+	int getCurrentMenuItem();
 
 private:
 	void InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems );
@@ -31,5 +31,5 @@ private:
 	const float horizontalSeparationDistance = 20.0f;
 	vector< sf::Text > items;
 	sf::Sprite selector;
-	int currentOption = 0;
+	int currentItem = 0;
 };

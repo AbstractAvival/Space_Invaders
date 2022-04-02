@@ -37,9 +37,9 @@ void Menu::ResetOptions()
 {
 }
 
-int Menu::getCurrentOption()
+int Menu::getCurrentMenuItem()
 {
-	return currentOption;
+	return currentItem;
 }
 
 void Menu::InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems )
@@ -68,8 +68,8 @@ void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xD
 
 void Menu::SetItemSelectorPosition()
 {
-	float yPosition = items[ 0 ].getPosition().y + ( estimatedCharacterHeight / 2 ) - ( selector.getGlobalBounds().height / 2 );
-	float xPosition = items[ 0 ].getPosition().x - ( selector.getGlobalBounds().width + horizontalSeparationDistance );
+	float yPosition = items[ currentItem ].getPosition().y + ( estimatedCharacterHeight / 2 ) - ( selector.getGlobalBounds().height / 2 );
+	float xPosition = items[ currentItem ].getPosition().x - ( selector.getGlobalBounds().width + horizontalSeparationDistance );
 	selector.setPosition( xPosition, yPosition );
 }
 
