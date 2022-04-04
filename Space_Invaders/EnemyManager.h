@@ -32,6 +32,7 @@ private:
 	void CreateEnemies( TextureCodex& textureCodex, EnemyTypes desiredEnemyType, int startingColumn, int endingColumn );
 	void HandleEnemyMovement();
 	void HandleBossMovement();
+	void HandleAllEnemiesKilled();
 	void ResetEnemyPositionsAndKill();
 	void ResetBossPosition();
 	void DoOpeningFormation();
@@ -55,7 +56,9 @@ private:
 	RandomNumberGenerator numberGenerator;
 	bool isExecutingOpeningFormation = true;
 	bool isGoingLeft = false;
-	float maxFrameTime = 0.13f;
+	float maxMovementFrameTime = 0.13f;
+	float accumulatedEnemyRespawnFrameTime = 0.0f;
+	float maxEnemyRespawnFrameTime = 1.0f;
 	float accumulatedMoveFrameTime = 0.0f;
 	float accumulatedBossFrameTime = 0.0f;
 	float horizontalBossMovement = -10.0f;

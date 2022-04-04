@@ -58,7 +58,7 @@ void EnemyManager::ResetEnemies()
 	movementColumnIndex = openingFormationY;
 	horizontalMovementCount = 14;
 	verticalMovementCount = 1;
-	maxFrameTime = 0.13f;
+	maxMovementFrameTime = 0.13f;
 	isExecutingOpeningFormation = true;
 	isGoingLeft = false;
 	boss->SetPosition( { -150.0f, boss->GetPosition().y } );
@@ -69,13 +69,20 @@ void EnemyManager::UpdateEnemies( float frameTime, bool playerExploded )
 	accumulatedMoveFrameTime += frameTime;
 	accumulatedBossFrameTime += frameTime;
 	DoOpeningFormation();
+	HandleBossMovement();
+	ClearExplodedEnemies();
+	ResetBossPosition();
+
 	if( !playerExploded )
 	{
 		HandleEnemyMovement();
 	}
-	HandleBossMovement();
-	ClearExplodedEnemies();
-	ResetBossPosition();
+
+	if( AreAllEnemiesDead() )
+	{
+		accumulatedEnemyRespawnFrameTime += frameTime;
+		HandleAllEnemiesKilled();
+	}
 }
 
 void EnemyManager::RenderEnemies( sf::RenderWindow& window, float interpolation )
@@ -121,7 +128,7 @@ bool EnemyManager::AreAllEnemiesDead()
 
 	for( auto enemy : enemies )
 	{
-		if( enemy->IsDead() )
+		if( !enemy->IsDead() )
 			allEnemiesAreDead = false;
 	}
 
@@ -178,7 +185,7 @@ void EnemyManager::CreateEnemies( TextureCodex& textureCodex, EnemyTypes desired
 
 void EnemyManager::HandleEnemyMovement()
 {
-	if( !isExecutingOpeningFormation && accumulatedMoveFrameTime > maxFrameTime )
+	if( !isExecutingOpeningFormation && accumulatedMoveFrameTime > maxMovementFrameTime )
 	{
 		accumulatedMoveFrameTime = 0.0f;
 		MoveEnemies( GetMovementVector() );
@@ -197,6 +204,15 @@ void EnemyManager::HandleBossMovement()
 	if( !isExecutingOpeningFormation && !boss->IsDead() && accumulatedBossFrameTime > bossSpawnCooldown )
 	{
 		boss->Move( { horizontalBossMovement, 0.0f } );
+	}
+}
+
+void EnemyManager::HandleAllEnemiesKilled()
+{
+	if( accumulatedEnemyRespawnFrameTime >= maxEnemyRespawnFrameTime )
+	{
+		accumulatedEnemyRespawnFrameTime = 0.0f;
+		ResetEnemies();
 	}
 }
 
@@ -273,7 +289,7 @@ void EnemyManager::SetMovementDirection()
 	}
 	else if( horizontalMovementCount == 0 && verticalMovementCount == 0 )
 	{
-		maxFrameTime -= 0.02f;
+		maxMovementFrameTime -= 0.02f;
 		if( isGoingLeft )
 		{
 			currentMovementDirection = MovementDirections::RIGHT;
