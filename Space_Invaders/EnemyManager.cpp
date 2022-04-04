@@ -115,6 +115,19 @@ bool EnemyManager::IsExecutingOpeningFormation()
 	return isExecutingOpeningFormation;
 }
 
+bool EnemyManager::AreAllEnemiesDead()
+{
+	bool allEnemiesAreDead = true;
+
+	for( auto enemy : enemies )
+	{
+		if( enemy->IsDead() )
+			allEnemiesAreDead = false;
+	}
+
+	return allEnemiesAreDead;
+}
+
 Enemy EnemyManager::GetRandomFrontlineEnemy()
 {
 	int xIndex = numberGenerator.GetRandomInt( 0, 10 );

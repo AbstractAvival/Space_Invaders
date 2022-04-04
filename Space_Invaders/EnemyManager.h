@@ -21,6 +21,7 @@ public:
 	void RenderEnemies( sf::RenderWindow& window, float interpolation );
 	bool CheckCollisionAndKill( sf::FloatRect playerShotBoundary );
 	bool IsExecutingOpeningFormation();
+	bool AreAllEnemiesDead();
 	Enemy GetRandomFrontlineEnemy();
 
 private:
