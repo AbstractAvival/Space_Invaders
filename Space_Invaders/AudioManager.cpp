@@ -26,10 +26,13 @@ void AudioManager::PlaySound( AudioTypes desiredAudio )
 
 void AudioManager::PlayBackgroundMusic()
 {
+	mainGameMusic.play();
+	mainGameMusic.setLoop( true );
 }
 
 void AudioManager::StopBackgroundMusic()
 {
+	mainGameMusic.stop();
 }
 
 void AudioManager::LoadAudio( string audioFileName, string musicFileName )
