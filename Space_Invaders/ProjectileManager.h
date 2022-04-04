@@ -22,6 +22,7 @@ private:
 	void HandleEnemyProjectiles();
 	void HandleEnemyShotCollision();
 	void ShootEnemyProjectile();
+	void ClearAllEnemyProjectiles();
 
 private:
 	TextureCodex* textureCodex;

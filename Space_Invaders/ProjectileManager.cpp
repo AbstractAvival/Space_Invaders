@@ -32,9 +32,15 @@ void ProjectileManager::UpdateProjectiles( float frameTime, bool playerExploded 
 		HandlePlayerShotCollision();
 		HandleEnemyProjectiles();
 		HandleEnemyShotCollision();
+
 		if( !playerExploded )
 		{
 			ShootEnemyProjectile();
+		}
+
+		if( playerExploded )
+		{
+			ClearAllEnemyProjectiles();
 		}
 	}
 
@@ -96,6 +102,16 @@ void ProjectileManager::ShootEnemyProjectile()
 			enemyProjectiles.emplace_back( new Projectile( *textureCodex, enemy.GetPosition(), false ) );
 			enemyProjectileCooldown = maxEnemyProjectileCooldown;
 		}
+	}
+}
+
+void ProjectileManager::ClearAllEnemyProjectiles()
+{
+	enemyProjectileCooldown = maxEnemyProjectileCooldown;
+	for( auto currentProjectile = enemyProjectiles.begin(); currentProjectile != enemyProjectiles.end(); )
+	{
+		delete ( *currentProjectile );
+		currentProjectile = enemyProjectiles.erase( currentProjectile );
 	}
 }
 
