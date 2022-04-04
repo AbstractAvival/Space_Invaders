@@ -22,6 +22,7 @@ AudioManager::~AudioManager()
 
 void AudioManager::PlaySound( AudioTypes desiredAudio )
 {
+	sounds[ int( desiredAudio ) ]->play();
 }
 
 void AudioManager::PlayBackgroundMusic()
