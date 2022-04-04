@@ -20,6 +20,7 @@ private:
 	void LoadHighScore( string fileName );
 	void SaveHighScore();
 	void UpdateHighScore();
+	void CheckIfEarnedNewLife();
 	void InitializeDisplayPositions();
 	void InitializeScoreDisplays( TextureCodex& textureCodex );
 	void InitializeLivesDisplay( TextureCodex& textureCodex );
@@ -32,6 +33,8 @@ private:
 	const int characterSize = 15;
 	const int maxScoreDisplays = 4;
 	const int maxLives = 5;
+	int requiredNewLifeScore = 1000;
+	int accumulatedLifeScore = 0;
 	int highScore;
 	int currentScore;
 	int currentLives;

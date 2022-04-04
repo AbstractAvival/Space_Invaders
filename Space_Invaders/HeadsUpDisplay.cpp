@@ -16,6 +16,7 @@ HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFile
 void HeadsUpDisplay::UpdateHUD()
 {
 	UpdateHighScore();
+	CheckIfEarnedNewLife();
 }
 
 void HeadsUpDisplay::RenderHUD( sf::RenderWindow& window )
@@ -37,21 +38,25 @@ void HeadsUpDisplay::ModifyScore( EnemyTypes killedEnemyType )
 	{
 	case EnemyTypes::Boss:
 		currentScore += 50;
+		accumulatedLifeScore += 50;
 		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierOne:
 		currentScore += 10;
+		accumulatedLifeScore += 10;
 		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierTwo:
 		currentScore += 20;
+		accumulatedLifeScore += 20;
 		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierThree:
 		currentScore += 30;
+		accumulatedLifeScore += 30;
 		scoreFonts[ 2 ].setString( to_string( currentScore ) );
 		break;
 	}
@@ -108,6 +113,16 @@ void HeadsUpDisplay::UpdateHighScore()
 	{
 		highScore = currentScore;
 		scoreFonts[ 3 ].setString( to_string( highScore ) );
+	}
+}
+
+void HeadsUpDisplay::CheckIfEarnedNewLife()
+{
+	if( accumulatedLifeScore > requiredNewLifeScore )
+	{
+		accumulatedLifeScore -= requiredNewLifeScore;
+		requiredNewLifeScore *= 2;
+		currentLives += 1;
 	}
 }
 
