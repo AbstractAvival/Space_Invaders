@@ -1,13 +1,14 @@
 #pragma once
 #include <SFML/Audio.hpp>
 #include <vector>
+#include "AudioTypes.h"
 using namespace std;
 
 class AudioManager
 {
 public:
 	AudioManager();
-	void PlaySound();
+	void PlaySound( AudioTypes desiredAudio );
 
 private:
 	void LoadSounds();

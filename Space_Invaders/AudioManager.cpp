@@ -4,7 +4,7 @@ AudioManager::AudioManager()
 {
 }
 
-void AudioManager::PlaySound()
+void AudioManager::PlaySound( AudioTypes desiredAudio )
 {
 }
 
