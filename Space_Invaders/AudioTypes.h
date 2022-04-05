@@ -2,11 +2,11 @@
 
 enum class AudioTypes
 {
-	PlayerShotFired,
-	PlayerShotExploded,
-	EnemyShotFired,
-	EnemyShotExploded,
-	playerExploded,
-	EnemyExploded,
-	BossMoves
+	NewLife,
+	EnemyExplosion,
+	BossExplosion,
+	PlayerExplosion,
+	PlayerShot,
+	EnemyShot,
+	Select
 };
