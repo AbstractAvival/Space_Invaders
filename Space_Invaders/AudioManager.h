@@ -10,17 +10,14 @@ using namespace std;
 class AudioManager
 {
 public:
-	AudioManager( string audioFile, string musicFile );
+	AudioManager( string audioFile );
 	~AudioManager();
 	void PlaySound( AudioTypes desiredAudio );
-	void PlayBackgroundMusic();
-	void StopBackgroundMusic();
 
 private:
-	void LoadAudio( string audioFileName, string musicFileName );
+	void LoadAudio( string audioFileName );
 
 private:
 	vector< sf::SoundBuffer* > soundBuffers;
 	vector< sf::Sound* > sounds;
-	sf::Music mainGameMusic;
 };

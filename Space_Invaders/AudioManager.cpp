@@ -1,8 +1,8 @@
 #include "AudioManager.h"
 
-AudioManager::AudioManager( string audioFile, string musicFile )
+AudioManager::AudioManager( string audioFile )
 {
-	LoadAudio( audioFile, musicFile );
+	LoadAudio( audioFile );
 }
 
 AudioManager::~AudioManager()
@@ -25,18 +25,7 @@ void AudioManager::PlaySound( AudioTypes desiredAudio )
 	sounds[ int( desiredAudio ) ]->play();
 }
 
-void AudioManager::PlayBackgroundMusic()
-{
-	mainGameMusic.play();
-	mainGameMusic.setLoop( true );
-}
-
-void AudioManager::StopBackgroundMusic()
-{
-	mainGameMusic.stop();
-}
-
-void AudioManager::LoadAudio( string audioFileName, string musicFileName )
+void AudioManager::LoadAudio( string audioFileName )
 {
 	string audioName;
 	vector< string > audioNames;
@@ -57,6 +46,4 @@ void AudioManager::LoadAudio( string audioFileName, string musicFileName )
 		sounds.emplace_back( new sf::Sound() );
 		sounds[ audioIndex ]->setBuffer( *soundBuffers[ audioIndex ] );
 	}
-
-	mainGameMusic.openFromFile( musicFileName );
 }
