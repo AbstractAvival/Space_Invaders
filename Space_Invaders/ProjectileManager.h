@@ -26,10 +26,10 @@ private:
 	void ClearAllEnemyProjectiles();
 
 private:
-	TextureCodex* textureCodex;
-	EnemyManager* enemyManager;
-	AudioManager* audioManager;
-	class PlayerManager* playerManager;
+	TextureCodex* textureCodex = nullptr;
+	EnemyManager* enemyManager = nullptr;
+	AudioManager* audioManager = nullptr;
+	class PlayerManager* playerManager = nullptr;
 	vector< Projectile* > playerProjectiles;
 	vector< Projectile* > enemyProjectiles;
 	const float endingPlayerProjectilePosition = 70.0f;
