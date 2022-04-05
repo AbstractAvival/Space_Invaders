@@ -5,12 +5,13 @@
 #include "ProjectileManager.h"
 #include "Sprites.h"
 #include "EnemyManager.h"
+#include "AudioManager.h"
 
 class PlayerManager
 {
 public:
 	PlayerManager() = default;
-	PlayerManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDisplayIn );
+	PlayerManager( TextureCodex& textureCodex, AudioManager& audioManagerIn, HeadsUpDisplay& hudDisplayIn );
 	~PlayerManager();
 
 	void ResetPlayer();
@@ -31,6 +32,7 @@ private:
 	const sf::Vector2f playerStartingPosition = sf::Vector2f( 500.0f, 530.0f );
 	const float playerSpeed = 11.0f;
 	HeadsUpDisplay* hudDisplay = nullptr;
+	AudioManager* audioManager = nullptr;
 	PlayerShip* player = nullptr;
 	float playerReviveCooldown = 0.7f;
 	float accumulatedReviveFrameTime = 0.0f;

@@ -1,8 +1,9 @@
 #include "HeadsUpDisplay.h"
 
-HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, string highScoreFileNameIn )
+HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, AudioManager& audioManagerIn, string highScoreFileNameIn )
 	:
 	highScoreFileName( highScoreFileNameIn ),
+	audioManager( &audioManagerIn ),
 	currentScore( 0 ),
 	currentLives( 3 ),
 	highScore( 0 )
@@ -123,6 +124,7 @@ void HeadsUpDisplay::CheckIfEarnedNewLife()
 		accumulatedLifeScore -= requiredNewLifeScore;
 		requiredNewLifeScore *= 2;
 		currentLives += 1;
+		audioManager->PlaySound( AudioTypes::NewLife );
 	}
 }
 

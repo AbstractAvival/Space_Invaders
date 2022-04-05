@@ -4,12 +4,13 @@
 #include "TextureCodex.h"
 #include "Projectile.h"
 #include "EnemyManager.h"
+#include "AudioManager.h"
 using namespace std;
 
 class ProjectileManager
 {
 public:
-	ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn );
+	ProjectileManager( TextureCodex& textureCodexIn, AudioManager& audioManagerIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn );
 	~ProjectileManager();
 	void UpdateProjectiles( float frameTime, bool playerExploded );
 	void RenderProjectiles( sf::RenderWindow& window, float interpolation );
@@ -27,6 +28,7 @@ private:
 private:
 	TextureCodex* textureCodex;
 	EnemyManager* enemyManager;
+	AudioManager* audioManager;
 	class PlayerManager* playerManager;
 	vector< Projectile* > playerProjectiles;
 	vector< Projectile* > enemyProjectiles;

@@ -7,13 +7,14 @@
 #include "Enemy.h"
 #include "RandomNumberGenerator.h"
 #include "HeadsUpDisplay.h"
+#include "AudioManager.h"
 using namespace std;
 
 class EnemyManager
 {
 public:
 	EnemyManager();
-	EnemyManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDisplayIn );
+	EnemyManager( TextureCodex& textureCodex, AudioManager& audioManagerIn, HeadsUpDisplay& hudDisplayIn );
 	~EnemyManager();
 
 	void ResetEnemies();
@@ -51,6 +52,7 @@ private:
 	static constexpr float startingYPosition = 130.0f;
 	Enemy* enemies[ enemyRowLength * enemyColumnHeight ];
 	Enemy* boss = nullptr;
+	AudioManager* audioManager = nullptr;
 	HeadsUpDisplay* hudDisplay = nullptr;
 	MovementDirections currentMovementDirection;
 	RandomNumberGenerator numberGenerator;

@@ -16,9 +16,10 @@ EnemyManager::EnemyManager()
 	}
 }
 
-EnemyManager::EnemyManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDisplayIn )
+EnemyManager::EnemyManager( TextureCodex& textureCodex, AudioManager& audioManagerIn, HeadsUpDisplay& hudDisplayIn )
 	:
 	hudDisplay( &hudDisplayIn ),
+	audioManager( &audioManagerIn ),
 	openingFormationX( enemyRowLength - 1 ),
 	openingFormationY( enemyColumnHeight - 1 ),
 	movementXIndex( openingFormationX ),
@@ -101,6 +102,7 @@ bool EnemyManager::CheckCollisionAndKill( sf::FloatRect playerShotBoundary )
 	if( !boss->IsDead() && playerShotBoundary.intersects( boss->GetBoundary() ) )
 	{
 		boss->SetSprite( explodedValue );
+		audioManager->PlaySound( AudioTypes::BossExplosion );
 		hudDisplay->ModifyScore( boss->GetEnemyType() );
 		collided = true;
 	}
@@ -110,6 +112,7 @@ bool EnemyManager::CheckCollisionAndKill( sf::FloatRect playerShotBoundary )
 		if( !enemy->IsDead() && playerShotBoundary.intersects( enemy->GetBoundary() ) )
 		{
 			enemy->SetSprite( explodedValue );
+			audioManager->PlaySound( AudioTypes::EnemyExplosion );
 			hudDisplay->ModifyScore( enemy->GetEnemyType() );
 			collided = true;
 		}

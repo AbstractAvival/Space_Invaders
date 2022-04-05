@@ -3,9 +3,10 @@
 PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn ),
-	headsUpDisplay( HeadsUpDisplay( textureCodex, "HighScoreLog.txt" ) ),
-	enemyManager( EnemyManager( textureCodex, headsUpDisplay ) ),
-	playerManager( PlayerManager( textureCodex, headsUpDisplay ) ),
+	audioManager( "AudioFiles.txt" ),
+	headsUpDisplay( HeadsUpDisplay( textureCodex, audioManager, "HighScoreLog.txt" ) ),
+	enemyManager( EnemyManager( textureCodex, audioManager, headsUpDisplay ) ),
+	playerManager( PlayerManager( textureCodex, audioManager, headsUpDisplay ) ),
 	projectileManager( ProjectileManager( textureCodex, enemyManager, playerManager ) )
 {}
 

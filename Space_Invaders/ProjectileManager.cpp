@@ -1,9 +1,10 @@
 #include "ProjectileManager.h"
 #include "PlayerManager.h"
 
-ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn )
+ProjectileManager::ProjectileManager( TextureCodex& textureCodexIn, AudioManager& audioManagerIn, EnemyManager& enemyManagerIn, class PlayerManager& playerManagerIn )
 	:
 	textureCodex( &textureCodexIn ),
+	audioManager( &audioManagerIn ),
 	enemyManager( &enemyManagerIn ),
 	playerManager( &playerManagerIn )
 {}
@@ -73,6 +74,7 @@ void ProjectileManager::ShootPlayerProjectile( sf::Vector2f position )
 	if( playerProjectiles.size() < 1 )
 	{
 		playerProjectiles.emplace_back( new Projectile( *textureCodex, position, true ) );
+		audioManager->PlaySound( AudioTypes::PlayerShot );
 	}
 }
 
@@ -101,6 +103,7 @@ void ProjectileManager::ShootEnemyProjectile()
 		{
 			enemyProjectiles.emplace_back( new Projectile( *textureCodex, enemy.GetPosition(), false ) );
 			enemyProjectileCooldown = maxEnemyProjectileCooldown;
+			audioManager->PlaySound( AudioTypes::EnemyShot );
 		}
 	}
 }

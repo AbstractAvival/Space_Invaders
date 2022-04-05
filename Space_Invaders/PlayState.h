@@ -5,6 +5,7 @@
 #include "PlayerManager.h"
 #include "HeadsUpDisplay.h"
 #include "ProjectileManager.h"
+#include "AudioManager.h"
 
 class PlayState : public GameState
 {
@@ -25,6 +26,7 @@ private:
 	ProjectileManager projectileManager;
 	EnemyManager enemyManager;
 	PlayerManager playerManager;
+	AudioManager audioManager;
 	const float gameOverWaitTime = 1.0f;
 	float accumulatedWaitTime = 0.0f;
 };

@@ -1,8 +1,9 @@
 #include "PlayerManager.h"
 
-PlayerManager::PlayerManager( TextureCodex& textureCodex, HeadsUpDisplay& hudDisplayIn )
+PlayerManager::PlayerManager( TextureCodex& textureCodex, AudioManager& audioManagerIn, HeadsUpDisplay& hudDisplayIn )
 	:
-	hudDisplay( &hudDisplayIn )
+	hudDisplay( &hudDisplayIn ),
+	audioManager( &audioManagerIn )
 {
 	player = new PlayerShip( textureCodex, playerStartingPosition );
 }
@@ -43,6 +44,7 @@ bool PlayerManager::CheckCollisionAndKill( sf::FloatRect enemyShotBoundary )
 	if( enemyShotBoundary.intersects( player->GetBoundary() ) )
 	{
 		KillPlayer();
+		audioManager->PlaySound( AudioTypes::PlayerExplosion );
 		collided = true;
 	}
 	return collided;
@@ -104,6 +106,7 @@ void PlayerManager::CheckEnemyCollisionAndKill( EnemyManager& enemyManager )
 	if( enemyManager.CheckCollisionAndKill( player->GetBoundary() ) )
 	{
 		KillPlayer();
+		audioManager->PlaySound( AudioTypes::PlayerExplosion );
 	}
 }
 
