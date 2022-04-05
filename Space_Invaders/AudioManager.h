@@ -20,4 +20,5 @@ private:
 private:
 	vector< sf::SoundBuffer* > soundBuffers;
 	vector< sf::Sound* > sounds;
+	float volume = 50.0f;
 };

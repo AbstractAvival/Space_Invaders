@@ -45,5 +45,6 @@ void AudioManager::LoadAudio( string audioFileName )
 		soundBuffers[ audioIndex ]->loadFromFile( audioNames[ audioIndex ] );
 		sounds.emplace_back( new sf::Sound() );
 		sounds[ audioIndex ]->setBuffer( *soundBuffers[ audioIndex ] );
+		sounds[ audioIndex ]->setVolume( volume );
 	}
 }
