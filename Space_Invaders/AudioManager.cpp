@@ -25,6 +25,15 @@ void AudioManager::PlaySound( AudioTypes desiredAudio )
 	sounds[ int( desiredAudio ) ]->play();
 }
 
+void AudioManager::ModifyVolume( float volumeOffset )
+{
+	volume += volumeOffset;
+	for( auto sound : sounds )
+	{
+		sound->setVolume( volume );
+	}
+}
+
 void AudioManager::LoadAudio( std::string audioFileName )
 {
 	std::string audioName;
