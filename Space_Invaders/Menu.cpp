@@ -133,9 +133,6 @@ std::string Menu::GetMenuItemText( StateTypes state )
 	case StateTypes::MAINMENUSTATE:
 		return "Quit";
 
-	case StateTypes::PAUSESTATE:
-		return "Pause";
-
 	case StateTypes::PLAYSTATE:
 		return "Play";
 
