@@ -1,12 +1,12 @@
 #include "Menu.h"
 #include "StateHandler.h"
 
-Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight )
+Menu::Menu( TextureCodex& textureCodex, std::vector< StateTypes > items, float screenWidth, float screenHeight )
 	:
 	Menu( textureCodex, items, screenWidth, screenHeight, 0, 0 )
 {}
 
-Menu::Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
+Menu::Menu( TextureCodex& textureCodex, std::vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
 {
 	InitializeMenuItems( textureCodex, items );
 	SetMenuItemPositions( screenWidth, screenHeight, xDisplacement, yDisplacement );
@@ -81,7 +81,7 @@ int Menu::getCurrentMenuItem()
 	return currentItem;
 }
 
-void Menu::InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems )
+void Menu::InitializeMenuItems( TextureCodex& textureCodex, std::vector< StateTypes > desiredItems )
 {
 	selector.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::Selector ) );
 	for( auto item : desiredItems )
@@ -126,7 +126,7 @@ StateTypes Menu::GetDesiredState()
 	}
 }
 
-string Menu::GetMenuItemText( StateTypes state )
+std::string Menu::GetMenuItemText( StateTypes state )
 {
 	switch( state )
 	{

@@ -19,6 +19,6 @@ public:
 	void Render( float interpolation ) override;
 
 private:
-	const vector< StateTypes > desiredItems = { StateTypes::PLAYSTATE, StateTypes::SETTINGSSTATE };
+	const std::vector< StateTypes > desiredItems = { StateTypes::PLAYSTATE, StateTypes::SETTINGSSTATE };
 	Menu mainMenu;
 };

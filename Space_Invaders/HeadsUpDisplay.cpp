@@ -1,6 +1,6 @@
 #include "HeadsUpDisplay.h"
 
-HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, AudioManager& audioManagerIn, string highScoreFileNameIn )
+HeadsUpDisplay::HeadsUpDisplay( TextureCodex& textureCodex, AudioManager& audioManagerIn, std::string highScoreFileNameIn )
 	:
 	highScoreFileName( highScoreFileNameIn ),
 	audioManager( &audioManagerIn ),
@@ -40,25 +40,25 @@ void HeadsUpDisplay::ModifyScore( EnemyTypes killedEnemyType )
 	case EnemyTypes::Boss:
 		currentScore += 50;
 		accumulatedLifeScore += 50;
-		scoreFonts[ 2 ].setString( to_string( currentScore ) );
+		scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierOne:
 		currentScore += 10;
 		accumulatedLifeScore += 10;
-		scoreFonts[ 2 ].setString( to_string( currentScore ) );
+		scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierTwo:
 		currentScore += 20;
 		accumulatedLifeScore += 20;
-		scoreFonts[ 2 ].setString( to_string( currentScore ) );
+		scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 		break;
 
 	case EnemyTypes::TierThree:
 		currentScore += 30;
 		accumulatedLifeScore += 30;
-		scoreFonts[ 2 ].setString( to_string( currentScore ) );
+		scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 		break;
 	}
 }
@@ -73,7 +73,7 @@ void HeadsUpDisplay::ResetHUD()
 	SaveHighScore();
 	currentLives = 3;
 	currentScore = 0;
-	scoreFonts[ 2 ].setString( to_string( currentScore ) );
+	scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 }
 
 int HeadsUpDisplay::GetCurrentLives() const
@@ -86,10 +86,10 @@ bool HeadsUpDisplay::IsGameOver()
 	return currentLives <= 0;
 }
 
-void HeadsUpDisplay::LoadHighScore( string fileName )
+void HeadsUpDisplay::LoadHighScore( std::string fileName )
 {
-	string LoadedHighScore;
-	ifstream highScoreFile( fileName );
+	std::string LoadedHighScore;
+	std::ifstream highScoreFile( fileName );
 	if( highScoreFile.is_open() )
 	{
 		while( getline( highScoreFile, LoadedHighScore ) )
@@ -103,8 +103,8 @@ void HeadsUpDisplay::LoadHighScore( string fileName )
 
 void HeadsUpDisplay::SaveHighScore()
 {
-	ofstream highScoreFile( highScoreFileName );
-	highScoreFile << to_string( highScore );
+	std::ofstream highScoreFile( highScoreFileName );
+	highScoreFile << std::to_string( highScore );
 	highScoreFile.close();
 }
 
@@ -113,7 +113,7 @@ void HeadsUpDisplay::UpdateHighScore()
 	if( currentScore > highScore )
 	{
 		highScore = currentScore;
-		scoreFonts[ 3 ].setString( to_string( highScore ) );
+		scoreFonts[ 3 ].setString( std::to_string( highScore ) );
 	}
 }
 
@@ -151,7 +151,7 @@ void HeadsUpDisplay::InitializeScoreDisplays( TextureCodex& textureCodex )
 	scoreFonts[ 1 ].setString( "HIGH-SCORE" );
 
 	scoreFonts[ 2 ].setPosition( sf::Vector2f( displayPositions[ 0 ].x + scoreFonts[ 2 ].getCharacterSize(), displayPositions[ 0 ].y + 20.0f ) );
-	scoreFonts[ 2 ].setString( to_string( currentScore ) );
+	scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 
 	scoreFonts[ 3 ].setPosition( sf::Vector2f( displayPositions[ 1 ].x + scoreFonts[ 3 ].getCharacterSize(), displayPositions[ 1 ].y + 20.0f ) );
 }

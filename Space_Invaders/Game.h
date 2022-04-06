@@ -3,12 +3,11 @@
 #include <string>
 #include "TextureCodex.h"
 #include "StateHandler.h"
-using namespace std;
 
 class Game
 {
 public:
-	Game( string windowName, string fontFileName, int screenWidth, int screenHeight );
+	Game( std::string windowName, std::string fontFileName, int screenWidth, int screenHeight );
 	~Game();
 
 	void UpdateLogic( float frameTime );
@@ -21,10 +20,10 @@ public:
 	sf::RenderWindow* window = nullptr;
 
 private:
-	void Initialize( string windowName, int screenWidth, int screenHeight );
+	void Initialize( std::string windowName, int screenWidth, int screenHeight );
 	void CleanUp();
 	void HandleEvents();
-	void SetupWindow( string windowName, int screenWidth, int screenHeight );
+	void SetupWindow( std::string windowName, int screenWidth, int screenHeight );
 
 private:
 	static constexpr int frameRateLimit = 60;

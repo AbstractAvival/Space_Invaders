@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game( string windowName, string fontFileName, int screenWidth, int screenHeight )
+Game::Game( std::string windowName, std::string fontFileName, int screenWidth, int screenHeight )
 {
     Initialize( windowName, screenWidth, screenHeight );
     textureCodex = new TextureCodex( "MainMenuTextures.txt", "GameTextures.txt", "DinoKids.ttf" );
@@ -12,13 +12,13 @@ Game::~Game()
     CleanUp();
 }
 
-void Game::Initialize( string windowName, int screenWidth, int screenHeight )
+void Game::Initialize( std::string windowName, int screenWidth, int screenHeight )
 {
     SetupWindow( windowName, screenWidth, screenHeight );
     isRunning = true;
 }
 
-void Game::SetupWindow( string windowName, int screenWidth, int screenHeight )
+void Game::SetupWindow( std::string windowName, int screenWidth, int screenHeight )
 {
     window = new sf::RenderWindow( sf::VideoMode( screenWidth, screenHeight ), windowName );
     window->setFramerateLimit( frameRateLimit );

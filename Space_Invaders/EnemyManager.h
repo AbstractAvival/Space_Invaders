@@ -8,7 +8,6 @@
 #include "RandomNumberGenerator.h"
 #include "HeadsUpDisplay.h"
 #include "AudioManager.h"
-using namespace std;
 
 class EnemyManager
 {

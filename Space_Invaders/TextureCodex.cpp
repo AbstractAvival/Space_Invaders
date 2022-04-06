@@ -1,6 +1,6 @@
 #include "TextureCodex.h"
 
-TextureCodex::TextureCodex( string menuTextureFileName, string gameTextureFileName, string fontFileName )
+TextureCodex::TextureCodex( std::string menuTextureFileName, std::string gameTextureFileName, std::string fontFileName )
 {
 	LoadMainMenuTextures( menuTextureFileName );
 	LoadGametextures( gameTextureFileName );
@@ -25,17 +25,17 @@ TextureCodex::~TextureCodex()
 	font = nullptr;
 }
 
-void TextureCodex::LoadFont( string fileName )
+void TextureCodex::LoadFont( std::string fileName )
 {
 	font = new sf::Font();
 	font->loadFromFile( fileName );
 }
 
-void TextureCodex::LoadMainMenuTextures( string fileName )
+void TextureCodex::LoadMainMenuTextures( std::string fileName )
 {
-	string textureName;
-	vector< string > menuTextureNames;
-	ifstream menuTexturesFile( fileName );
+	std::string textureName;
+	std::vector< std::string > menuTextureNames;
+	std::ifstream menuTexturesFile( fileName );
 	if( menuTexturesFile.is_open() )
 	{
 		while( getline( menuTexturesFile, textureName ) )
@@ -52,11 +52,11 @@ void TextureCodex::LoadMainMenuTextures( string fileName )
 	}
 }
 
-void TextureCodex::LoadGametextures( string fileName )
+void TextureCodex::LoadGametextures( std::string fileName )
 {
-	string textureName;
-	vector< string > gameTextureNames;
-	ifstream gameTexturesFile( fileName );
+	std::string textureName;
+	std::vector< std::string > gameTextureNames;
+	std::ifstream gameTexturesFile( fileName );
 	if( gameTexturesFile.is_open() )
 	{
 		while( getline( gameTexturesFile, textureName ) )

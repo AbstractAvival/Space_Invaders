@@ -4,7 +4,6 @@
 #include <vector>
 #include "TextureCodex.h"
 #include "Sprites.h"
-using namespace std;
 
 class GameObject
 {
@@ -31,7 +30,7 @@ protected:
 
 protected:
 	Sprites currentSprite;
-	vector< sf::Sprite > sprites;
+	std::vector< sf::Sprite > sprites;
 	sf::Vector2f position;
 	bool isDead;
 };

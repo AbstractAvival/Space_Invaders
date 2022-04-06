@@ -1,6 +1,6 @@
 #include "AudioManager.h"
 
-AudioManager::AudioManager( string audioFile )
+AudioManager::AudioManager( std::string audioFile )
 {
 	LoadAudio( audioFile );
 }
@@ -25,11 +25,11 @@ void AudioManager::PlaySound( AudioTypes desiredAudio )
 	sounds[ int( desiredAudio ) ]->play();
 }
 
-void AudioManager::LoadAudio( string audioFileName )
+void AudioManager::LoadAudio( std::string audioFileName )
 {
-	string audioName;
-	vector< string > audioNames;
-	ifstream audioFile( audioFileName );
+	std::string audioName;
+	std::vector< std::string > audioNames;
+	std::ifstream audioFile( audioFileName );
 	if( audioFile.is_open() )
 	{
 		while( getline( audioFile, audioName ) )

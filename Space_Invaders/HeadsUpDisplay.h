@@ -3,12 +3,11 @@
 #include "TextureCodex.h"
 #include "EnemyTypes.h"
 #include "AudioManager.h"
-using namespace std;
 
 class HeadsUpDisplay
 {
 public:
-	HeadsUpDisplay( TextureCodex& textureCodex, AudioManager& audioManagerIn, string highScoreFileName );
+	HeadsUpDisplay( TextureCodex& textureCodex, AudioManager& audioManagerIn, std::string highScoreFileName );
 	void UpdateHUD();
 	void RenderHUD( sf::RenderWindow& window );
 	void ModifyScore( EnemyTypes killedEnemyType );
@@ -18,7 +17,7 @@ public:
 	int GetCurrentLives() const;
 
 private:
-	void LoadHighScore( string fileName );
+	void LoadHighScore( std::string fileName );
 	void SaveHighScore();
 	void UpdateHighScore();
 	void CheckIfEarnedNewLife();
@@ -27,11 +26,11 @@ private:
 	void InitializeLivesDisplay( TextureCodex& textureCodex );
 
 private:
-	vector< sf::Text > scoreFonts;
-	vector< sf::Sprite > lives;
-	vector< sf::Vector2f > displayPositions;
+	std::vector< sf::Text > scoreFonts;
+	std::vector< sf::Sprite > lives;
+	std::vector< sf::Vector2f > displayPositions;
 	AudioManager* audioManager = nullptr;
-	string highScoreFileName;
+	std::string highScoreFileName;
 	const int characterSize = 15;
 	const int maxScoreDisplays = 4;
 	const int maxLives = 5;

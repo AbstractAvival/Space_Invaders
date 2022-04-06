@@ -5,20 +5,19 @@
 #include <fstream>
 #include <string>
 #include "AudioTypes.h"
-using namespace std;
 
 class AudioManager
 {
 public:
-	AudioManager( string audioFile );
+	AudioManager( std::string audioFile );
 	~AudioManager();
 	void PlaySound( AudioTypes desiredAudio );
 
 private:
-	void LoadAudio( string audioFileName );
+	void LoadAudio( std::string audioFileName );
 
 private:
-	vector< sf::SoundBuffer* > soundBuffers;
-	vector< sf::Sound* > sounds;
+	std::vector< sf::SoundBuffer* > soundBuffers;
+	std::vector< sf::Sound* > sounds;
 	float volume = 20.0f;
 };

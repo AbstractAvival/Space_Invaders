@@ -8,7 +8,6 @@
 #include "PauseState.h"
 #include "SettingsState.h"
 #include "PlayState.h"
-using namespace std;
 
 class StateHandler
 {
@@ -24,7 +23,7 @@ public:
 	GameState& GetState( StateTypes targetState );
 
 private:
-	vector< GameState* > gameStates;
+	std::vector< GameState* > gameStates;
 	StateTypes currentState;
 	StateTypes lastState;
 };

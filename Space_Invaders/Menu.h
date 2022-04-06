@@ -4,14 +4,13 @@
 #include <string>
 #include "StateTypes.h"
 #include "TextureCodex.h"
-using namespace std;
 
 class Menu
 {
 public:
 	Menu() = default;
-	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight );
-	Menu( TextureCodex& textureCodex, vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
+	Menu( TextureCodex& textureCodex, std::vector< StateTypes > items, float screenWidth, float screenHeight );
+	Menu( TextureCodex& textureCodex, std::vector< StateTypes > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 	~Menu();
 
 	void HandleInput( class StateHandler& handler );
@@ -21,18 +20,18 @@ public:
 	int getCurrentMenuItem();
 
 private:
-	void InitializeMenuItems( TextureCodex& textureCodex, vector< StateTypes > desiredItems );
+	void InitializeMenuItems( TextureCodex& textureCodex, std::vector< StateTypes > desiredItems );
 	void SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 	void SetItemSelectorPosition();
 	StateTypes GetDesiredState();
-	string GetMenuItemText( StateTypes state );
+	std::string GetMenuItemText( StateTypes state );
 
 private:
 	const float estimatedCharacterHeight = 30.0f;
 	const float verticalSeparationDistance = 20.0f;
 	const float horizontalSeparationDistance = 20.0f;
 	const float maxInputCooldown = 0.08f;
-	vector< sf::Text > items;
+	std::vector< sf::Text > items;
 	sf::Sprite selector;
 	float accumulatedFrameTime = 0.0f;
 	int currentItem = 0;

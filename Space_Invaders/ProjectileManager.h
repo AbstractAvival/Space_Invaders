@@ -5,7 +5,6 @@
 #include "Projectile.h"
 #include "EnemyManager.h"
 #include "AudioManager.h"
-using namespace std;
 
 class ProjectileManager
 {
@@ -30,8 +29,8 @@ private:
 	EnemyManager* enemyManager = nullptr;
 	AudioManager* audioManager = nullptr;
 	class PlayerManager* playerManager = nullptr;
-	vector< Projectile* > playerProjectiles;
-	vector< Projectile* > enemyProjectiles;
+	std::vector< Projectile* > playerProjectiles;
+	std::vector< Projectile* > enemyProjectiles;
 	const float endingPlayerProjectilePosition = 70.0f;
 	const float endingEnemyProjectilePosition = 560.0f;
 	const float maxEnemyProjectileCooldown = 0.50f;
