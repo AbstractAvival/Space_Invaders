@@ -4,4 +4,4 @@ BossExplosion.wav
 PlayerExplosion.wav
 Retro-Laser-Shot-01.wav
 Retro-Laser-Shot-03.wav
-Select.wav
+Select.mp3
