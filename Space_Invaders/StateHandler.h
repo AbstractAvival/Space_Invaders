@@ -8,6 +8,7 @@
 #include "PauseState.h"
 #include "SettingsState.h"
 #include "PlayState.h"
+#include "AudioManager.h"
 
 class StateHandler
 {
@@ -26,4 +27,5 @@ private:
 	std::vector< GameState* > gameStates;
 	StateTypes currentState;
 	StateTypes lastState;
+	AudioManager audioManager;
 };

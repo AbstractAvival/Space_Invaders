@@ -10,7 +10,7 @@
 class PlayState : public GameState
 {
 public:
-	PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn );
+	PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, AudioManager& audioManagerIn, int screenWidthIn, int screenHeightIn );
 
 public:
 	void InitializeState() override;
@@ -26,7 +26,6 @@ private:
 	ProjectileManager projectileManager;
 	EnemyManager enemyManager;
 	PlayerManager playerManager;
-	AudioManager audioManager;
 	const float gameOverWaitTime = 1.0f;
 	float accumulatedWaitTime = 0.0f;
 };

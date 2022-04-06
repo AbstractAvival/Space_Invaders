@@ -1,13 +1,12 @@
 #include "PlayState.h"
 
-PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn )
+PlayState::PlayState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, AudioManager& audioManagerIn, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn ),
-	audioManager( "AudioFiles.txt" ),
-	headsUpDisplay( HeadsUpDisplay( textureCodex, audioManager, "HighScoreLog.txt" ) ),
-	enemyManager( EnemyManager( textureCodex, audioManager, headsUpDisplay ) ),
-	playerManager( PlayerManager( textureCodex, audioManager, headsUpDisplay ) ),
-	projectileManager( ProjectileManager( textureCodex, audioManager, enemyManager, playerManager ) )
+	headsUpDisplay( HeadsUpDisplay( textureCodex, audioManagerIn, "HighScoreLog.txt" ) ),
+	enemyManager( EnemyManager( textureCodex, audioManagerIn, headsUpDisplay ) ),
+	playerManager( PlayerManager( textureCodex, audioManagerIn, headsUpDisplay ) ),
+	projectileManager( ProjectileManager( textureCodex, audioManagerIn, enemyManager, playerManager ) )
 {}
 
 void PlayState::InitializeState()
