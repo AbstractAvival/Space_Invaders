@@ -73,6 +73,8 @@ void HeadsUpDisplay::ResetHUD()
 	SaveHighScore();
 	currentLives = 3;
 	currentScore = 0;
+	requiredNewLifeScore = 1000;
+	accumulatedLifeScore = 0;
 	scoreFonts[ 2 ].setString( std::to_string( currentScore ) );
 }
 
