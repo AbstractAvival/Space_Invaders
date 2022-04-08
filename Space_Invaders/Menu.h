@@ -10,7 +10,6 @@ public:
 	Menu() = default;
 	Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight );
 	Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
-	~Menu();
 
 	virtual void HandleInput( class StateHandler& handler );
 	virtual void Update( float frameTime );

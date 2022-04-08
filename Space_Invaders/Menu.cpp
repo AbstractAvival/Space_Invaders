@@ -1,29 +1,25 @@
 #include "Menu.h"
 #include "StateHandler.h"
 
-Menu::Menu(TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight)
+Menu::Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight )
 	:
 	Menu(textureCodex, items, screenWidth, screenHeight, 0, 0)
 {}
 
-Menu::Menu(TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement)
+Menu::Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
 {
 	InitializeMenuItems(textureCodex, items);
 	SetMenuItemPositions(screenWidth, screenHeight, xDisplacement, yDisplacement);
 	SetItemSelectorPosition();
 }
 
-Menu::~Menu()
+void Menu::HandleInput( StateHandler& handler )
 {
-}
-
-void Menu::HandleInput(StateHandler& handler)
-{
-	if (accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Up ) )
 	{
-		if (currentItem <= 0)
+		if( currentItem <= 0 )
 		{
-			currentItem = int(items.size() - 1);
+			currentItem = int( items.size() - 1 );
 		}
 		else
 		{
@@ -33,9 +29,9 @@ void Menu::HandleInput(StateHandler& handler)
 		SetItemSelectorPosition();
 	}
 
-	if (accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Down ) )
 	{
-		if (currentItem >= int(items.size() - 1))
+		if( currentItem >= int( items.size() - 1 ) )
 		{
 			currentItem = 0;
 		}
@@ -48,21 +44,21 @@ void Menu::HandleInput(StateHandler& handler)
 	}
 }
 
-void Menu::Update(float frameTime)
+void Menu::Update( float frameTime )
 {
-	if (accumulatedFrameTime < maxInputCooldown)
+	if( accumulatedFrameTime < maxInputCooldown )
 	{
 		accumulatedFrameTime += frameTime;
 	}
 }
 
-void Menu::Render(sf::RenderWindow& window, float interpolation)
+void Menu::Render( sf::RenderWindow& window, float interpolation )
 {
-	for (auto& item : items)
+	for( auto& item : items )
 	{
-		window.draw(item);
+		window.draw( item );
 	}
-	window.draw(selector);
+	window.draw( selector );
 }
 
 void Menu::ResetOptions()
@@ -76,32 +72,32 @@ int Menu::getCurrentMenuItem()
 	return currentItem;
 }
 
-void Menu::InitializeMenuItems(TextureCodex& textureCodex, std::vector< std::string > desiredItems)
+void Menu::InitializeMenuItems( TextureCodex& textureCodex, std::vector< std::string > desiredItems )
 {
-	selector.setTexture(textureCodex.GetMenuTexture(MenuTextureTypes::Selector));
-	for (auto item : desiredItems)
+	selector.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::Selector ) );
+	for( auto item : desiredItems )
 	{
-		items.emplace_back(sf::Text());
-		items[int(items.size()) - 1].setFont(textureCodex.GetFont());
-		items[int(items.size()) - 1].setCharacterSize(25);
-		items[int(items.size()) - 1].setString(item);
+		items.emplace_back( sf::Text() );
+		items[ int( items.size() ) - 1 ].setFont( textureCodex.GetFont() );
+		items[ int( items.size() ) - 1 ].setCharacterSize( 25 );
+		items[ int( items.size() ) - 1 ].setString( item );
 	}
 }
 
-void Menu::SetMenuItemPositions(float screenWidth, float screenHeight, float xDisplacement, float yDisplacement)
+void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
 {
-	float startingHeight = (screenHeight / 2) - (items.size() * (estimatedCharacterHeight + verticalSeparationDistance) / 2);
-	for (int index = 0; index < int(items.size()); index++)
+	float startingHeight = ( screenHeight / 2 ) - ( items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
+	for( int index = 0; index < int( items.size() ); index++ )
 	{
-		float xPosition = (screenWidth / 2 - float(items[index].getCharacterSize() / 2)) + xDisplacement;
-		float yPosition = startingHeight + (estimatedCharacterHeight + verticalSeparationDistance) * index;
-		items[index].setPosition({ xPosition, yPosition });
+		float xPosition = ( screenWidth / 2 - float( items[ index ].getCharacterSize() / 2 ) ) + xDisplacement;
+		float yPosition = startingHeight + ( estimatedCharacterHeight + verticalSeparationDistance ) * index;
+		items[ index ].setPosition( { xPosition, yPosition } );
 	}
 }
 
 void Menu::SetItemSelectorPosition()
 {
-	float yPosition = items[currentItem].getPosition().y + (estimatedCharacterHeight / 2) - (selector.getGlobalBounds().height / 2);
-	float xPosition = items[currentItem].getPosition().x - (selector.getGlobalBounds().width + horizontalSeparationDistance);
-	selector.setPosition(xPosition, yPosition);
+	float yPosition = items[ currentItem ].getPosition().y + ( estimatedCharacterHeight / 2 ) - ( selector.getGlobalBounds().height / 2 );
+	float xPosition = items[ currentItem ].getPosition().x - ( selector.getGlobalBounds().width + horizontalSeparationDistance );
+	selector.setPosition( xPosition, yPosition );
 }
