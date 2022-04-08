@@ -7,7 +7,7 @@
 class MainMenuState : public GameState
 {
 public:
-	MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, int screenWidthIn, int screenHeightIn );
+	MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, AudioManager& audioManagerIn, int screenWidthIn, int screenHeightIn );
 
 public:
 	void InitializeState() override;
@@ -20,5 +20,6 @@ public:
 
 private:
 	const std::vector< std::string > desiredItems = { "Play", "Settings" };
+	AudioManager* audioManager;
 	MainMenu mainMenu;
 };
