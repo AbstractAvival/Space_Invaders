@@ -2,7 +2,7 @@
 #include <vector>
 #include "GameState.h"
 #include "StateHandler.h"
-#include "Menu.h"
+#include "MainMenu.h"
 
 class MainMenuState : public GameState
 {
@@ -19,6 +19,6 @@ public:
 	void Render( float interpolation ) override;
 
 private:
-	const std::vector< StateTypes > desiredItems = { StateTypes::PLAYSTATE, StateTypes::SETTINGSSTATE };
-	Menu mainMenu;
+	const std::vector< std::string > desiredItems = { "Play", "Settings" };
+	MainMenu mainMenu;
 };

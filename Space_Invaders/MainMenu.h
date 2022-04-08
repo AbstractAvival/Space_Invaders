@@ -2,7 +2,7 @@
 #include "Menu.h"
 #include "StateTypes.h"
 
-class MainMenu : Menu
+class MainMenu : public Menu
 {
 public:
 	MainMenu() = default;
