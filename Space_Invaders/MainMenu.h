@@ -10,7 +10,7 @@ public:
 	MainMenu( TextureCodex & textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 	~MainMenu();
 
-	void HandleInput( class StateHandler& handler ) override;
+	void HandleInput( class StateHandler& handler, AudioManager& audioManager );
 
 private:
 	StateTypes GetDesiredState();

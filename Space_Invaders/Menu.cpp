@@ -12,7 +12,7 @@ Menu::Menu( TextureCodex& textureCodex, std::vector< std::string > items, float 
 	SetItemSelectorPosition();
 }
 
-void Menu::HandleInput()
+void Menu::HandleInput( AudioManager& audioManager )
 {
 	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Up ) )
 	{
@@ -26,6 +26,7 @@ void Menu::HandleInput()
 		}
 		accumulatedFrameTime = 0.0f;
 		SetItemSelectorPosition();
+		audioManager.PlaySound( AudioTypes::Select );
 	}
 
 	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Down ) )
@@ -40,6 +41,7 @@ void Menu::HandleInput()
 		}
 		accumulatedFrameTime = 0.0f;
 		SetItemSelectorPosition();
+		audioManager.PlaySound( AudioTypes::Select );
 	}
 }
 

@@ -17,9 +17,9 @@ MainMenu::~MainMenu()
 {
 }
 
-void MainMenu::HandleInput( StateHandler& handler )
+void MainMenu::HandleInput( class StateHandler& handler, AudioManager& audioManager )
 {
-	Menu::HandleInput();
+	Menu::HandleInput( audioManager );
 	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Enter ) )
 	{
 		handler.ChangeState( GetDesiredState() );

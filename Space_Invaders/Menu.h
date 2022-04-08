@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "TextureCodex.h"
+#include "AudioManager.h"
 
 class Menu
 {
@@ -11,7 +12,7 @@ public:
 	Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight );
 	Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 
-	virtual void HandleInput();
+	virtual void HandleInput( AudioManager& audioManager );
 	virtual void Update( float frameTime );
 	virtual void Render( sf::RenderWindow& window, float interpolation );
 	void ResetOptions();
