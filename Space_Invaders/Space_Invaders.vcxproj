@@ -163,6 +163,7 @@
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ProjectileManager.cpp" />
     <ClCompile Include="RandomNumberGenerator.cpp" />
+    <ClCompile Include="SettingsMenu.cpp" />
     <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="StateHandler.cpp" />
     <ClCompile Include="TextureCodex.cpp" />
@@ -190,7 +191,7 @@
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ProjectileManager.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
-    <ClInclude Include="Settings.h" />
+    <ClInclude Include="SettingsMenu.h" />
     <ClInclude Include="SettingsState.h" />
     <ClInclude Include="Sprites.h" />
     <ClInclude Include="TextureCodex.h" />
