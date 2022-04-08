@@ -1,5 +1,4 @@
 #include "Menu.h"
-#include "StateHandler.h"
 
 Menu::Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight )
 	:
@@ -13,7 +12,7 @@ Menu::Menu( TextureCodex& textureCodex, std::vector< std::string > items, float 
 	SetItemSelectorPosition();
 }
 
-void Menu::HandleInput( StateHandler& handler )
+void Menu::HandleInput()
 {
 	if( accumulatedFrameTime >= maxInputCooldown && sf::Keyboard::isKeyPressed( sf::Keyboard::Up ) )
 	{

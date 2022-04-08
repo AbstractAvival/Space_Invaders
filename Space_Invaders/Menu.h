@@ -11,7 +11,7 @@ public:
 	Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight );
 	Menu( TextureCodex& textureCodex, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 
-	virtual void HandleInput( class StateHandler& handler );
+	virtual void HandleInput();
 	virtual void Update( float frameTime );
 	virtual void Render( sf::RenderWindow& window, float interpolation );
 	void ResetOptions();
