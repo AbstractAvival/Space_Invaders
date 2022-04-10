@@ -21,7 +21,7 @@ This game clone consists of 3 states:
 
 
 ## Controls
-Arrow keys to move around, Enter to select an option, 'S' to shoot.
+Arrow keys to move player and menu option selector around, Enter to select an option, 'S' to shoot.
 
 
 ## Future Work
