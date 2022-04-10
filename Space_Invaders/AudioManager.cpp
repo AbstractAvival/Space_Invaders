@@ -34,6 +34,11 @@ void AudioManager::ModifyVolume( float volumeOffset )
 	}
 }
 
+int AudioManager::GetCurrentVolume() const
+{
+	return int( volume );
+}
+
 void AudioManager::LoadAudio( std::string audioFileName )
 {
 	std::string audioName;

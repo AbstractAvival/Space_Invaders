@@ -1,8 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <vector>
-#include "TextureCodex.h"
 #include "Menu.h"
+#include "StateTypes.h"
 
 class SettingsMenu : public Menu
 {
@@ -11,5 +10,14 @@ public:
 	SettingsMenu( TextureCodex& textureCodex, AudioManager& audioManagerIn, std::vector< std::string > items, float screenWidth, float screenHeight );
 	SettingsMenu( TextureCodex& textureCodex, AudioManager& audioManagerIn, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 
+	void HandleInput( class StateHandler& handler );
+
 private:
+	void InitializeMenuItems( TextureCodex& textureCodex, std::vector< std::string > desiredItems ) override;
+	void SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement ) override;
+	void ModifyVolume( float volumeOffset );
+
+private:
+	AudioManager* audioManager;
+	std::vector< sf::Text > options;
 };

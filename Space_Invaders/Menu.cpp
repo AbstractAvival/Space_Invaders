@@ -76,7 +76,7 @@ int Menu::getCurrentMenuItem()
 void Menu::InitializeMenuItems( TextureCodex& textureCodex, std::vector< std::string > desiredItems )
 {
 	selector.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::Selector ) );
-	for( auto item : desiredItems )
+	for( auto &item : desiredItems )
 	{
 		items.emplace_back( sf::Text() );
 		items[ int( items.size() ) - 1 ].setFont( textureCodex.GetFont() );
@@ -87,10 +87,10 @@ void Menu::InitializeMenuItems( TextureCodex& textureCodex, std::vector< std::st
 
 void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
 {
-	float startingHeight = ( screenHeight / 2 ) - ( items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
+	float startingHeight = ( screenHeight / 2 ) - ( yDisplacement + items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
 	for( int index = 0; index < int( items.size() ); index++ )
 	{
-		float xPosition = ( screenWidth / 2 - float( items[ index ].getCharacterSize() / 2 ) ) + xDisplacement;
+		float xPosition = ( screenWidth / 2 - float( items[ index ].getCharacterSize() / 2 ) ) - xDisplacement;
 		float yPosition = startingHeight + ( estimatedCharacterHeight + verticalSeparationDistance ) * index;
 		items[ index ].setPosition( { xPosition, yPosition } );
 	}

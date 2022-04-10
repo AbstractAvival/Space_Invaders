@@ -13,6 +13,7 @@ public:
 	~AudioManager();
 	void PlaySound( AudioTypes desiredAudio );
 	void ModifyVolume( float volumeOffset );
+	int GetCurrentVolume() const;
 
 private:
 	void LoadAudio( std::string audioFileName );
