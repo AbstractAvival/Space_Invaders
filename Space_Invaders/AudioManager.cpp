@@ -27,10 +27,13 @@ void AudioManager::PlaySound( AudioTypes desiredAudio )
 
 void AudioManager::ModifyVolume( float volumeOffset )
 {
-	volume += volumeOffset;
-	for( auto sound : sounds )
+	if( ( volumeOffset < 0.0f && int( volume ) > 0 ) || ( volumeOffset > 0.0f && int( volume ) < 100 ) )
 	{
-		sound->setVolume( volume );
+		volume += volumeOffset;
+		for( auto sound : sounds )
+		{
+			sound->setVolume( volume );
+		}
 	}
 }
 

@@ -65,6 +65,7 @@ void Menu::Render( sf::RenderWindow& window, float interpolation )
 void Menu::ResetOptions()
 {
 	currentItem = 0;
+	accumulatedFrameTime = 0;
 	SetItemSelectorPosition();
 }
 

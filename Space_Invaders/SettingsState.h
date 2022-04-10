@@ -1,7 +1,7 @@
 #pragma once
 #include "GameState.h"
 #include "StateHandler.h"
-#include "AudioManager.h"
+#include "SettingsMenu.h"
 
 class SettingsState : public GameState
 {
@@ -18,4 +18,6 @@ public:
 	void Render( float interpolation ) override;
 
 private:
+	const std::vector< std::string > desiredItems = { "Volume", "Exit" };
+	SettingsMenu settingsMenu;
 };

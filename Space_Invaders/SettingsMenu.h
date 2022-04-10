@@ -10,6 +10,7 @@ public:
 	SettingsMenu( TextureCodex& textureCodex, AudioManager& audioManagerIn, std::vector< std::string > items, float screenWidth, float screenHeight );
 	SettingsMenu( TextureCodex& textureCodex, AudioManager& audioManagerIn, std::vector< std::string > items, float screenWidth, float screenHeight, float xDisplacement, float yDisplacement );
 
+	void Render( sf::RenderWindow& window, float interpolation ) override;
 	void HandleInput( class StateHandler& handler );
 
 private:

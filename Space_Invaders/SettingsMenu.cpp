@@ -12,6 +12,13 @@ SettingsMenu::SettingsMenu( TextureCodex& textureCodex, AudioManager& audioManag
 {
 	InitializeMenuItems( textureCodex, items );
 	SetMenuItemPositions( screenWidth, screenHeight, xDisplacement, yDisplacement );
+	SetItemSelectorPosition();
+}
+
+void SettingsMenu::Render( sf::RenderWindow& window, float interpolation )
+{
+	Menu::Render( window, interpolation );
+	window.draw( options[ 0 ] );
 }
 
 void SettingsMenu::HandleInput( StateHandler& handler )
@@ -49,7 +56,7 @@ void SettingsMenu::SetMenuItemPositions( float screenWidth, float screenHeight, 
 	float startingHeight = ( screenHeight / 2 ) - ( yDisplacement + items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
 	float xPosition = ( screenWidth / 2 - float( items[ 0 ].getCharacterSize() ) ) - ( xDisplacement + horizontalSeparationDistance / 2 );
 	items[ 0 ].setPosition( { xPosition, startingHeight } );
-	options[ 0 ].setPosition( { xPosition + horizontalSeparationDistance / 2, startingHeight } );
+	options[ 0 ].setPosition( { xPosition + items[ 0 ].getGlobalBounds().width + horizontalSeparationDistance / 2, startingHeight } );
 	items[ 1 ].setPosition( { ( screenWidth / 2 - float( items[ 1 ].getCharacterSize() / 2 ) ), startingHeight + ( estimatedCharacterHeight + verticalSeparationDistance ) } );
 }
 
@@ -57,4 +64,5 @@ void SettingsMenu::ModifyVolume( float volumeOffset )
 {
 	audioManager->ModifyVolume( volumeOffset );
 	options[ 0 ].setString( std::to_string( audioManager->GetCurrentVolume() ) );
+	audioManager->PlaySound( AudioTypes::Select );
 }
