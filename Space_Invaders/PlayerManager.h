@@ -34,6 +34,6 @@ private:
 	HeadsUpDisplay* hudDisplay = nullptr;
 	AudioManager* audioManager = nullptr;
 	PlayerShip* player = nullptr;
-	float playerReviveCooldown = 0.7f;
+	float playerReviveCooldown = 1.0f;
 	float accumulatedReviveFrameTime = 0.0f;
 };
