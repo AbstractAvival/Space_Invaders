@@ -33,4 +33,4 @@ Once that is done, I will consider this a finished project.
 ## Assets
 All sprites were made using [Krita](https://krita.org/en/). 
 Audio files were acquired from [OpenGameArt.org](https://opengameart.org/), [Freesound.org](https://freesound.org/), and [mixkit.co](https://mixkit.co/free-sound-effects/game/).
-Red Hot Chili font acquired from [facont.com](https://www.dafont.com/) and created by Linafis Studio.
+Red Hot Chili font acquired from [dafont.com](https://www.dafont.com/) and created by Linafis Studio.
