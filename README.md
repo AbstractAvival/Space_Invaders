@@ -26,10 +26,11 @@ Arrow keys to move player and menu option selector around, left arrow or right a
 
 ## Future Work
 I've almost implemented everything I had in mind for this project. I will add a title to the MainMenu state so that it doesn't
-look so empty, change the current images that are used for sprites, change the font, and possibly change the audio that is used. 
+look so empty, change the current images that are used for sprites, and possibly change the audio that is used. 
 Once that is done, I will consider this a finished project. 
 
 
 ## Assets
 All sprites were made using [Krita](https://krita.org/en/). 
 Audio files were acquired from [OpenGameArt.org](https://opengameart.org/), [Freesound.org](https://freesound.org/), and [mixkit.co](https://mixkit.co/free-sound-effects/game/).
+Red Hot Chili font acquired from [dafont.com](https://www.dafont.com/) and created by Linafis Studio.
