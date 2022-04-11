@@ -3,7 +3,7 @@
 SettingsState::SettingsState( sf::RenderWindow& windowIn, StateHandler& handlerIn, TextureCodex& textureCodex, AudioManager& audioManagerIn, int screenWidthIn, int screenHeightIn )
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn ),
-	settingsMenu( textureCodex, audioManagerIn, desiredItems, screenWidthIn, screenHeightIn )
+	settingsMenu( textureCodex, audioManagerIn, desiredItems, float( screenWidthIn ), float( screenHeightIn ) )
 {}
 
 void SettingsState::InitializeState()

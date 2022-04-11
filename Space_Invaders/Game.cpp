@@ -3,7 +3,7 @@
 Game::Game( std::string windowName, std::string fontFileName, int screenWidth, int screenHeight )
 {
     Initialize( windowName, screenWidth, screenHeight );
-    textureCodex = new TextureCodex( "MainMenuTextures.txt", "GameTextures.txt", "DinoKids.ttf" );
+    textureCodex = new TextureCodex( "MainMenuTextures.txt", "GameTextures.txt", "Red Hot Chili.ttf" );
     stateHandler = new StateHandler( *window, *textureCodex, screenWidth, screenHeight );
 }
 
