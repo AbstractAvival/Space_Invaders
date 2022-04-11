@@ -2,5 +2,6 @@
 
 enum class MenuTextureTypes
 {
+	Title,
 	Selector
 };

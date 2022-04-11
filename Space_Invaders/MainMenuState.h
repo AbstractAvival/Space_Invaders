@@ -22,4 +22,5 @@ private:
 	const std::vector< std::string > desiredItems = { "Play", "Settings" };
 	AudioManager* audioManager;
 	MainMenu mainMenu;
+	sf::Sprite title;
 };

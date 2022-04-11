@@ -4,8 +4,11 @@ MainMenuState::MainMenuState( sf::RenderWindow& windowIn, StateHandler& handlerI
 	:
 	GameState( windowIn, handlerIn, screenWidthIn, screenHeightIn ),
 	audioManager( &audioManagerIn ),
-	mainMenu( textureCodex, desiredItems, float( screenWidthIn ), float( screenHeightIn ) )
-{}
+	mainMenu( textureCodex, desiredItems, float( screenWidthIn ), float( screenHeightIn ), 0.0f, -25.0f )
+{
+	title.setTexture( textureCodex.GetMenuTexture( MenuTextureTypes::Title ) );
+	title.setPosition( { float( screenWidthIn ) / 2 - title.getTexture()->getSize().x / 2, float( screenHeightIn ) / 2 - title.getTexture()->getSize().y - 25.0f } );
+}
 
 void MainMenuState::InitializeState()
 {
@@ -33,4 +36,5 @@ void MainMenuState::UpdateLogic( float frameTime )
 void MainMenuState::Render( float interpolation )
 {
 	mainMenu.Render( *window, interpolation );
+	window->draw( title );
 }
