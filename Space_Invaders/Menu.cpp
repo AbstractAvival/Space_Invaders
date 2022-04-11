@@ -88,7 +88,7 @@ void Menu::InitializeMenuItems( TextureCodex& textureCodex, std::vector< std::st
 
 void Menu::SetMenuItemPositions( float screenWidth, float screenHeight, float xDisplacement, float yDisplacement )
 {
-	float startingHeight = ( screenHeight / 2 ) - ( yDisplacement + items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
+	float startingHeight = ( screenHeight / 2 ) + ( yDisplacement + items.size() * ( estimatedCharacterHeight + verticalSeparationDistance ) / 2 );
 	for( int index = 0; index < int( items.size() ); index++ )
 	{
 		float xPosition = ( screenWidth / 2 - float( items[ index ].getCharacterSize() / 2 ) ) - xDisplacement;
