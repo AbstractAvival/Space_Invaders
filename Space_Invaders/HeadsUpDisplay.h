@@ -31,7 +31,7 @@ private:
 	std::vector< sf::Vector2f > displayPositions;
 	AudioManager* audioManager = nullptr;
 	std::string highScoreFileName;
-	const int characterSize = 15;
+	const int characterSize = 18;
 	const int maxScoreDisplays = 4;
 	const int maxLives = 5;
 	int requiredNewLifeScore = 1000;
