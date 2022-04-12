@@ -27,8 +27,7 @@ Arrow keys to move player and menu option selector around, left arrow or right a
 
 
 ## Future Work
-I've almost implemented everything I had in mind for this project. I will add a title to the MainMenu state so that it doesn't
-look so empty, change the current images that are used for sprites, and possibly change the audio that is used. 
+I've almost implemented everything I had in mind for this project. I still plan to change the current images that are used for the enemy sprites.
 Once that is done, I will consider this a finished project. 
 
 
