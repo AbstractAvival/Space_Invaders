@@ -1,6 +1,8 @@
 # Spirit Intruders
 
-Game clone that I am developing to practice my skills in C++ and the Simple and Fast Multimedia Library (SFML).
+You are a ghost hunter fending off waves of paranormal entities. Just another day on the job.
+
+This is a shooter game clone that I am developing to practice my skills in C++ and the Simple and Fast Multimedia Library (SFML).
 This is only a *possible* implementation, there are many different ways to implement the functionality seen here.
 
 
