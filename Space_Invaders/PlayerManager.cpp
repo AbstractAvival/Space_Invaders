@@ -5,7 +5,7 @@ PlayerManager::PlayerManager( TextureCodex& textureCodex, AudioManager& audioMan
 	hudDisplay( &hudDisplayIn ),
 	audioManager( &audioManagerIn )
 {
-	player = new PlayerShip( textureCodex, playerStartingPosition );
+	player = new Player( textureCodex, playerStartingPosition );
 }
 
 PlayerManager::~PlayerManager()

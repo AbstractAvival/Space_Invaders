@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "TextureCodex.h"
-#include "PlayerShip.h"
+#include "Player.h"
 #include "ProjectileManager.h"
 #include "Sprites.h"
 #include "EnemyManager.h"
@@ -33,7 +33,7 @@ private:
 	const float playerSpeed = 11.0f;
 	HeadsUpDisplay* hudDisplay = nullptr;
 	AudioManager* audioManager = nullptr;
-	PlayerShip* player = nullptr;
+	Player* player = nullptr;
 	float playerReviveCooldown = 1.0f;
 	float accumulatedReviveFrameTime = 0.0f;
 };
