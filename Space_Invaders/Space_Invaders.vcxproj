@@ -159,7 +159,7 @@
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="PlayerManager.cpp" />
-    <ClCompile Include="PlayerShip.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayState.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="ProjectileManager.cpp" />
@@ -187,7 +187,7 @@
     <ClInclude Include="MovementDirections.h" />
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayerManager.h" />
-    <ClInclude Include="PlayerShip.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="ProjectileManager.h" />

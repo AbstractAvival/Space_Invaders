@@ -4,10 +4,10 @@
 #include "GameObject.h"
 #include "Sprites.h"
 
-class PlayerShip : public GameObject
+class Player : public GameObject
 {
 public:
-	PlayerShip( TextureCodex& textureCodex, sf::Vector2< float > positionIn );
+	Player( TextureCodex& textureCodex, sf::Vector2< float > positionIn );
 
 public:
 	void Update( float frameTime ) override;
