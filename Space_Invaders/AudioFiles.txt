@@ -1,6 +1,6 @@
 NewLife.wav
 EnemyExplosion.wav
-BossExplosion.wav
+DemonPain.wav
 Scream1.ogg
 Retro-Laser-Shot-01.wav
 Retro-Laser-Shot-03.wav
