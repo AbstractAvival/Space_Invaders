@@ -1,6 +1,6 @@
 # Spirit Intruders
 
-You are a ghost hunter fending off waves of paranormal entities. Just another day on the job.
+"You are a ghost hunter fending off waves of paranormal entities. Just another day on the job."
 
 This is a shoot'em up game clone that I am developing to practice my skills in C++ and the Simple and Fast Multimedia Library (SFML).
 This is only a *possible* implementation, there are many different ways to implement the functionality seen here.
@@ -26,9 +26,11 @@ This game clone consists of 3 states:
 Arrow keys to move player and menu option selector around, left arrow or right arrow to lower and raise volume (Settings state), Enter to select an option, and 'S' key to shoot.
 
 
-## Future Work
-I've almost implemented everything I had in mind for this project. I still plan to change the current images that are used for the enemy sprites.
-Once that is done, I will consider this a finished project. 
+## Developer Notes
+I won't be adding or changing any functionality/assets to this project as I've implemented everything I had in mind. Overall, this was a fun and simple project.
+I decided not to use smart pointers, but I recommend their use to any developer that sees this. I just chose not to use them because of reasons. The most tedious 
+part of development was searching for audio that would fit with the overall theme of the game. Not sure if I will develop another game clone for now. 
+If I do, you'll see it in my repositories. Hope you liked this little project and good luck developing. :) 
 
 
 ## Assets
