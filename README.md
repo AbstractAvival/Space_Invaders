@@ -1,6 +1,8 @@
 # Spirit Intruders
 
-Game clone that I am developing to practice my skills in C++ and the Simple and Fast Multimedia Library (SFML).
+You are a ghost hunter fending off waves of paranormal entities. Just another day on the job.
+
+This is a shoot'em up game clone that I am developing to practice my skills in C++ and the Simple and Fast Multimedia Library (SFML).
 This is only a *possible* implementation, there are many different ways to implement the functionality seen here.
 
 
@@ -25,8 +27,7 @@ Arrow keys to move player and menu option selector around, left arrow or right a
 
 
 ## Future Work
-I've almost implemented everything I had in mind for this project. I will add a title to the MainMenu state so that it doesn't
-look so empty, change the current images that are used for sprites, and possibly change the audio that is used. 
+I've almost implemented everything I had in mind for this project. I still plan to change the current images that are used for the enemy sprites.
 Once that is done, I will consider this a finished project. 
 
 
