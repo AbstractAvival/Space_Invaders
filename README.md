@@ -25,6 +25,9 @@ This game clone consists of 3 states:
 ## Controls
 Arrow keys to move player and menu option selector around, left arrow or right arrow to lower and raise volume (Settings state), Enter to select an option, and 'S' key to shoot.
 
+## Dependencies
+Be sure to include SFML library dll's in output folder.  
+[SFML and Visual Studio.](https://www.sfml-dev.org/tutorials/2.5/start-vc.php)
 
 ## Developer Notes
 I won't be adding or changing any functionality/assets to this project as I've implemented everything I had in mind. Overall, this was a fun and simple project.
